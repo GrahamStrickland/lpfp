@@ -1,4 +1,4 @@
 # lpfp
 
-Exercises and examples from "Learn with Functional Programming" - Scott N. Walck 
+Exercises and examples from "Learn Physics with Functional Programming" - Scott N. Walck 
 
