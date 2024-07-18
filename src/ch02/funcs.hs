@@ -21,3 +21,4 @@ bigE x = 1 / abs x ^ 3
 
 bigE2 :: Double -> Double
 bigE2 z = 1 / (z^2 + 4)**(3/2)
+
