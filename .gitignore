@@ -27,3 +27,7 @@ $HOME
 # Apple files
 *.icloud
 
+# LaTeX files
+*.aux
+*.log
+
