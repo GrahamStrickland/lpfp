@@ -24,20 +24,22 @@
             &= \left| \frac{\splitfrac{[x^3 + (3x^2a)/2 + (3xa^2)/4 + a^3/8]}
                 {{} - [x^3 - (3x^2a)/2 + (3xa^2)/4 - a^3/8]}}{a} - 3x^2 \right| \\
             &= \left| \frac{3x^2a + a^3/4 - 3x^2a}{a} \right| \\
-            &= \left| \frac{a^3}{4} \right|. % TODO: Actually, it's abs(\frac{a^2}{4}) ...
+            &= \left| \frac{a^2}{4} \right|.
         \end{split}
     \end{equation*}
     \qquad Thus we have an error of 1 percent if 
     \begin{equation*}
         \begin{split}
             \text{err}(a) &= 0.01 \\
-            \Leftrightarrow \left|\frac{a^3}{4}\right| &= 0.01 \\
-            \Leftrightarrow \frac{a^3}{4} &= \pm 0.01 \\
-            \Leftrightarrow a^3 &= \pm 0.04 \\
-            \Leftrightarrow a &= \pm {0.04}^{(1/3)},
+            \Leftrightarrow \left|\frac{a^2}{4}\right| &= 0.01 \\
+            \Leftrightarrow \frac{a^2}{4} &= \pm 0.01 \\
+            \Leftrightarrow a^2 &= \pm 0.04 \\
+            \Leftrightarrow a &= \sqrt{0.04} \\
+            \Leftrightarrow a &= 0.2, \\
         \end{split}
     \end{equation*}
-    which is valid for $x = 4$ and $x = 0.1$, since $\text{err}(a)$ does not depend on $x$.
+    since $a \geq 0$, which is valid for $x = 4$ and $x = 0.1$, since $\text{err}(a)$ does not 
+    depend on $x$.
     \item[4.3]  % TODO: This is not correct
     Suppose we have a funtion $f$ and independent variable, say $x$, such that 
     \verb|derivative 0.01 f x| produces at least a 10 percent error, err($\epsilon$), compared to 
