@@ -6,6 +6,7 @@
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{mathtools}
 
 \title{Learn Physics with Functional Programming - Scott N. Walck - Chapter 4: Exercises}
 \author{Graham Strickland}
@@ -14,13 +15,14 @@
 \maketitle  
 
 \begin{itemize}
-\item[4.3]
+    \item[4.2]
     For $f(x) = x^3$, we have $f'(x) = 3x^2$, so that the relative error is defined by
     \begin{equation*}
         \begin{split}
             \text{err}(a) &= \left| \frac{f(x + a/2) - f(x - a/2)}{a} - 3x^2 \right| \\
             &= \left| \frac{(x + a/2)^3 - (x - a/2)^3}{a} - 3x^2 \right| \\
-            &= \left| \frac{[x^3 + (3x^2a)/2 + (3xa^2)/4 + a^3/8] - [x^3 - (3x^2a)/2 + (3xa^2)/4 - a^3/8]}{a} - 3x^2 \right| \\
+            &= \left| \frac{\splitfrac{[x^3 + (3x^2a)/2 + (3xa^2)/4 + a^3/8]}
+                {{} - [x^3 - (3x^2a)/2 + (3xa^2)/4 - a^3/8]}}{a} - 3x^2 \right| \\
             &= \left| \frac{3x^2a + a^3/4 - 3x^2a}{a} \right| \\
             &= \left| \frac{a^3}{4} \right|.
         \end{split}
@@ -36,6 +38,7 @@
         \end{split}
     \end{equation*}
     which is valid for $x = 4$ and $x = 0.1$, since $\text{err}(a)$ does not depend on $x$.
+    \item[4.3]
 \end{itemize}
 
 \end{document}
