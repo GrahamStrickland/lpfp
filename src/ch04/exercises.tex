@@ -19,72 +19,60 @@
     For $f(x) = x^3$, we have $f'(x) = 3x^2$, so that the relative error is defined by
     \begin{equation*}
         \begin{split}
-            \text{err}(a) &= \left| \frac{f(x + a/2) - f(x - a/2)}{a} - 3x^2 \right| \\
-            &= \left| \frac{(x + a/2)^3 - (x - a/2)^3}{a} - 3x^2 \right| \\
-            &= \left| \frac{\splitfrac{[x^3 + (3x^2a)/2 + (3xa^2)/4 + a^3/8]}
-                {{} - [x^3 - (3x^2a)/2 + (3xa^2)/4 - a^3/8]}}{a} - 3x^2 \right| \\
-            &= \left| \frac{3x^2a + a^3/4 - 3x^2a}{a} \right| \\
-            &= \left| \frac{a^2}{4} \right|.
+            \text{err}(x, a) &= \left| \frac{\frac{f(x + a/2) - f(x - a/2)}{a} - f'(x)}{f'(x)} \right| \\
+            &= \left| \frac{\frac{(x + a/2)^3 - (x - a/2)^3}{a} - 3x^2}{3x^2} \right| \\
+            &= \left| \frac{\frac{\splitfrac{[x^3 + (3x^2a)/2 + (3xa^2)/4 + a^3/8]}
+                {{} - [x^3 - (3x^2a)/2 + (3xa^2)/4 - a^3/8]}}{a} - 3x^2}{3x^2} \right| \\
+            &= \left| \frac{\frac{3x^2a + a^3/4 - 3x^2a}{a}}{3x^2} \right| \\
+            &= \left| \frac{\frac{a^2}{4}}{3x^2} \right| \\
+            &= \left| \frac{a^2}{12x^2} \right| \\
+            &= \frac{a^2}{12x^2},
         \end{split}
     \end{equation*}
+    since $a^2 \geq 0$ and $x^2 \geq 0$.\par
     \qquad Thus we have an error of 1 percent if 
     \begin{equation*}
         \begin{split}
-            \text{err}(a) &= 0.01 \\
-            \Leftrightarrow \left|\frac{a^2}{4}\right| &= 0.01 \\
-            \Leftrightarrow \frac{a^2}{4} &= \pm 0.01 \\
-            \Leftrightarrow a^2 &= \pm 0.04 \\
-            \Leftrightarrow a &= \sqrt{0.04} \\
-            \Leftrightarrow a &= 0.2, \\
+            \text{err}(x, a) &= 0.01 \\
+            \Leftrightarrow \frac{a^2}{12x^2} &= 0.01 \\
+            \Leftrightarrow a^2 &= 0.12x^2 \\
+            \Leftrightarrow a &= |x|\sqrt{0.12}
         \end{split}
     \end{equation*}
-    since $a \geq 0$, which is valid for $x = 4$ and $x = 0.1$, since $\text{err}(a)$ does not 
-    depend on $x$.
+    \qquad Then, for $x = 4$, we have
+    \begin{equation*}
+        \begin{split}
+            a &= 4\sqrt{0.12} \\
+            &\approx 1.3856406460551018
+        \end{split}
+    \end{equation*}
+    and for $x = 0.1$, we have
+    \begin{equation*}
+        \begin{split}
+            a &= 0.1\sqrt{0.12} \\
+            &\approx 3.4641016151377546 \times {10}^{-2}.
+        \end{split}
+    \end{equation*}
     \item[4.3]
-    Suppose we have a funtion $f$ and independent variable, say $x$, such that 
-    \verb|derivative 0.01 f x| produces at least a 10 percent error, err($\epsilon$), compared to 
+    Suppose we have a function $f$ and independent variable, say $x$, such that 
+    \verb|derivative 0.01 f x| produces at least a 10 percent error, err($x, \epsilon$), compared to 
     the exact derivative, $f'(x)$. Then, we have
     \begin{equation*}
         \begin{split}
-            \text{err}(\epsilon) = \left| \frac{f(x + \epsilon/2) - f(x - \epsilon/2)}{\epsilon} - 
-            f'(x) \right|
-            &\leq 0.1 \\
-            \Leftrightarrow \left| \frac{f(x + 0.01/2) - f(x - 0.01/2)}{0.01} - f'(x) \right| 
-            &\leq 0.1,
+            &\qquad \text{err}(x, \epsilon) \\ 
+            &= \left| \frac{\frac{f(x + \epsilon/2) - f(x - \epsilon/2)}{\epsilon} - 
+            f'(x)}{f'(x)} \right| \\
+            &= \left| \frac{\frac{f(x + 0.01/2) - f(x - 0.01/2)}{0.01} - f'(x)}{f'(x)} \right| \\
+            &= \left| \frac{\frac{f(x + 0.005) - f(x - 0.005)}{0.01} - f'(x)}{f'(x)} \right| \\
+            &\geq 0.1,
         \end{split}
     \end{equation*}
-    and we have
-    \begin{equation*}
-        \begin{split}
-            &\qquad -\biggl[\frac{f(x + 0.02) - f(x - 0.02)}{0.01} - f'(x)\biggr] \\
-            &\leq 0.1 \\ 
-            &\leq \frac{f(x + 0.02) - f(x - 0.02)}{0.01} - f'(x)], 
-        \end{split}
-    \end{equation*}
-    so that
-    \begin{equation*}
-        \begin{split}
-            &\qquad 0.01f'(x) - f(x + 0.02) + f(x - 0.02) \\ 
-            &\leq 0.001 \\
-            &\leq f(x + 0.02) - f(x - 0.02) - 0.01f'(x).
-        \end{split}
-    \end{equation*}
-    \qquad Now, if we let $f(x) = \sin{x}$ and $x = 0$, we have $f'(x) = \cos{x}$ and thus
-    \begin{equation*}
-        \begin{split}
-            f(x + 0.02) - f(x - 0.02) - 0.01f'(x)
-            &= \sin{0.02} - \sin{(-0.02)} - 0.01\cos{0} \\
-            &\approx 2.999733338666616 \times {10}^{-2}
-        \end{split}
-    \end{equation*}
-    so that we have
+    which holds if and only if
     \[
-        \left| \sin{0.02} - \sin{(-0.02)} - 0.01\cos{0} \right|
-        \approx 2.999733338666616 \times {10}^{-2} \leq 0.001
+        \left| f(x + 0.005) - f(x - 0.005) - 0.01f'(x)\right|
+        \geq 0.0001|f'(x)|.
     \]
-    and $f(x) = \sin{x}$ for $x = 0$ is such that \verb|derivative 0.01 f x| produces at least a 
-    10 percent error.
-\end{itemize}   % TODO: This isn't right, we're looking for relative error, not absolute error
+\end{itemize}
 
 \end{document}
 
