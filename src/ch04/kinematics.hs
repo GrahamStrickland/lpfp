@@ -55,3 +55,24 @@ positionCA x0 v0 a0 t = a0 * t**2 / 2 + v0 * t + x0
 err :: (R -> R) -> (R -> R) -> R -> R -> R
 err f df t a = abs ((derivative a f t - df t) / df t)   
 
+pos1 :: Time -> Position
+pos1 t = if t < 0
+         then 0
+         else 5 * t**2
+
+vel1Analytic :: Time -> Velocity
+vel1Analytic t = if t < 0
+                 then 0
+                 else 10 * t
+
+acc1Analytic :: Time -> Acceleration
+acc1Analytic t = if t < 0
+                 then 0
+                 else 10
+
+vel1Numerical :: Time -> Velocity
+vel1Numerical t = derivative 0.01 pos1 t
+
+acc1Numerical :: Time -> Acceleration
+acc1Numerical t = derivative 0.01 vel1Numerical t
+
