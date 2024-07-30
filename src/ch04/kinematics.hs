@@ -52,3 +52,6 @@ velocityCA v0 a0 t = a0 * t + v0
 positionCA :: Position -> Velocity -> Acceleration -> Time -> Position
 positionCA x0 v0 a0 t = a0 * t**2 / 2 + v0 * t + x0
 
+err :: (R -> R) -> (R -> R) -> R -> R -> R
+err f df t a = abs ((derivative a f t - df t) / df t)   
+
