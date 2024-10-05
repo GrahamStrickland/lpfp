@@ -3,4 +3,3 @@ ticTacToeMarker = 'X'
 
 newLine :: Char
 newLine = '\n'
-

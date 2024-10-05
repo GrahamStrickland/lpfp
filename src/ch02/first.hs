@@ -6,10 +6,10 @@ e = exp 1
 
 -- Here we define a function
 square :: Double -> Double
-square x = x**2
+square x = x ** 2
 
 cosSq :: Double -> Double
-cosSq x = square ( cos x)
+cosSq x = square (cos x)
 
 cosSq' :: Double -> Double
 cosSq' x = square $ cos x

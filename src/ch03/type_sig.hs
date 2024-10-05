@@ -11,5 +11,4 @@ fo :: Double -> Double
 fo epsilon = (-epsilon) * cot (epsilon * pi / 2)
 
 g :: Double -> Double -> Double
-g nu epsilon = sqrt (nu**2 - epsilon**2)
-
+g nu epsilon = sqrt (nu ** 2 - epsilon ** 2)

@@ -1,3 +1,2 @@
 amazingCurve :: Int -> Int
-amazingCurve score = min (score * 2) 100 
-
+amazingCurve score = min (score * 2) 100
