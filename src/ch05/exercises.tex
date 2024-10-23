@@ -1,0 +1,43 @@
+% Answers for exercises in ch05
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\title{
+    Learn Physics with Functional Programming\\---\\Scott N. Walck\\---\\
+    Chapter 5: Exercises
+}
+\author{Graham Strickland}
+
+\begin{document}
+\maketitle  
+
+    \begin{itemize}
+        \item[5.4] We have the function
+        \begin{verbatim}
+range :: Int -> [Int]
+range x = if x >= 0
+          then [0..x]
+          else [x..0]
+        \end{verbatim}
+        which returns a list containing all the integers between the argument 
+        (inclusive) and 0 in increasing order, i.e, $\text{range}(2) = 0, 1, 2$, 
+        $\text{range}(-4) = -4, -3, \ldots, 0$, and $\text{range}(0) = 0$.\par
+        \qquad We demonstrate as follows:
+        \begin{verbatim}
+ghci> range (-4)
+[-4,-3,-2,-1,0]
+ghci> range 2
+[0,1,2]
+ghci> range (-4)
+[-4,-3,-2,-1,0]
+ghci> range 0
+[0]
+        \end{verbatim}
+    \end{itemize}
+\end{document}
