@@ -60,7 +60,7 @@ False
 ghci> null' [1..]
 False
         \end{verbatim}
-        \item[5.6] We have the funciton \verb|last'| with the following definition
+        \item[5.6] We have the function \verb|last'| with the following definition
         \begin{verbatim}
 import GHC.Stack (HasCallStack)
 
@@ -87,6 +87,29 @@ CallStack (from HasCallStack):
     in base:GHC.List
   head, called at last.hs:4:11 in main:Main
   last', called at <interactive>:4:1 in interactive:Ghci3
+        \end{verbatim}
+        \item[5.7] We have the function \verb|palindrome| with the following 
+        definition 
+        \begin{verbatim}
+import Distribution.Simple.Utils
+
+palindrome :: String -> Bool
+palindrome s = reverse (lowercase s) == lowercase s 
+        \end{verbatim}
+        \verb|palindrome| uses the function 
+        \verb|Distribution.Simple.Utils.lowercase| to check if the lowercase version 
+        of a string is the same as the lowercase version reversed, i.e., is the 
+        string a palindrome.\par
+        \qquad We demonstrate as follows:
+        \begin{verbatim}
+ghci> palindrome "Radar"
+True
+ghci> palindrome "MadamImAdam"
+True
+ghci> palindrome "racecar"
+True
+ghci> palindrome "dog"
+False
         \end{verbatim}
     \end{itemize}
 \end{document}
