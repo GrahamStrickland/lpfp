@@ -138,5 +138,42 @@ ghci> take 10 (cycle' [4,7,8])
 ghci> take 10 (cycle' [1])
 [1,1,1,1,1,1,1,1,1,1]
         \end{verbatim}
+        \item[5.10]
+        \begin{itemize}
+            \item[(a)] \verb|["hello",42]| is not a valid expression, since it
+            attempts to construct a list from elements of two different types,
+            \verb|String| and |Int|.
+            \item[(b)] \verb|['h',"ello"]| is not a valid expression, since it
+            attempts to construct a list from elements of two different types,
+            \verb|Char| and |String|.
+            \item[(c)] \verb|['a','b','c']| is a valid expression.
+            \item[(d)] \verb|length ['w','h','o']| is a valid expression.
+            \item[(e)] \verb|length "hello"| is a valid expression.
+            \item[(f)] \verb|reverse| is a valid expression, even though GHCI cannot
+            print it.
+        \end{itemize}
+        \item[5.10] It seems as if an arithmetic sequence will end at the last 
+        integer in the sequence before the last element in the constructor if the 
+        sequence is an integer sequence.\par
+        \qquad If it is a floating point sequence, i.e., one of the elements in the 
+        constructor was of floating point type, then the last number in the sequence 
+        will be the number in the sequence occurring after the last element in the 
+        constructor if that last element is further than the midpoint between two 
+        elements in the sequence, otherwise it will be the number occurring before.\par
+        We demonstrate as follows:
+        \begin{verbatim}
+ghci> [0,3..7.5]
+[0.0,3.0,6.0,9.0]
+ghci> [0,3..7.49]
+[0.0,3.0,6.0]
+ghci> [0,3..7.499999999]
+[0.0,3.0,6.0]
+ghci> [0,3..7]
+[0,3,6]
+ghci> [0,3..8]
+[0,3,6]
+ghci> [0,3..9]
+[0,3,6,9]
+        \end{verbatim}
     \end{itemize}
 \end{document}
