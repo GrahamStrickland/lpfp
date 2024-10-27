@@ -121,5 +121,22 @@ ghci> take 5 [9,1..]
         \[
             [9, 1, \ldots] = [9, 1, -7, -15, -23, \ldots].
         \]
+        \item[5.9] We have the function \verb|cycle'| with the following 
+        definition 
+        \begin{verbatim}
+import GHC.Stack (HasCallStack)
+
+cycle' :: forall a. HasCallStack => [a] -> [a]
+cycle' xs = concat (repeat xs)
+        \end{verbatim}
+        \verb|cycle'| repeats an argument which implements \verb|HasCallStack| an
+        infinite number of times.\par
+        \qquad We demonstrate as follows:
+        \begin{verbatim}
+ghci> take 10 (cycle' [4,7,8])
+[4,7,8,4,7,8,4,7,8,4]
+ghci> take 10 (cycle' [1])
+[1,1,1,1,1,1,1,1,1,1]
+        \end{verbatim}
     \end{itemize}
 \end{document}
