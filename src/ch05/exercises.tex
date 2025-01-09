@@ -175,5 +175,19 @@ ghci> [0,3..8]
 ghci> [0,3..9]
 [0,3,6,9]
         \end{verbatim}
+        \item[5.12] We have the following expression 
+        \begin{verbatim}
+series :: Double
+series = sum [1.0 / n | n <- [1..100]]
+        \end{verbatim}
+        used to calculate
+        \[
+            \sum_{n=1}^{100} \frac{1}{n^2}.
+        \]
+        Evaluating this in \verb|ghci| results in the following:
+        \begin{verbatim}
+ghci> series
+5.187377517639621
+        \end{verbatim}
     \end{itemize}
 \end{document}
