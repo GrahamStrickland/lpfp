@@ -1,0 +1,26 @@
+% Exercise 4.3
+
+Suppose we have a function $f$ and independent variable, say $x$, such that 
+\verb|derivative 0.01 f x| produces at least a 10 percent error, err($x, \epsilon$), compared to 
+the exact derivative, $f'(x)$. Then, we have
+\begin{equation*}
+    \begin{split}
+        \text{err}(x, \epsilon) &= \text{err}(x, 0.01) \\ 
+        &= \left| \frac{\frac{f(x + \epsilon/2) - f(x - \epsilon/2)}{\epsilon} - 
+        f'(x)}{f'(x)} \right| \\
+        &= \left| \frac{\frac{f(x + 0.01/2) - f(x - 0.01/2)}{0.01} - f'(x)}{f'(x)} \right| \\
+        &= \left| \frac{\frac{f(x + 0.005) - f(x - 0.005)}{0.01} - f'(x)}{f'(x)} \right| \\
+        &\geq 0.1.
+    \end{split}
+\end{equation*}
+\qquad If we substitute $\epsilon = 0.01$, $x = \pi \approx 3.141592653589793$, and
+$f(x) = \cos{x}$ into the above, we have $f'(x) = -\sin{x}$, so that
+\begin{equation*}
+    \begin{split}
+        \text{err}(x, \epsilon) &= \text{err}(\pi, 0.01) \\ 
+        &= \left| \frac{\frac{\cos{(\pi + 0.005)} - \cos{(\pi - 0.005)}}{0.01} 
+        + \sin{\pi}}{-\sin{\pi}} \right| \\
+        &\approx 1.0 \\
+        &\geq 0.1.
+    \end{split}
+\end{equation*}

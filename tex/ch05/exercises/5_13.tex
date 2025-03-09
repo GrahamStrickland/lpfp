@@ -1,0 +1,21 @@
+% Exercise 5.13
+
+We have the following expression 
+\begin{verbatim}
+fact :: Integer -> Integer
+fact n = product [1..n]
+\end{verbatim}
+used to calculate $n!$. Evaluating this in \verb|ghci| results in the 
+following:
+\begin{verbatim}
+ghci> fact 1
+1
+ghci> fact 2
+2
+ghci> fact 3
+6
+ghci> fact 4
+24
+ghci> fact 5
+120
+\end{verbatim}

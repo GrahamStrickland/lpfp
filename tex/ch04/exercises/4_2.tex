@@ -1,0 +1,39 @@
+% Exercise 4.2
+
+For $f(x) = x^3$, we have $f'(x) = 3x^2$, so that the relative error is defined by
+\begin{equation*}
+    \begin{split}
+        \text{err}(x, a) &= \left| \frac{\frac{f(x + a/2) - f(x - a/2)}{a} - f'(x)}{f'(x)} \right| \\
+        &= \left| \frac{\frac{(x + a/2)^3 - (x - a/2)^3}{a} - 3x^2}{3x^2} \right| \\
+        &= \left| \frac{\frac{\splitfrac{[x^3 + (3x^2a)/2 + (3xa^2)/4 + a^3/8]}
+            {{} - [x^3 - (3x^2a)/2 + (3xa^2)/4 - a^3/8]}}{a} - 3x^2}{3x^2} \right| \\
+        &= \left| \frac{\frac{3x^2a + a^3/4 - 3x^2a}{a}}{3x^2} \right| \\
+        &= \left| \frac{\frac{a^2}{4}}{3x^2} \right| \\
+        &= \left| \frac{a^2}{12x^2} \right| \\
+        &= \frac{a^2}{12x^2},
+    \end{split}
+\end{equation*}
+since $a^2 \geq 0$ and $x^2 \geq 0$.\par
+\qquad Thus we have an error of 1 percent if 
+\begin{equation*}
+    \begin{split}
+        \text{err}(x, a) &= 0.01 \\
+        \Leftrightarrow \frac{a^2}{12x^2} &= 0.01 \\
+        \Leftrightarrow a^2 &= 0.12x^2 \\
+        \Leftrightarrow a &= |x|\sqrt{0.12}
+    \end{split}
+\end{equation*}
+\qquad Then, for $x = 4$, we have
+\begin{equation*}
+    \begin{split}
+        a &= 4\sqrt{0.12} \\
+        &\approx 1.3856406460551018
+    \end{split}
+\end{equation*}
+and for $x = 0.1$, we have
+\begin{equation*}
+    \begin{split}
+        a &= 0.1\sqrt{0.12} \\
+        &\approx 3.4641016151377546 \times {10}^{-2}.
+    \end{split}
+\end{equation*}

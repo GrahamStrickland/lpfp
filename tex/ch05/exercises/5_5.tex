@@ -1,0 +1,23 @@
+% Exercise 5.5
+
+We have the function \verb|null'| with the following definition:
+\begin{verbatim}
+import Data.Foldable
+
+null' :: (Foldable t) => t a -> Bool
+null' xs = case toList xs of
+  [] -> True
+  (_ : _) -> False
+\end{verbatim}
+\verb|null'| returns \verb|True| if an argument \verb|t| of type \verb|a| 
+is empty, otherwise \verb|False|. Since we are using the \verb|Foldable| 
+type, we import \verb|Data.Foldable|.\par
+\qquad We demonstrate as follows:
+\begin{verbatim}
+ghci> null' []
+True
+ghci> null' [1, 2, 3]
+False
+ghci> null' [1..]
+False
+\end{verbatim}
