@@ -10,23 +10,18 @@ expList x = [(1.0 + x / n) ** n | n <- [1 ..]]
 expErr :: R -> R -> R
 expErr x approx = abs (exp x - approx)
 
-listExpErr :: [R] -> R -> [R]
-listExpErr es x = [expErr x e | e <- es]
-
-withinTolerance :: [R] -> R -> Bool
-withinTolerance xs eps = last xs < eps
-
 calcMinExpErr :: Int -> R -> R -> Int
-calcMinExpErr n x eps =
-  if withinTolerance (take n (listExpErr (expList x) x)) eps
+calcMinExpErr n x eps approx =
+  if expErr x (expList x !! n) < eps
     then n
-    else calcMinExpErr (n + 1) x eps
+    else calcMinExpErr (n + 1) x eps approx
+s approx
 \end{verbatim}
 In order to calculate how big $n$ needs to be to get within 1 percent of the correct 
 value for $x = 1$, we have the following:
 \begin{verbatim}
 ghci> calcMinExpErr 1 1 0.01
-135
+134
 \end{verbatim}
 To calculate how big $n$ needs to be to get within 1 percent of the correct value for
 $x = 10$, we have:
