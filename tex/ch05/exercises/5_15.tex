@@ -1,3 +1,9 @@
+% Exercise 5.15
+
+For this question, we update the code in \path{src/ch05/exponential.hs} to allow us
+to pass in a different approximation function, in this case the function \verb|expSeries|
+and calculate the result. Thus we have
+\begin{verbatim}
 type R = Double
 
 expList :: R -> [R]
@@ -20,3 +26,6 @@ calcMinExpErr n x eps approx =
   if withinTolerance (take n (listExpErr (approx x) x)) eps
     then n
     else calcMinExpErr (n + 1) x eps approx
+\end{verbatim}
+However, this does not return a result even for $x = 1$ within any reasonable time frame,
+so these functions must be optimized to produce a result more quickly.
