@@ -1,0 +1,13 @@
+% Exercise 6.3
+
+We have the following
+\begin{verbatim}
+ghci> :t map
+map :: (a -> b) -> [a] -> [b]
+ghci> :t not
+not :: Bool -> Bool
+ghci> :t map not
+map not :: [Bool] -> [Bool]
+\end{verbatim}
+where \verb|not| substitutes the type \verb|Bool| for \verb|a| and \verb|b| in the 
+definition of \verb|map|, so that \verb|map not| has the type \verb|[Bool] -> [Bool]|.

@@ -1,0 +1,20 @@
+% Exercise 6.1
+
+We have the following function definitions in \path{src/ch06/rocktrajectory.hs}
+\begin{verbatim}
+type R = Double
+
+yRock :: R -> R -> R
+yRock v0 t = v0 * t - 4.9 * t^2
+
+vRock :: R -> R -> R
+vRock v0 t = v0 - 9.8 * t
+\end{verbatim}
+The first corresponds to the equation
+\[
+    y = v_0 t - \frac{1}{2}g t^2
+\]
+and the second to
+\[
+    v = v_0 - gt.
+\]
