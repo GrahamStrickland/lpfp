@@ -1,0 +1,18 @@
+% Exercise 6.6
+
+We have the following definition in the file \path{src/ch06/predicate.hs}
+\begin{verbatim}
+hasMoreThan6Elements :: [a] -> Bool
+hasMoreThan6Elements xs = length xs > 6
+\end{verbatim}
+which we test with
+\begin{verbatim}
+ghci> hasMoreThan6Elements "Hello, world!"
+True
+ghci> hasMoreThan6Elements "Hello"
+False
+ghci> hasMoreThan6Elements [1,2,3,4,5,6]
+False
+ghci> hasMoreThan6Elements [1,2,3,4,5,6,7]
+True
+\end{verbatim}

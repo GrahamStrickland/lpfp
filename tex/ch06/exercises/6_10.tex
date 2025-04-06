@@ -1,0 +1,12 @@
+% Exercise 6.10
+
+We have the following definition in the file \path{src/ch06/replicate.hs}
+\begin{verbatim}
+replicate' :: Int -> a -> [a]
+replicate' n x = take n (repeat x)
+\end{verbatim}
+which we test using
+\begin{verbatim}
+ghci> replicate' 3 'x'
+"xxx"
+\end{verbatim}
