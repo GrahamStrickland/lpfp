@@ -1,0 +1,12 @@
+% Exercise 6.12
+
+We have the following definition in the file \path{src/ch06/map.hs}
+\begin{verbatim}
+map' :: (a -> b) -> [a] -> [b]
+map' fn as = [fn a | a <- as]
+\end{verbatim}
+which we test using
+\begin{verbatim}
+ghci> map' sqrt [1,4,9]
+[1.0,2.0,3.0]
+\end{verbatim}
