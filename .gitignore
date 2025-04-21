@@ -34,3 +34,5 @@ $HOME
 *.fls
 *.synctex.gz
 
+# Cabal project files
+dist-newstyle
