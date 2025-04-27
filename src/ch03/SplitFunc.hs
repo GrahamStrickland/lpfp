@@ -1,3 +1,4 @@
+module LPFP where
 f :: Double -> Double
 f x = if x <= 0.0 then 0.0 else x
 

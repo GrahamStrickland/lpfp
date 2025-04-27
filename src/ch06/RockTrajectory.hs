@@ -1,3 +1,4 @@
+module LPFP where
 type R = Double
 
 yRock :: R -> R -> R

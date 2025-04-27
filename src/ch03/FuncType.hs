@@ -1,3 +1,4 @@
+module LPFP where
 isX :: Char -> Bool
 isX c = c == 'X'
 

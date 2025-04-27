@@ -1,3 +1,4 @@
+module LPFP where
 type R = Double
 
 expList :: R -> [R]

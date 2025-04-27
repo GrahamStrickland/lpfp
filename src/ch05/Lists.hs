@@ -1,3 +1,4 @@
+module LPFP where
 physicists :: [String]
 physicists = ["Einstein", "Newton", "Maxwell"]
 

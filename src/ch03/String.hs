@@ -1,3 +1,4 @@
+module LPFP where
 hello :: String
 hello = "Hello, world!"
 

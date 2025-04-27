@@ -1,3 +1,4 @@
+module LPFP where
 circleRadius :: Double
 circleRadius = 3.5
 

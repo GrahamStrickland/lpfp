@@ -1,3 +1,4 @@
+module LPFP where
 oneDouble :: Double
 oneDouble = 1
 

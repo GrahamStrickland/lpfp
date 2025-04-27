@@ -1,3 +1,4 @@
+module LPFP where
 import Data.Foldable
 
 null' :: (Foldable t) => t a -> Bool

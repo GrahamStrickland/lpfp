@@ -1,3 +1,4 @@
+module LPFP where
 import Data.Char
 
 intStringBool :: Int -> String -> Bool

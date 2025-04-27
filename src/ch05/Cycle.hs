@@ -1,3 +1,4 @@
+module LPFP where
 import GHC.Stack (HasCallStack)
 
 cycle' :: forall a. HasCallStack => [a] -> [a]

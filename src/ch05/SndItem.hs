@@ -1,3 +1,4 @@
+module LPFP where
 sndItem :: [a] -> a
 sndItem ys = if length ys == 0 
            then error "Empty list has no second element"

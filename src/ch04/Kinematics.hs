@@ -1,3 +1,4 @@
+module LPFP where
 averageVelocity :: Time -> Time -> PositionFunction -> Velocity
 averageVelocity t0 t1 x = (x t1 - x t0) / (t1 - t0)
 

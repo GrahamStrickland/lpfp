@@ -1,3 +1,4 @@
+module LPFP where
 stepFunction :: Double -> Double
 stepFunction x =
   if x <= 0

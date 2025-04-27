@@ -1,3 +1,4 @@
+module LPFP where
 f :: Double -> Double
 f x = x ** (1 / 3)
 

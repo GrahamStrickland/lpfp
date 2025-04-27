@@ -1,3 +1,4 @@
+module LPFP where
 bagFee :: Bool -> Int
 bagFee checkingBags = if checkingBags then 100 else 0
 

@@ -1,3 +1,4 @@
+module LPFP where
 range :: Int -> [Int]
 range x = if x >= 0
           then [0..x]

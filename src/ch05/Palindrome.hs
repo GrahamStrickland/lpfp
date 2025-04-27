@@ -1,3 +1,4 @@
+module LPFP where
 import Distribution.Simple.Utils
 
 palindrome :: String -> Bool
