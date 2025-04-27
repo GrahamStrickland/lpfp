@@ -1,2 +1,2 @@
-module LPFP() where
+module LPFP where
 
