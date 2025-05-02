@@ -1,4 +1,4 @@
 module Ch06.Filter where
 
 filter' :: (a -> Bool) -> [a] -> [a]
-filter' pred as = [pred a | a <- as]
+filter' predicate as = [a | a <- as, predicate a]
