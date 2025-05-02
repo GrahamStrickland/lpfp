@@ -1,4 +1,5 @@
-module LPFP where
+module Ch02.First where
+
 -- First Haskell program
 
 -- Here we define a constant

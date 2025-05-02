@@ -1,4 +1,5 @@
-module LPFP where
+module Ch05.Types where
+
 oneDouble :: Double
 oneDouble = 1
 

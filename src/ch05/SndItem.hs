@@ -1,4 +1,5 @@
-module LPFP where
+module Ch05.SndItem where
+
 sndItem :: [a] -> a
 sndItem ys = if length ys == 0 
            then error "Empty list has no second element"

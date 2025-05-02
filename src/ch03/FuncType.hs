@@ -1,4 +1,5 @@
-module LPFP where
+module Ch03.FuncType where
+
 isX :: Char -> Bool
 isX c = c == 'X'
 

@@ -1,4 +1,5 @@
-module LPFP where
+module Ch02.Funcs where
+
 f :: Double -> Double
 f x = x ** (1 / 3)
 

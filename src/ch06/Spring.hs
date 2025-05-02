@@ -1,4 +1,5 @@
-module LPFP where
+module Ch06.Spring where
+
 type R = Double
 
 springForce5500 :: R -> R

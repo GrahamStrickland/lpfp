@@ -1,4 +1,5 @@
-module LPFP where
+module Ch02.ThrowRock where
+
 yRock30 :: Double -> Double
 yRock30 t = (-9.8) * t ** 2 + 30 * t
 

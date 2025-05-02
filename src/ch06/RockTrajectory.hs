@@ -1,4 +1,5 @@
-module LPFP where
+module Ch06.RockTrajectory where
+
 type R = Double
 
 yRock :: R -> R -> R

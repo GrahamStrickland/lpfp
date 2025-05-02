@@ -1,4 +1,5 @@
-module LPFP where
+module Ch03.Char where
+
 ticTacToeMarker :: Char
 ticTacToeMarker = 'X'
 

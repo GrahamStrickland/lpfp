@@ -1,4 +1,5 @@
-module LPFP where
+module Ch06.Integration where
+
 type R = Double
 
 type Time = R

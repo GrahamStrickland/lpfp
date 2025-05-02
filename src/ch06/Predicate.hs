@@ -1,4 +1,5 @@
-module LPFP where
+module Ch06.Predicate where
+
 greaterThanOrEq7 :: Int -> Bool
 greaterThanOrEq7 n = if n >= 7 then True else False
 

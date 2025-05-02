@@ -1,4 +1,5 @@
-module LPFP where
+module Ch05.Palindrome where
+
 import Distribution.Simple.Utils
 
 palindrome :: String -> Bool

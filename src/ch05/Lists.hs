@@ -1,4 +1,5 @@
-module LPFP where
+module Ch05.Lists where
+
 physicists :: [String]
 physicists = ["Einstein", "Newton", "Maxwell"]
 

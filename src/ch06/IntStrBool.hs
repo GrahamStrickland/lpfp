@@ -1,4 +1,5 @@
-module LPFP where
+module Ch06.IntStrBool where
+
 import Data.Char
 
 intStringBool :: Int -> String -> Bool

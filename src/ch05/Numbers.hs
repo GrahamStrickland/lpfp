@@ -1,4 +1,5 @@
-module LPFP where
+module Ch05.Numbers where
+
 type R = Double
 
 numbers :: [R]

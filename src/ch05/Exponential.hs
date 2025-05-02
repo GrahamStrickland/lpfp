@@ -1,4 +1,5 @@
-module LPFP where
+module Ch05.Exponential where
+
 type R = Double
 
 expList :: R -> [R]

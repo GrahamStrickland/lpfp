@@ -1,4 +1,5 @@
-module LPFP where
+module Ch03.TypeSig where
+
 circleRadius :: Double
 circleRadius = 3.5
 

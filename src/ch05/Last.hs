@@ -1,4 +1,5 @@
-module LPFP where
+module Ch05.Last where
+
 import GHC.Stack (HasCallStack)
 
 last' :: HasCallStack => [a] -> a 

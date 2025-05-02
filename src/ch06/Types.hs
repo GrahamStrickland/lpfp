@@ -1,4 +1,5 @@
-module LPFP where
+module Ch06.Types where
+
 type R = Double
 
 physicists :: [String]
