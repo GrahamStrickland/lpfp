@@ -36,3 +36,4 @@ $HOME
 
 # Cabal project files
 dist-newstyle
+*.local
