@@ -1,0 +1,34 @@
+% Exercise 6.15
+
+Table~\ref{dropTable} explains the two ways of thinking about the higher-order 
+function \verb|drop| and Table~\ref{repTable} provides the same for \verb|replicate|:
+
+\begin{table}[!hbp]
+    \begin{tabular}{ l l l}
+        \hline
+        \textbf{Way of thinking} & \textbf{Input to } \verb|drop| 
+        & \textbf{Output from } \verb|drop| \\
+        \hline
+        One-input thinking & \verb|Int| & \verb|[a] -> [a]| \\
+        Two-input thinking & \verb|Int| and then \verb|[a]| 
+                           & \verb|[a]| \\
+       \hline
+    \end{tabular}
+    \caption{Two Ways of Thinking About the Higher-Order Function \texttt{drop}
+    \label{dropTable}}
+\end{table}
+
+\begin{table}[!hbp]
+    \begin{tabular}{ l l l}
+        \hline
+        \textbf{Way of thinking} & \textbf{Input to } \verb|replicate| 
+        & \textbf{Output from } \verb|replicate| \\
+        \hline
+        One-input thinking & \verb|Int| & \verb|a -> [a]| \\
+        Two-input thinking & \verb|Int| and then \verb|a| 
+                           & \verb|[a]| \\
+       \hline
+    \end{tabular}
+    \caption{Two Ways of Thinking About the Higher-Order Function \texttt{replicate}
+    \label{repTable}}
+\end{table}
