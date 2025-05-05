@@ -43,10 +43,3 @@ integralN n f a b
 integralN' :: Int -> Integration
 integralN' n f a b
     = integral ((b - a) / fromIntegral n) f a b
-
-trapIntegrate :: Int        -- # of trapezoids n
-              -> (R -> R)   -- function f
-              -> R          -- lower limit a
-              -> R          -- upper limit b
-              -> R          -- result
-trapIntegrate n f a b = undefined
