@@ -1,7 +1,7 @@
-module Ch06.TrapezoidalRule where
+% Exercise 6.16
 
-type R = Double
-
+We have the following definition in the file \path{src/Ch06/TrapezoidalRule.hs}
+\begin{verbatim}
 trapSingle :: R -> (R -> R) -> R -> R
 trapSingle dt fn x =
     let dx = dt / 4
@@ -23,14 +23,13 @@ trapIntegrate :: Int        -- # of trapezoids n
 trapIntegrate n f a b =
     let dt = (b - a) / fromIntegral n
      in sum [trapSingle dt f t | t <- [a, a + dt .. b - dt]]
-
-calcTrapIntegrateErr :: Int        -- start value
-                     -> (R -> R)   -- function f
-                     -> R          -- lower limit a
-                     -> R          -- upper limit b
-                     -> R          -- tolerance
-                     -> Int        -- result
-calcTrapIntegrateErr n f a b eps = 
-    if abs (trapIntegrate (n + 1) f a b - trapIntegrate n f a b) < eps
-        then n + 1
-        else calcTrapIntegrateErr (n + 1) f a b eps
+\end{verbatim}
+which we test using the helper function \verb|calcTrapIntegrateErr| as follows:
+\begin{verbatim}
+ghci> calcTrapIntegrateErr 1 (\x -> x ^ 3) 0 1 0.001
+4
+ghci> calcTrapIntegrateErr 1 (\x -> x ^ 3) 0 1e-6 0.001
+2
+ghci> calcTrapIntegrateErr 1 (\x -> exp (-x^2)) 0 1 0.001
+3
+\end{verbatim}
