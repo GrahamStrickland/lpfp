@@ -17,7 +17,7 @@ common warnings
 
 library
     import:           warnings
-    exposed-modules:  LPFP, Ch02.First, Ch02.Func, Ch02.Funcs, Ch02.SinDeg, Ch02.ThrowRock, Ch03.AmazingCurve, Ch03.BagFee, Ch03.Char, Ch03.FuncType, Ch03.GreaterThan, Ch03.Heaviside, Ch03.Precedence, Ch03.SplitFunc, Ch03.String, Ch03.TypeSig, Ch03.XOrY, Ch04.Kinematics, Ch05.Cycle, Ch05.Exponential, Ch05.Factorial, Ch05.GeometricSeries, Ch05.Last, Ch05.Lists, Ch05.Null, Ch05.Numbers, Ch05.Palindrome, Ch05.Range, Ch05.SndItem, Ch05.Types, Ch06.Average, Ch06.Filter, Ch06.Geq, Ch06.Integration, Ch06.IntStrBool, Ch06.Map, Ch06.Predicate, Ch06.Repeat, Ch06.Replicate, Ch06.RockTrajectory, Ch06.Spring, Ch06.Squares, Ch06.TrapezoidalRule, Ch06.Types, Ch07.QuickPlotting, Ch07.SinPlot 
+    exposed-modules:  LPFP, Ch02.First, Ch02.Func, Ch02.Funcs, Ch02.SinDeg, Ch02.ThrowRock, Ch03.AmazingCurve, Ch03.BagFee, Ch03.Char, Ch03.FuncType, Ch03.GreaterThan, Ch03.Heaviside, Ch03.Precedence, Ch03.SplitFunc, Ch03.String, Ch03.TypeSig, Ch03.XOrY, Ch04.Kinematics, Ch05.Cycle, Ch05.Exponential, Ch05.Factorial, Ch05.GeometricSeries, Ch05.Last, Ch05.Lists, Ch05.Null, Ch05.Numbers, Ch05.Palindrome, Ch05.Range, Ch05.SndItem, Ch05.Types, Ch06.Average, Ch06.Filter, Ch06.Geq, Ch06.Integration, Ch06.IntStrBool, Ch06.Map, Ch06.Predicate, Ch06.Repeat, Ch06.Replicate, Ch06.RockTrajectory, Ch06.Spring, Ch06.Squares, Ch06.TrapezoidalRule, Ch06.Types, Ch07.QuickPlotting, Ch07.PlotYRock20, Ch07.PlotYRock30, Ch07.SinPlot 
     -- other-modules:
     -- other-extensions:
     build-depends:    base ^>=4.17.2.1, Cabal, gnuplot

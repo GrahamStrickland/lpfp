@@ -3,10 +3,14 @@
 We have the following definition in the file \path{src/Ch07/SinPlot.hs}
 \begin{verbatim}
 sinFunc :: R -> R
-sinFunc x = sin x
+sinFunc = sin
 
 sinPlot :: IO ()
-sinPlot = plotFunc [] [-10,-9.9..10] sinFunc 
+sinPlot =
+    plotFunc
+        [Key (Just ["noautotitle"])]
+        [-10, -9.9 .. 10]
+        sinFunc
 \end{verbatim}
 which we execute using
 \begin{verbatim}
@@ -14,13 +18,14 @@ ghci> :l
 Ok, no modules loaded.
 ghci> :m
 ghci> :l Ch07.SinPlot
-[1 of 1] Compiling Ch07.SinPlot     ( src/Ch07/SinPlot.hs, interpreted )
+[1 of 1] Compiling Ch07.SinPlot
+( src/Ch07/SinPlot.hs, interpreted )
 Ok, one module loaded.
 ghci> sinPlot
 \end{verbatim}
-to produce the plot in Figure~\ref{7_1}
+to produce the plot in Figure~\ref{7_1}.
 
-\begin{figure}
+\begin{figure}[!ht]
     \includegraphics[width=\textwidth, center]{../plots/7_1.pdf}
     \caption{Plot of $sin(x)$ from $x = -10$ to $x = 10$ \label{7_1}} 
 \end{figure}

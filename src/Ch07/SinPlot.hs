@@ -5,7 +5,11 @@ import Graphics.Gnuplot.Simple
 type R = Double
 
 sinFunc :: R -> R
-sinFunc x = sin x
+sinFunc = sin
 
 sinPlot :: IO ()
-sinPlot = plotFunc [] [-10,-9.9..10] sinFunc 
+sinPlot =
+    plotFunc
+        [Key (Just ["noautotitle"])]
+        [-10, -9.9 .. 10]
+        sinFunc

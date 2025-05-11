@@ -1,0 +1,20 @@
+% Exercise 7.3
+
+We have the following definition in the file \path{src/Ch07/PlotYRock30.hs}
+\begin{verbatim}
+yRock :: R -> R -> R
+yRock v0 t = v0 * t - 0.5 * 9.8 * t ** 2
+
+yRock20Plot :: IO ()
+yRock20Plot =
+    plotFunc
+        [Key (Just ["noautotitle"])]
+        [0, 0.1 .. 4]
+        (yRock 20)
+\end{verbatim}
+from which we produce the plot in Figure~\ref{7_3}.
+
+\begin{figure}[!ht]
+    \includegraphics[width=\textwidth, center]{../plots/7_3.pdf}
+    \caption{Plot of \texttt{yRock 20} function from $t = 0$ to $t = 4s$ \label{7_3}} 
+\end{figure}
