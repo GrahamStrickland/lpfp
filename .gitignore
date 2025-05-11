@@ -37,3 +37,6 @@ $HOME
 # Cabal project files
 dist-newstyle
 *.local
+
+# Plots
+plots/*
