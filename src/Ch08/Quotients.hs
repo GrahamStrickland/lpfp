@@ -13,4 +13,4 @@ getAllQuotEqualsDiv :: (Integral a) => a -> a -> [Bool]
 getAllQuotEqualsDiv numerLim denomLim = [quotEqualsDiv m n | (m, n) <- genPairs (-numerLim) 1 numerLim denomLim]
 
 getAllRemEqualsMod :: (Integral a) => a -> a -> [Bool]
-getAllRemEqualsMod numerLim denomLim = [remEqualsDiv m n | (m, n) <- genPairs (-numerLim) 1 numerLim denomLim]
+getAllRemEqualsMod numerLim denomLim = [remEqualsMod m n | (m, n) <- genPairs (-numerLim) 1 numerLim denomLim]
