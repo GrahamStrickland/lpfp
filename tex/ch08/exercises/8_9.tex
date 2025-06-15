@@ -1,0 +1,40 @@
+% Exercise 8.9
+
+Table~\ref{8_9_1} shows which types can be used for the base \verb|x| and the exponent
+\verb|y| in the expresion \verb|x ^ y| while Table~\ref{8_9_2} does the same for the
+expression \verb|x ** y|.
+
+\begin{table}[!ht]
+    \begin{tabular}{ l | c c c c }
+        \hline
+        \quad & \verb|y :: Int| & \verb|y :: Integer| & \verb|y :: Float| 
+        & \verb|y :: Double| \\
+        \hline
+        \verb|x :: Int| & \verb|^| & \verb|^| & \quad & \quad \\
+        \verb|x :: Integer| & \verb|^| & \verb|^| & \quad & \quad \\
+        \verb|x :: Float| & \verb|^| & \verb|^| & \quad & \quad \\
+        \verb|x :: Double| & \verb|^| & \verb|^| & \quad & \quad \\
+        \hline
+    \end{tabular}
+    \caption{Possible Types for \texttt{x} and \texttt{y} with the Single-Caret 
+    Exponentiation Operator \label{8_9_1}}
+\end{table}
+
+\begin{table}[!ht]
+    \begin{tabular}{ l | c c c c }
+        \hline
+        \quad & \verb|y :: Int| & \verb|y :: Integer| & \verb|y :: Float| 
+        & \verb|y :: Double| \\
+        \hline
+        \verb|x :: Int| & \quad & \quad & \quad & \quad \\
+        \verb|x :: Integer| & \quad & \quad & \quad & \quad \\
+        \verb|x :: Float| & \quad & \quad & \verb|**| & \quad \\
+        \verb|x :: Double| & \quad & \quad & \quad & \verb|**| \\
+        \hline
+    \end{tabular}
+    \caption{Possible Types for \texttt{x} and \texttt{y} with the Double-Asterisk
+    Exponentiation Operator \label{8_9_2}}
+\end{table}
+
+We can see from all three tables that there is no applicable exponentiation 
+operator if the base has type \verb|Float| and the exponent type \verb|Double|.
