@@ -1,0 +1,12 @@
+% Exercise 9.6
+
+We have the following definition in \path{src/Ch09/Zip.hs}
+\begin{verbatim}
+zip' :: ([a], [b]) -> [(a,b)]
+zip' = uncurry zip
+\end{verbatim}
+which we test using
+\begin{verbatim}
+ghci> zip' ([1,2,3], ["Albert","Isaac","James"])
+[(1,"Albert"),(2,"Isaac"),(3,"James")]
+\end{verbatim}

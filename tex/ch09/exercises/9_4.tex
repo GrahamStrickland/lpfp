@@ -1,0 +1,18 @@
+% Exercise 9.4
+
+We have the following definition in \path{src/Ch09/MaybeToList.hs}
+\begin{verbatim}
+maybeToList :: Maybe a -> [a]
+maybeToList x = case x of
+    Just y -> [y]
+    Nothing -> []
+\end{verbatim}
+which we test using
+\begin{verbatim}
+ghci> maybeToList (Just 1)
+[1]
+ghci> maybeToList Nothing
+[]
+\end{verbatim}
+We map the empty list to represent \verb|Nothing| and map \verb|Just x| to a list 
+of one element.
