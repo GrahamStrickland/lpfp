@@ -1,0 +1,15 @@
+% Exercise 9.11
+
+We have the following definitions from \path{src/Ch09/Fibonacci.hs}:
+\begin{verbatim}
+fibHelper :: [(Int, Int)]
+fibHelper = iterate (\(x, y) -> (if y == 0 then 1 else y, x + y)) (0, 1)
+
+fibonacci :: [Int]
+fibonacci = [y | (_,y) <- fibHelper]
+\end{verbatim}
+which we demonstrate as follows
+\begin{verbatim}
+ghci> take 10 fibonacci
+[1,1,2,3,5,8,13,21,34,55]
+\end{verbatim}
