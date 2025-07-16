@@ -1,0 +1,19 @@
+% Exercise 9.14
+
+We have the following definitions from \path{src/Ch09/RockTrajectory.hs}:
+\begin{verbatim}
+yRock15 :: R -> R
+yRock15 t = (-9.8) * t ** 2 + 15 * t
+
+vRock15 :: R -> R
+vRock15 t = 15 - 9.8 * t
+
+rockTrajectory :: R -> [(R,R,R)]
+rockTrajectory t1 = [(t,yRock15 t,vRock15 t) | t <- [0,0.1..t1]]
+\end{verbatim}
+which we use to produce the plot in Figure~\ref{9_14}.
+
+\begin{figure}[!ht]
+    \includegraphics[width=\textwidth, center]{../plots/9_14.pdf}
+    \caption{Plot of $t$ and $y$ values for \texttt{rockTrajectory} \label{9_14}} 
+\end{figure}

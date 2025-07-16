@@ -1,0 +1,33 @@
+% Exercise 9.12
+
+We have the following definitions from \path{src/Ch09/Factorial.hs}:
+\begin{verbatim}
+factHelper :: [(Int,Int)]
+factHelper = iterate (\(x, y) -> (x + 1, (x + 1) * y)) (0, 1) 
+
+fact :: Int -> Int
+fact n = [y | (_,y) <- factHelper] !! n
+\end{verbatim}
+which we demonstrate as follows
+\begin{verbatim}
+ghci> fact 0
+1
+ghci> fact 1
+1
+ghci> fact 2
+2
+ghci> fact 3
+6
+ghci> fact 4
+24
+ghci> fact 5
+120
+ghci> fact 6
+720
+ghci> fact 7
+5040
+ghci> fact 8
+40320
+ghci> fact 9
+362880
+\end{verbatim}
