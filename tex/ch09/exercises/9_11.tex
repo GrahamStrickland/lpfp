@@ -1,13 +1,13 @@
 % Exercise 9.11
 
 We have the following definitions from \path{src/Ch09/Fibonacci.hs}:
-\begin{verbatim}
+\scriptsize\begin{verbatim}
 fibHelper :: [(Int, Int)]
 fibHelper = iterate (\(x, y) -> (if y == 0 then 1 else y, x + y)) (0, 1)
 
 fibonacci :: [Int]
 fibonacci = [y | (_,y) <- fibHelper]
-\end{verbatim}
+\end{verbatim}\normalsize
 which we demonstrate as follows
 \begin{verbatim}
 ghci> take 10 fibonacci

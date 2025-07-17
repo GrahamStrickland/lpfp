@@ -2,7 +2,7 @@
 
 No, for instance, we have the following error when trying to convert a list
 of empty tuples (the list containing the unit type):
-\begin{verbatim}
+\small\begin{verbatim}
 ghci> (zip' . unzip) [()]
 
 <interactive>:10:17: error:
@@ -12,7 +12,7 @@ ghci> (zip' . unzip) [()]
       In the expression: (zip' . unzip) [()]
     • Relevant bindings include
         it :: [(a, b)] (bound at <interactive>:10:1)
-\end{verbatim}
+\end{verbatim}\normalsize
 
 Yes, since this does return exactly the expression it was passed in, e.g.,
 \begin{verbatim}
