@@ -99,9 +99,3 @@ type Derivative = (R -> R) -> R -> R
 
 derivative :: R -> Derivative
 derivative dt x t = (x (t + dt/2) - x (t - dt/2)) / dt
-
-type Time         = R
-type PosVec       = Vec
-type Velocity     = Vec
-type Acceleration = Vec
-
