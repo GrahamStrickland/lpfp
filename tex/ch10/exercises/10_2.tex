@@ -1,0 +1,23 @@
+% Exercise 10.2
+
+We have the following definition from \path{src/Ch10/VecIntegral.hs}:
+\scriptsize\begin{verbatim}
+vecIntegral :: R            -- step size dt
+            -> (R -> Vec)   -- vector-valued function
+            -> R            -- lower limit
+            -> R            -- upper limit
+            -> Vec          -- result
+vecIntegral dt f a b =  
+    sumV [f (t * dt) | t <- [a + dt / 2, a + 3 * dt / 2 .. b - dt / 2]]
+\end{verbatim}\normalsize
+which we demonstrate as follows
+\scriptsize\begin{verbatim}
+ghci> vecIntegral 0.01 v1 0 10
+vec 6.666665000000005 0.7499996250000007 1.9999983333336274e-2
+\end{verbatim}\normalsize
+which gives an approximation to the integral from 0 to 10 with respect
+to time for the vector function
+\[
+    \mathbf{v}_1(t) = 2t^2\hat{\mathbf{i}} + 3t^3\hat{\mathbf{j}}
+    + t^4 \hat{\mathbf{k}}.
+\]

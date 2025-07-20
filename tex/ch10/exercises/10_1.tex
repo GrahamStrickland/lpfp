@@ -1,0 +1,29 @@
+% Exercise 10.1
+
+\begin{itemize}
+    \item[(a)]
+\scriptsize\begin{verbatim}
+v0 :: Vec
+v0 = 20 *^ iHat 
+\end{verbatim}\normalsize
+    \item[(b)]
+\scriptsize\begin{verbatim}
+v1 :: Vec
+v1 = 20 *^ iHat ^-^ 9.8 *^ kHat
+\end{verbatim}\normalsize
+    \item[(c)]
+\scriptsize\begin{verbatim}
+v :: R -> Vec
+v t = 20 *^ iHat ^-^ 9.8 *^ t *^ kHat
+\end{verbatim}\normalsize
+    \item[(d)]
+\scriptsize\begin{verbatim}
+r :: R -> Vec
+r t = 30 *^ jHat ^+^ 20 *^ t *^ iHat ^-^ 4.9 *^ t ** 2 *^ kHat
+\end{verbatim}\normalsize
+    \item[(e)]
+\scriptsize\begin{verbatim}
+x :: R -> R
+x t = iHat <.> r t
+\end{verbatim}\normalsize
+\end{itemize}
