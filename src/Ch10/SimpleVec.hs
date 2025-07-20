@@ -12,6 +12,10 @@ infixl 7 ><
 
 type R = Double
 
+-- type Vec = [R]       -- not our definition
+
+-- type Vec = (R,R,R)   -- not our definition
+
 data Vec = Vec { xComp :: R -- x component
                , yComp :: R -- y component
                , zComp :: R -- z component

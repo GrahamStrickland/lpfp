@@ -39,3 +39,6 @@ speedRateChange v a = (v <.> a) / magnitude v
 
 radiusOfCurvature :: Vec -> Vec -> R
 radiusOfCurvature v a = (v <.> v) / magnitude (aPerp v a)
+
+projectilePos :: PosVec -> Velocity -> Time -> PosVec
+projectilePos r0 v0 = positionCA r0 v0 (9.81 *^ negateV kHat)
