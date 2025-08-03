@@ -10,6 +10,7 @@
 \usepackage[export]{adjustbox}
 
 \numberwithin{figure}{section} 
+\numberwithin{table}{section} 
 \numberwithin{equation}{section} 
 \makeatletter
 \renewcommand*{\eqref}[1]{%
@@ -23,25 +24,26 @@
 \begin{document}
 \maketitle  
 
-\section*{4 Describing Motion}
+\setcounter{section}{3}
+\section{Describing Motion}
 \input{ch04/exercises}
 
-\section*{5 Working with Lists}
+\section{Working with Lists}
 \input{ch05/exercises}
 
-\section*{6 Higher-Order Functions}
+\section{Higher-Order Functions}
 \input{ch06/exercises}
 
-\section*{7 Graphing Functions}
+\section{Graphing Functions}
 \input{ch07/exercises}
 
-\section*{8 Type Classes}
+\section{Type Classes}
 \input{ch08/exercises}
 
-\section*{9 Tuples and Type Constructors}
+\section{Tuples and Type Constructors}
 \input{ch09/exercises}
 
-\section*{10 Describing Motion in Three Dimensions}
+\section{Describing Motion in Three Dimensions}
 \input{ch10/exercises}
 
 \end{document}
