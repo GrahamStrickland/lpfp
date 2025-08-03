@@ -1,7 +1,7 @@
 % Exercise 5.14
 
 We have the following set of functions in \path{src/Ch05/Exponential.hs}:
-\begin{verbatim}
+\scriptsize\begin{verbatim}
 type R = Double
 
 expList :: R -> [R]
@@ -16,16 +16,16 @@ calcMinExpErr n x eps approx =
     then n
     else calcMinExpErr (n + 1) x eps approx
 s approx
-\end{verbatim}
+\end{verbatim}\normalsize
 In order to calculate how big $n$ needs to be to get within 1 percent of the correct 
 value for $x = 1$, we have the following:
-\begin{verbatim}
+\scriptsize\begin{verbatim}
 ghci> calcMinExpErr 1 1 0.01
 134
-\end{verbatim}
+\end{verbatim}\normalsize
 To calculate how big $n$ needs to be to get within 1 percent of the correct value for
 $x = 10$, we have:
-\begin{verbatim}
+\scriptsize\begin{verbatim}
 ghci> calcMinExpErr 1 10 0.01
-\end{verbatim}
+\end{verbatim}\normalsize
 This does not return a value within 10 minutes.

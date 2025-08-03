@@ -1,14 +1,14 @@
 % Exercise 9.13
 
 We have the following definition from \path{src/Ch09/Pick13.hs}:
-\begin{verbatim}
+\scriptsize\begin{verbatim}
 pick13' :: [(R,R,R)] -> [(R,R)]
 pick13' triples = [(x_1,x_3) | (x_1,_,x_3) <- triples]
-\end{verbatim}
+\end{verbatim}\normalsize
 which we demonstrate as follows
-\begin{verbatim}
+\scriptsize\begin{verbatim}
 ghci> pick13 [(1,2,3),(2,4,6)]
 [(1.0,3.0),(2.0,6.0)]
 ghci> pick13' [(1,2,3),(2,4,6)]
 [(1.0,3.0),(2.0,6.0)]
-\end{verbatim}
+\end{verbatim}\normalsize

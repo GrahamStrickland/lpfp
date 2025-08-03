@@ -2,18 +2,18 @@
 
 We have the function \verb|cycle'| with the following 
 definition in \path{src/Ch05/Cycle.hs}:
-\begin{verbatim}
+\scriptsize\begin{verbatim}
 import GHC.Stack (HasCallStack)
 
 cycle' :: forall a. HasCallStack => [a] -> [a]
 cycle' xs = concat (repeat xs)
-\end{verbatim}
+\end{verbatim}\normalsize
 \verb|cycle'| repeats an argument which implements \verb|HasCallStack| an
 infinite number of times.\par
 \qquad We demonstrate as follows:
-\begin{verbatim}
+\scriptsize\begin{verbatim}
 ghci> take 10 (cycle' [4,7,8])
 [4,7,8,4,7,8,4,7,8,4]
 ghci> take 10 (cycle' [1])
 [1,1,1,1,1,1,1,1,1,1]
-\end{verbatim}
+\end{verbatim}\normalsize

@@ -1,14 +1,14 @@
 % Exercise 9.3
 
 We have the following definition in \path{src/Ch09/SafeHead.hs}
-\begin{verbatim}
+\scriptsize\begin{verbatim}
 headSafe :: [a] -> Maybe a
 headSafe ys = case ys of
     [] -> Nothing
     (x : _) -> Just x
-\end{verbatim}
+\end{verbatim}\normalsize
 which we test using
-\begin{verbatim}
+\scriptsize\begin{verbatim}
 ghci> headSafe []
 Nothing
 ghci> headSafe [1]
@@ -17,4 +17,4 @@ ghci> headSafe [1,2]
 Just 1
 ghci> headSafe [1,2,3]
 Just 1
-\end{verbatim}
+\end{verbatim}\normalsize

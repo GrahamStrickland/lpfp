@@ -1,7 +1,7 @@
 % Exercise 9.12
 
 We have the following definitions from \path{src/Ch09/Factorial.hs}:
-\small\begin{verbatim}
+\scriptsize\begin{verbatim}
 factHelper :: [(Int,Int)]
 factHelper = iterate (\(x, y) -> (x + 1, (x + 1) * y)) (0, 1) 
 
@@ -9,7 +9,7 @@ fact :: Int -> Int
 fact n = [y | (_,y) <- factHelper] !! n
 \end{verbatim}\normalsize
 which we demonstrate as follows
-\begin{verbatim}
+\scriptsize\begin{verbatim}
 ghci> fact 0
 1
 ghci> fact 1
@@ -30,4 +30,4 @@ ghci> fact 8
 40320
 ghci> fact 9
 362880
-\end{verbatim}
+\end{verbatim}\normalsize

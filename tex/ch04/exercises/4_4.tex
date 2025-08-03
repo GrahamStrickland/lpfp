@@ -5,12 +5,12 @@ division by 0, but at values close to \verb|t = 0|, we see an initial increase i
 as we move from small values of \verb|a| which stop increasing as we increase \verb|a| by 
 multiples of 10 past \verb|a = 10|.\par
 \qquad For the following definition of the error function
-\begin{verbatim}
+\scriptsize\begin{verbatim}
 err :: (R -> R) -> (R -> R) -> R -> R -> R
 err f df t a = abs ((derivative a f t - df t) / df t)   
-\end{verbatim}
+\end{verbatim}\normalsize
 we have the following output from \verb|ghci|:
-\begin{verbatim}
+\scriptsize\begin{verbatim}
 ghci> err (\x -> cos x) (\x -> -sin x) 0.1 0.01
 4.166661374023121e-6
 ghci> err (\x -> cos x) (\x -> -sin x) 0.1 0.1
@@ -31,4 +31,4 @@ ghci> err (\x -> cos x) (\x -> -sin x) 0.1 1000000
 0.999999644337597
 ghci> err (\x -> cos x) (\x -> -sin x) 0.1 10000000
 1.000000195308493
-\end{verbatim}
+\end{verbatim}\normalsize

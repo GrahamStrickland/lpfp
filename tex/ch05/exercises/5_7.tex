@@ -2,18 +2,18 @@
 
 We have the function \verb|palindrome| with the following 
 definition \path{src/Ch05/Palindrome.hs}: 
-\begin{verbatim}
+\scriptsize\begin{verbatim}
 import Distribution.Simple.Utils
 
 palindrome :: String -> Bool
 palindrome s = reverse (lowercase s) == lowercase s 
-\end{verbatim}
+\end{verbatim}\normalsize
 \verb|palindrome| uses the function 
 \verb|Distribution.Simple.Utils.lowercase| to check if the lowercase version 
 of a string is the same as the lowercase version reversed, i.e., is the 
 string a palindrome.\par
 \qquad We demonstrate as follows:
-\begin{verbatim}
+\scriptsize\begin{verbatim}
 ghci> palindrome "Radar"
 True
 ghci> palindrome "MadamImAdam"
@@ -22,4 +22,4 @@ ghci> palindrome "racecar"
 True
 ghci> palindrome "dog"
 False
-\end{verbatim}
+\end{verbatim}\normalsize

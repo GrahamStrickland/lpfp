@@ -1,33 +1,33 @@
 % Exercise 8.8
 
 Using the helper functions in \path{src/Ch08/Quotients.hs}, we see that
-\begin{verbatim}
+\scriptsize\begin{verbatim}
 ghci> quot (-4) 3 == div (-4) 3
 False
-\end{verbatim}
+\end{verbatim}\normalsize
 and
-\begin{verbatim}
+\scriptsize\begin{verbatim}
 ghci> quot (-4) 3
 -1
 ghci> div (-4) 3
 -2
-\end{verbatim}
+\end{verbatim}\normalsize
 Thus we can conclude that for integer division with negative numerators, 
 \verb|quot| rounds down to the next integer in the positive direction, 
 while \verb|div| rounds down in the negative direction.
 
 Likewise, we see that
-\begin{verbatim}
+\scriptsize\begin{verbatim}
 ghci> rem (-4) 3 == mod (-4) 3
 False
-\end{verbatim}
+\end{verbatim}\normalsize
 and
-\begin{verbatim}
+\scriptsize\begin{verbatim}
 ghci> rem (-4) 3
 -1
 ghci> mod (-4) 3
 2
-\end{verbatim}
+\end{verbatim}\normalsize
 Thus we conclude that when calculating remainders with negative numerators, 
 \verb|rem| returns the negative of the remainder when the modulus of the numerator
 is divided by the denominator, while \verb|mod| calculates $a$ where 
