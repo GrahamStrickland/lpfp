@@ -93,6 +93,7 @@ library
     Ch10.MyBool
     Ch10.MyMaybe
     Ch10.VecIntegral
+    Ch10.Speed
     LPFP
 
   other-modules: Ch10.SimpleVec

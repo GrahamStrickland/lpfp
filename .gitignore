@@ -1,31 +1,15 @@
-# Ignore all
-*
-
-# Unignore all with extensions
-!*.*
-
-# Unignore all dirs
-!*/
-
 # VSCode files
-.DS_Store
 .vs
 *.code-workspace
 *.vscode
 
-# Object files and debugging files
-*.hi
-*.o
-*.out
-*.dSYM
+# macOS files
+.DS_Store
 
 # Vim files
 tags
 *.swp
 $HOME
-
-# Apple files
-*.icloud
 
 # LaTeX files
 *.aux
@@ -33,6 +17,7 @@ $HOME
 *.fdb_latexmk
 *.fls
 *.synctex.gz
+*.out
 
 # Cabal project files
 dist-newstyle
