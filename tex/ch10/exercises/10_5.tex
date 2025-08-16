@@ -1,0 +1,14 @@
+% Exercise 10.5
+
+We have the following definition from \path{src/Ch10/ProjectileVel.hs}:
+\scriptsize\begin{verbatim}
+projectileVel :: Velocity -> Time -> Velocity
+projectileVel v0 = (\t -> velocityCA v0 (9.81 *^ negateV kHat) t)
+\end{verbatim}\normalsize
+which we demonstrate as follows
+\scriptsize\begin{verbatim}
+ghci> projectileVel (Vec 1.0 1.0 1.0) 1.0
+vec 1.0 1.0 (-8.81)
+ghci> projectileVel (Vec 1.0 1.0 1.0) 2.0
+vec 1.0 1.0 (-18.62)
+\end{verbatim}\normalsize

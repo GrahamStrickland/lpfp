@@ -94,6 +94,7 @@ library
     Ch10.MyMaybe
     Ch10.VecIntegral
     Ch10.Speed
+    Ch10.ProjectileVel
     LPFP
 
   other-modules: Ch10.SimpleVec
