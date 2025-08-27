@@ -95,6 +95,7 @@ library
     Ch10.VecIntegral
     Ch10.Speed
     Ch10.ProjectileVel
+    Ch10.Vec2D
     LPFP
 
   other-modules: Ch10.SimpleVec
