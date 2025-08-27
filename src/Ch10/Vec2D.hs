@@ -8,7 +8,6 @@ infixr 7 *^
 infixl 7 ^*
 infixr 7 ^/
 infixr 7 <.>
-infixl 7 ><
 
 type R = Double
 
@@ -72,9 +71,6 @@ type VecDerivative = (R -> Vec2D) -> R -> Vec2D
 
 vecDerivative :: R -> VecDerivative
 vecDerivative dt v t = (v (t + dt/2) ^-^ v (t - dt/2)) ^/ dt
-
-v1 :: R -> Vec2D
-v1 t = 2 *^ t**2 *^ iHat ^+^ 3 *^ t**3 *^ jHat ^+^ t**4 *^ kHat
 
 xCompFunc :: (R -> Vec2D) -> R -> R
 xCompFunc v t = xComp (v t)
