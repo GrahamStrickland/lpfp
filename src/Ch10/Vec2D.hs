@@ -84,7 +84,7 @@ derivative :: R -> Derivative
 derivative dt x t = (x (t + dt/2) - x (t - dt/2)) / dt
 
 magAngleFromVec2D :: Vec2D -> (R,R)
-magAngleFromVec2D = undefined
+magAngleFromVec2D v = (magnitude v, atan2 (yComp v) (xComp v))
 
 vec2DFromMagAngle :: (R,R) -> Vec2D
-vec2DFromMagAngle = undefined
+vec2DFromMagAngle (r, theta) = Vec2D (r * cos theta) (r * sin theta)
