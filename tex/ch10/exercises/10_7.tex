@@ -1,0 +1,12 @@
+% Exercise 10.7
+
+We have the following definition in the file \path{src/Ch10/XYProj.hs}
+\scriptsize\begin{verbatim}
+xyProj :: Vec -> Vec
+xyProj v = vec (xComp v) (yComp v) 0
+\end{verbatim}\normalsize
+which we demonstrate as follows
+\scriptsize\begin{verbatim}
+ghci> xyProj (vec 6 9 7)
+vec 6.0 9.0 0.0
+\end{verbatim}\normalsize

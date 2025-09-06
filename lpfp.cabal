@@ -96,6 +96,8 @@ library
     Ch10.Speed
     Ch10.ProjectileVel
     Ch10.Vec2D
+    Ch10.XYProj
+    Ch10.MagAngles
     LPFP
 
   other-modules: Ch10.SimpleVec
