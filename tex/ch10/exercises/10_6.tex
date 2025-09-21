@@ -1,8 +1,8 @@
 % Exercise 10.6
 
 The file \path{src/Ch10/Vec2D.hs} contains the definition of the \verb|Vec2D| class,
-while the definitions of the functions \verb|magAngleFromVec2D| and \verb|vec2DFromMagAngle|
-are given by:
+while the definitions of the two required functions \verb|magAngleFromVec2D| and 
+\verb|vec2DFromMagAngle| are given by:
 \scriptsize\begin{verbatim}
 magAngleFromVec2D :: Vec2D -> (R,R)
 magAngleFromVec2D v = (magnitude v, atan2 (yComp v) (xComp v))

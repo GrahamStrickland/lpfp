@@ -98,6 +98,7 @@ library
     Ch10.Vec2D
     Ch10.XYProj
     Ch10.MagAngles
+    Ch10.BallSpeed
     LPFP
 
   other-modules: Ch10.SimpleVec
