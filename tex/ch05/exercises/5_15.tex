@@ -3,7 +3,7 @@
 For this question, we update the code in \path{src/Ch05/Exponential.hs} to allow us
 to pass in a different approximation function, in this case the function \verb|expSeries|
 and calculate the result. Thus we have
-\scriptsize\begin{verbatim}
+\begin{verbatim}
 type R = Double
 
 expList :: R -> [R]
@@ -21,6 +21,6 @@ calcMinExpErr n x eps approx =
     then n
     else calcMinExpErr (n + 1) x eps approx
 s approx
-\end{verbatim}\normalsize
+\end{verbatim}
 However, this does not return a result even for $x = 1$ within any reasonable time frame,
 so these functions must be optimized to produce a result more quickly.

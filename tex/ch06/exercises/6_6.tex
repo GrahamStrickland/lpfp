@@ -1,12 +1,8 @@
 % Exercise 6.6
 
-We have the following definition in the file \path{src/Ch06/Predicate.hs}
-\scriptsize\begin{verbatim}
-hasMoreThan6Elements :: [a] -> Bool
-hasMoreThan6Elements xs = length xs > 6
-\end{verbatim}\normalsize
-which we test with
-\scriptsize\begin{verbatim}
+Using the definition in the file \path{src/Ch06/Predicate.hs}, we have
+
+\begin{verbatim}
 ghci> hasMoreThan6Elements "Hello, world!"
 True
 ghci> hasMoreThan6Elements "Hello"
@@ -15,4 +11,4 @@ ghci> hasMoreThan6Elements [1,2,3,4,5,6]
 False
 ghci> hasMoreThan6Elements [1,2,3,4,5,6,7]
 True
-\end{verbatim}\normalsize
+\end{verbatim}

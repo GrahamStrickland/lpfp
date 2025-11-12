@@ -1,35 +1,13 @@
 % Exercise 6.16
 
-We have the following definition in the file \path{src/Ch06/TrapezoidalRule.hs}
-\scriptsize\begin{verbatim}
-trapSingle :: R -> (R -> R) -> R -> R
-trapSingle dt fn x =
-    let dx = dt / 4
-     in sum [f * dx | 
-        f <- [
-            0.5 * fn x, 
-            fn (x + dx), 
-            fn (x + 2 * dx), 
-            fn (x + 3 * dx), 
-            0.5 * fn (x + 4 * dx)
-        ]
-     ]
+Using the definition in the file \path{src/Ch06/TrapezoidalRule.hs},
+which we test using the helper function \verb|calcTrapIntegrateErr|, we have
 
-trapIntegrate :: Int        -- # of trapezoids n
-              -> (R -> R)   -- function f
-              -> R          -- lower limit a
-              -> R          -- upper limit b
-              -> R          -- result
-trapIntegrate n f a b =
-    let dt = (b - a) / fromIntegral n
-     in sum [trapSingle dt f t | t <- [a, a + dt .. b - dt]]
-\end{verbatim}\normalsize
-which we test using the helper function \verb|calcTrapIntegrateErr| as follows:
-\scriptsize\begin{verbatim}
+\begin{verbatim}
 ghci> calcTrapIntegrateErr 1 (\x -> x ^ 3) 0 1 0.001
 4
 ghci> calcTrapIntegrateErr 1 (\x -> x ^ 3) 0 1e-6 0.001
 2
 ghci> calcTrapIntegrateErr 1 (\x -> exp (-x^2)) 0 1 0.001
 3
-\end{verbatim}\normalsize
+\end{verbatim}

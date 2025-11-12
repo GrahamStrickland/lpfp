@@ -1,13 +1,9 @@
 % Exercise 6.13
 
-We have the following definition in the file \path{src/Ch06/Filter.hs}
-\scriptsize\begin{verbatim}
-filter' :: (a -> Bool) -> [a] -> [a]
-filter' predicate as = [a | a <- as, predicate a]
-\end{verbatim}\normalsize
-which we test using
-\scriptsize\begin{verbatim}
+Using the definition in the file \path{src/Ch06/Filter.hs}, we have
+
+\begin{verbatim}
 ghci> filter' (\n -> n < 10) [6,4,8,13,7]
 [6,4,8,7]
-\end{verbatim}\normalsize
+\end{verbatim}
 

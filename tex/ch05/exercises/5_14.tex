@@ -1,31 +1,16 @@
 % Exercise 5.14
 
-We have the following set of functions in \path{src/Ch05/Exponential.hs}:
-\scriptsize\begin{verbatim}
-type R = Double
+We have the definitions of these functions in \path{src/Ch05/Exponential.hs}.
 
-expList :: R -> [R]
-expList x = [(1.0 + x / n) ** n | n <- [1 ..]]
-
-expErr :: R -> R -> R
-expErr x approx = abs (exp x - approx)
-
-calcMinExpErr :: Int -> R -> R -> Int
-calcMinExpErr n x eps approx =
-  if expErr x (expList x !! n) < eps
-    then n
-    else calcMinExpErr (n + 1) x eps approx
-s approx
-\end{verbatim}\normalsize
 In order to calculate how big $n$ needs to be to get within 1 percent of the correct 
 value for $x = 1$, we have the following:
-\scriptsize\begin{verbatim}
+\begin{verbatim}
 ghci> calcMinExpErr 1 1 0.01
 134
-\end{verbatim}\normalsize
+\end{verbatim}
 To calculate how big $n$ needs to be to get within 1 percent of the correct value for
 $x = 10$, we have:
-\scriptsize\begin{verbatim}
+\begin{verbatim}
 ghci> calcMinExpErr 1 10 0.01
-\end{verbatim}\normalsize
+\end{verbatim}
 This does not return a value within 10 minutes.

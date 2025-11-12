@@ -1,20 +1,8 @@
 % Exercise 10.3
 
-We have the following definition from \path{src/Ch10/MaxHeight.hs}:
-\scriptsize\begin{verbatim}
-zCompProjectilePos :: PosVec -> Velocity -> Time -> R
-zCompProjectilePos r0 v0 t = zComp (projectilePos r0 v0 t)
+Using the definition from \path{src/Ch10/MaxHeight.hs}, we have
 
-positiveHeightTimes :: PosVec -> Velocity -> [R]
-positiveHeightTimes r0 v0 
-    = takeWhile (\t -> zCompProjectilePos r0 v0 t > 0) [0,0.1..]
-
-maxHeight :: PosVec -> Velocity -> R
-maxHeight r0 v0 
-    = maximum [zCompProjectilePos r0 v0 t | t <- positiveHeightTimes r0 v0]
-\end{verbatim}\normalsize
-which we demonstrate as follows
-\scriptsize\begin{verbatim}
+\begin{verbatim}
 ghci> maxHeight (vec 1.0 1.0 1.0) (5.0 *^ kHat)
 2.2737499999999997
-\end{verbatim}\normalsize
+\end{verbatim}

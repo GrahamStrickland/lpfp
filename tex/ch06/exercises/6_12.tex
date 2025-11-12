@@ -1,12 +1,8 @@
 % Exercise 6.12
 
-We have the following definition in the file \path{src/Ch06/Map.hs}
-\scriptsize\begin{verbatim}
-map' :: (a -> b) -> [a] -> [b]
-map' fn as = [fn a | a <- as]
-\end{verbatim}\normalsize
-which we test using
-\scriptsize\begin{verbatim}
+Using the definition in the file \path{src/Ch06/Map.hs}, we have
+
+\begin{verbatim}
 ghci> map' sqrt [1,4,9]
 [1.0,2.0,3.0]
-\end{verbatim}\normalsize
+\end{verbatim}

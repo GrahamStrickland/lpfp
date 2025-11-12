@@ -1,18 +1,9 @@
 % Exercise 10.6
 
-The file \path{src/Ch10/Vec2D.hs} contains the definition of the \verb|Vec2D| class,
-while the definitions of the two required functions \verb|magAngleFromVec2D| and 
-\verb|vec2DFromMagAngle| are given by:
-\scriptsize\begin{verbatim}
-magAngleFromVec2D :: Vec2D -> (R,R)
-magAngleFromVec2D v = (magnitude v, atan2 (yComp v) (xComp v))
+The file \path{src/Ch10/Vec2D.hs} contains the definition of the \verb|Vec2D| class.
+We demonstrate the use of \verb|magAngleFromVec2D| and \verb|vec2DFromMagAngle| using
 
-vec2DFromMagAngle :: (R,R) -> Vec2D
-vec2DFromMagAngle (r, theta) = Vec2D (r * cos theta) (r * sin theta)
-\end{verbatim}\normalsize
-
-We demonstrate their use as follows:
-\scriptsize\begin{verbatim}
+\begin{verbatim}
 ghci> magAngleFromVec2D jHat
 (1.0,1.5707963267948966)
 ghci> magAngleFromVec2D iHat
@@ -26,4 +17,4 @@ vec 6.123233995736766e-17 (-1.0)
 ghci> vec2DFromMagAngle (1.0,0.0)
 vec 1.0 0.0 
 ghci> vec2DFromMagAngle (1.0,0.0)
-\end{verbatim}\normalsize
+\end{verbatim}

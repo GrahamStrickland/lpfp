@@ -1,16 +1,7 @@
 % Exercise 10.2
 
-We have the following definition from \path{src/Ch10/VecIntegral.hs}:
-\scriptsize\begin{verbatim}
-vecIntegral :: R            -- step size dt
-            -> (R -> Vec)   -- vector-valued function
-            -> R            -- lower limit
-            -> R            -- upper limit
-            -> Vec          -- result
-vecIntegral dt f a b =  
-    sumV [f (t * dt) | t <- [a + dt / 2, a + 3 * dt / 2 .. b - dt / 2]]
-\end{verbatim}\normalsize
-which we demonstrate as follows
+Using the definition from \path{src/Ch10/VecIntegral.hs}, we have
+
 \scriptsize\begin{verbatim}
 ghci> vecIntegral 0.01 v1 0 10
 vec 6.666665000000005 0.7499996250000007 1.9999983333336274e-2

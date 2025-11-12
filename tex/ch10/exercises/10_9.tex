@@ -1,17 +1,7 @@
 % Exercise 10.9
 
-We have the following definition in the file \path{src/Ch10/BallSpeed.hs}
-\scriptsize\begin{verbatim}
-gEarth :: Vec
-gEarth = negateV (9.8 *^ kHat)
-
-vBall :: R -> Vec
-vBall t = ((vecFromMagAngle (25, 52)) ^* t) ^+^ (gEarth ^* (0.5 * t ** 2))
-
-speedRateChangeBall :: R -> R
-speedRateChangeBall t = speedRateChange (vBall t) gEarth
-\end{verbatim}\normalsize
-which use to to produce the plot in Figure~\ref{fig10_9}.
+Using the definition in the file \path{src/Ch10/BallSpeed.hs}, we have the plot in 
+Figure~\ref{fig10_9}.
 
 \begin{figure}[!ht]
     \includegraphics[width=\textwidth, center]{../plots/10_9.pdf}

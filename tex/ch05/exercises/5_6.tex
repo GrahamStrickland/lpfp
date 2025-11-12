@@ -1,18 +1,11 @@
 % Exercise 5.6
 
-We have the function \verb|last'| with the following definition in 
-\path{src/Ch05/Last.hs}:
-\scriptsize\begin{verbatim}
-import GHC.Stack (HasCallStack)
-
-last' :: HasCallStack => [a] -> a 
-last' x = head (reverse x)
-\end{verbatim}\normalsize
+We have the function \verb|last'| define in \path{src/Ch05/Last.hs}.
 \verb|last'| returns the last item in an argument with type that implements 
 \verb|HasCallStack|, an error if the argument is empty, or hangs indefinitely
 if the variable has infinite length.\par
 \qquad We demonstrate as follows:
-\scriptsize\begin{verbatim}
+\begin{verbatim}
 ghci> last' [1, 2, 3]
 3
 ghci> last' ["check", "mate"]
@@ -28,4 +21,4 @@ CallStack (from HasCallStack):
     in base:GHC.List
   head, called at last.hs:4:11 in main:Main
   last', called at <interactive>:4:1 in interactive:Ghci3
-\end{verbatim}\normalsize
+\end{verbatim}

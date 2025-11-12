@@ -1,18 +1,7 @@
 % Exercise 7.3
 
-We have the following definition in the file \path{src/Ch07/PlotYRock30.hs}
-\scriptsize\begin{verbatim}
-yRock :: R -> R -> R
-yRock v0 t = v0 * t - 0.5 * 9.8 * t ** 2
-
-yRock20Plot :: IO ()
-yRock20Plot =
-    plotFunc
-        [Key (Just ["noautotitle"])]
-        [0, 0.1 .. 4]
-        (yRock 20)
-\end{verbatim}\normalsize
-from which we produce the plot in Figure~\ref{fig7_3}.
+Using the definition in the file \path{src/Ch07/PlotYRock30.hs}, we produce the plot in 
+Figure~\ref{fig7_3}.
 
 \begin{figure}[!ht]
     \includegraphics[width=\textwidth, center]{../plots/7_3.pdf}

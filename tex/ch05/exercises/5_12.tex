@@ -1,16 +1,11 @@
 % Exercise 5.12
 
-We have the following expression in \path{src/Ch05/GeometricSeries.hs}: 
-\scriptsize\begin{verbatim}
-series :: Double
-series = sum [1.0 / n | n <- [1..100]]
-\end{verbatim}\normalsize
-used to calculate
+We define the expression in \path{src/Ch05/GeometricSeries.hs} used to calculate
 \[
     \sum_{n=1}^{100} \frac{1}{n^2}.
 \]
 Evaluating this in \verb|ghci| results in the following:
-\scriptsize\begin{verbatim}
+\begin{verbatim}
 ghci> series
 5.187377517639621
-\end{verbatim}\normalsize
+\end{verbatim}

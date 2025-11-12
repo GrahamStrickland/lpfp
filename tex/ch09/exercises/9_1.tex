@@ -1,14 +1,9 @@
 % Exercise 9.1
 
-We define the function \verb|polarToCart| in \path{src/Ch09/PolarToCart.hs} as follows:
-
-\scriptsize\begin{verbatim}
-polarToCart :: (R, R) -> (R, R)
-polarToCart (r, theta) = (r * cos theta, r * sin theta)
-\end{verbatim}\normalsize
+We define the function \verb|polarToCart| in \path{src/Ch09/PolarToCart.hs}.
 
 We test it using
-\scriptsize\begin{verbatim}
+\begin{verbatim}
 ghci> polarToCart (0,0)
 (0.0,0.0)
 ghci> polarToCart (1,2*pi)
@@ -19,4 +14,4 @@ ghci> polarToCart (2,pi)
 (-2.0,2.4492935982947064e-16)
 ghci> polarToCart (2,pi/2)
 (1.2246467991473532e-16,2.0)
-\end{verbatim}\normalsize
+\end{verbatim}

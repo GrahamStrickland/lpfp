@@ -1,12 +1,8 @@
 % Exercise 6.10
 
-We have the following definition in the file \path{src/Ch06/Replicate.hs}
-\scriptsize\begin{verbatim}
-replicate' :: Int -> a -> [a]
-replicate' n x = take n (repeat x)
-\end{verbatim}
-which we test using
-\scriptsize\begin{verbatim}
+Using the definition in the file \path{src/Ch06/Replicate.hs}, we have
+
+\begin{verbatim}
 ghci> replicate' 3 'x'
 "xxx"
-\end{verbatim}\normalsize
+\end{verbatim}

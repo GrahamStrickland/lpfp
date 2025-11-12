@@ -15,9 +15,9 @@ ghci> (zip' . unzip) [()]
 \end{verbatim}\normalsize
 
 Yes, since this does return exactly the expression it was passed in, e.g.,
-\scriptsize\begin{verbatim}
+\begin{verbatim}
 ghci> (unzip . zip') ([], [])
 ([],[])
 ghci> (unzip . zip') ([1,2,3], ["Albert","Isaac","James"])
 ([1,2,3],["Albert","Isaac","James"])
-\end{verbatim}\normalsize
+\end{verbatim}

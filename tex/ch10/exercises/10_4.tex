@@ -1,12 +1,7 @@
 % Exercise 10.4
 
-We have the following definition from \path{src/Ch10/Speed.hs}:
-\scriptsize\begin{verbatim}
-speedCA :: Velocity -> Acceleration -> Time -> R
-speedCA v0 a = (\t -> magnitude (velocityCA v0 a t))
-\end{verbatim}\normalsize
-which we demonstrate as follows
-\scriptsize\begin{verbatim}
+Using the definition from \path{src/Ch10/Speed.hs}, we have
+\begin{verbatim}
 ghci> speedCA (Vec 1.0 1.0 1.0) (9.81 *^ negateV kHat) 1.0
 8.922785439536243
-\end{verbatim}\normalsize
+\end{verbatim}

@@ -1,22 +1,14 @@
 % Exercise 6.5
 
-We have the following definition in the file \path{src/Ch06/IntStrBool.hs}
-\scriptsize\begin{verbatim}
-import Data.Char
-
-intStringBool :: Int -> String -> Bool
-intStringBool n cs = case cs of
-                [] -> False
-                (c:cs) -> ord c == n || intStringBool n cs
-\end{verbatim}\normalsize
+We have the required definition in the file \path{src/Ch06/IntStrBool.hs}.
 
 The function \verb|intStringBool| takes an \verb|Int| $n$ and returns a function
 that checks if any ASCII character in a string is equivalent to the number $n$ and
 returns \verb|True| if it is and \verb|False| if it does not find a match. We
 demonstrate as follows
-\scriptsize\begin{verbatim}
+\begin{verbatim}
 ghci> intStringBool 48 "Hello1"
 False
 ghci> intStringBool 49 "Hello1"
 True
-\end{verbatim}\normalsize
+\end{verbatim}

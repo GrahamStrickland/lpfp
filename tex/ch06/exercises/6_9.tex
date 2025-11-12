@@ -1,12 +1,8 @@
 % Exercise 6.9
 
-We have the following definition in the file \path{src/Ch06/Repeat.hs}
-\scriptsize\begin{verbatim}
-repeat' :: a -> [a]
-repeat' = iterate id
-\end{verbatim}\normalsize
-which we test using
-\scriptsize\begin{verbatim}
+Using the definition in the file \path{src/Ch06/Repeat.hs}, we have
+
+\begin{verbatim}
 ghci> take 10 (repeat' 'x')
 "xxxxxxxxxx"
-\end{verbatim}\normalsize
+\end{verbatim}

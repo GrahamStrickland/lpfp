@@ -1,19 +1,8 @@
 % Exercise 7.1
 
-We have the following definition in the file \path{src/Ch07/SinPlot.hs}
-\scriptsize\begin{verbatim}
-sinFunc :: R -> R
-sinFunc = sin
+Using the definition in the file \path{src/Ch07/SinPlot.hs}, we have
 
-sinPlot :: IO ()
-sinPlot =
-    plotFunc
-        [Key (Just ["noautotitle"])]
-        [-10, -9.9 .. 10]
-        sinFunc
-\end{verbatim}\normalsize
-which we execute using
-\scriptsize\begin{verbatim}
+\begin{verbatim}
 ghci> :l
 Ok, no modules loaded.
 ghci> :m
@@ -22,7 +11,7 @@ ghci> :l Ch07.SinPlot
 ( src/Ch07/SinPlot.hs, interpreted )
 Ok, one module loaded.
 ghci> sinPlot
-\end{verbatim}\normalsize
+\end{verbatim}
 to produce the plot in Figure~\ref{fig7_1}.
 
 \begin{figure}[!ht]
