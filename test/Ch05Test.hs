@@ -4,6 +4,7 @@ import Test.HUnit
 import qualified Ch05.Factorial as Factorial
 import qualified Ch05.Null as Null
 import qualified Ch05.Last as Last
+import qualified Ch05.Palindrome as Palindrome
 import qualified Ch05.Range as Range
 
 ch05Tests :: Test
@@ -11,6 +12,7 @@ ch05Tests = TestLabel "Chapter 5 Tests" $ TestList
     [ testCh05Range
     , testCh05Null
     , testCh05Last
+    , testCh05Palindrome
     , testCh05Factorial
     ]
 
@@ -38,6 +40,16 @@ testCh05Last =
         TestList
             [ TestCase $ assertEqual "Test Last.last' [1, 2, 3]" 3 (Last.last' [1, 2, 3])
             , TestCase $ assertEqual "Test Last.last' [\"check\", \"mate\"]" "mate" (Last.last' ["check", "mate"])
+            ]
+
+testCh05Palindrome :: Test
+testCh05Palindrome =
+    TestLabel "Ch05.Palindrome tests" $
+        TestList
+            [ TestCase $ assertEqual "Test Palindrome.palindrome \"Radar\"" True (Palindrome.palindrome "Radar")
+            , TestCase $ assertEqual "Test Palindrome.palindrome \"MadamImAdam\"" True (Palindrome.palindrome "MadamImAdam")
+            , TestCase $ assertEqual "Test Palindrome.palindrome \"racecar\"" True (Palindrome.palindrome "racecar")
+            , TestCase $ assertEqual "Test Palindrome.palindrome \"dog\"" False (Palindrome.palindrome "dog")
             ]
 
 testCh05Factorial :: Test
