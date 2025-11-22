@@ -56,28 +56,28 @@ testCh06Repeat :: Test
 testCh06Repeat =
     TestLabel "Ch06.Repeat tests" $
         TestList
-            [TestCase $ assertEqual "Test take 10 Repeat.repeat'" "xxxxxxxxxx" (take 10 (Repeat.repeat' 'x'))]
+            [TestCase $ assertEqual "Test take 10 (Repeat.repeat' 'x'" "xxxxxxxxxx" (take 10 (Repeat.repeat' 'x'))]
 
 testCh06Replicate :: Test
 testCh06Replicate =
     TestLabel "Ch06.Replicate tests" $
         TestList
-            [TestCase $ assertEqual "Test Replicate.replicate'" "xxx" (Replicate.replicate' 3 'x')]
+            [TestCase $ assertEqual "Test Replicate.replicate' 3 'x'" "xxx" (Replicate.replicate' 3 'x')]
 
 testCh06Map :: Test
 testCh06Map =
     TestLabel "Ch06.Map tests" $
         TestList
-            [TestCase $ assertEqual "Test Map.map' sqrt" [1.0, 2.0, 3.0] (Map.map' sqrt [1, 4, 9])]
+            [TestCase $ assertEqual "Test Map.map' sqrt [1, 4, 9]" [1.0, 2.0, 3.0] (Map.map' sqrt [1, 4, 9])]
 
 testCh06Filter :: Test
 testCh06Filter =
     TestLabel "Ch06.Filter tests" $
         TestList
-            [TestCase $ assertEqual "Test Filter.filter' (\n -> n < 10)" [6, 4, 8, 7] (Filter.filter' (\n -> n < 10) [6, 4, 8, 13, 7])]
+            [TestCase $ assertEqual "Test Filter.filter' (\n -> n < 10) [6, 4, 8, 13, 7]" [6, 4, 8, 7] (Filter.filter' (\n -> n < 10) [6, 4, 8, 13, 7])]
 
 testCh06Average :: Test
 testCh06Average =
     TestLabel "Ch06.Average tests" $
         TestList
-            [TestCase $ assertEqual "Test Average.average" 2.0 (Average.average [1.0, 2.0, 3.0])]
+            [TestCase $ assertEqual "Test Average.average [1.0, 2.0, 3.0]" 2.0 (Average.average [1.0, 2.0, 3.0])]
