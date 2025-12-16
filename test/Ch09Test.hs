@@ -4,8 +4,11 @@ import qualified Ch09.Factorial as Factorial
 import qualified Ch09.Fibonacci as Fibonacci
 import qualified Ch09.MaybeToList as MaybeToList
 import qualified Ch09.Pick13 as Pick13
+import qualified Ch09.PolarToCart as PolarToCart
 import qualified Ch09.SafeHead as SafeHead
 import qualified Ch09.ToTriple as ToTriple
+import qualified Ch09.TripleFunc as TripleFunc
+import qualified Ch09.TVPairs as TVPairs
 import qualified Ch09.Zip as Zip
 import Test.HUnit
 
@@ -13,13 +16,27 @@ ch09Tests :: Test
 ch09Tests =
     TestLabel "Chapter 9 Tests" $
         TestList
-            [ testCh09SafeHead
+            [ testCh09PolarToCart
+            , testCh09SafeHead
             , testCh09MaybeToList
             , testCh09Zip
             , testCh09Fibonacci
             , testCh09Factorial
             , testCh09Pick13
             , testCh09ToTriple
+            , testCh09TripleFunc
+            , testCh09TVPairs
+            ]
+
+testCh09PolarToCart :: Test
+testCh09PolarToCart =
+    TestLabel "Ch09.PolarToCart tests" $
+        TestList
+            [ TestCase $ assertEqual "Test PolarToCart.polarToCart (0,0)" (0.0, 0.0) (PolarToCart.polarToCart (0, 0))
+            , TestCase $ assertTupleApproxEqual "Test PolarToCart.polarToCart (1,2*pi)" 1e-12 (1.0, 0.0) (PolarToCart.polarToCart (1, 2 * pi))
+            , TestCase $ assertTupleApproxEqual "Test PolarToCart.polarToCart (2,2*pi)" 1e-12 (2.0, 0.0) (PolarToCart.polarToCart (2, 2 * pi))
+            , TestCase $ assertTupleApproxEqual "Test PolarToCart.polarToCart (2,pi)" 1e-12 (2.0, 0.0) (PolarToCart.polarToCart (2, 2 * pi))
+            , TestCase $ assertTupleApproxEqual "Test PolarToCart.polarToCart (2,pi/2)" 1e-12 (2.0, 0.0) (PolarToCart.polarToCart (2, 2 * pi))
             ]
 
 testCh09SafeHead :: Test
@@ -84,3 +101,22 @@ testCh09ToTriple =
         TestList
             [ TestCase $ assertEqual "Test ToTriple.toTriple ((3, 4), 5)" (3, 4, 5) (ToTriple.toTriple ((3, 4), 5))
             ]
+
+testCh09TripleFunc :: Test
+testCh09TripleFunc =
+    TestLabel "Ch09.TripleFunc tests" $
+        TestList
+            [ TestCase $ assertEqual "Test TripleFunc.x (1, 1, 1)" (sin 1 * cos 1) (TripleFunc.x (1, 1, 1))
+            ]
+
+testCh09TVPairs :: Test
+testCh09TVPairs =
+    TestLabel "Ch09.TVPairs tests" $
+        TestList
+            [ TestCase $ assertEqual "Test take 5 TVPairs.tvPairs" [(0.0, 0.0), (1.0, 5.0), (2.0, 10.0), (3.0, 15.0), (4.0, 20.0)] (take 5 TVPairs.tvPairs)
+            ]
+
+assertTupleApproxEqual :: String -> Double -> (Double, Double) -> (Double, Double) -> Assertion
+assertTupleApproxEqual msg epsilon (e1, e2) (a1, a2) =
+    assertBool (msg ++ "\nexpected: " ++ show (e1, e2) ++ "\n but got: " ++ show (a1, a2)) $
+        abs (e1 - a1) < epsilon && abs (e2 - a2) < epsilon
