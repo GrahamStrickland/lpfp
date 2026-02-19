@@ -8,11 +8,14 @@ import Ch10.SimpleVec
 gEarth :: Vec
 gEarth = negateV (9.8 *^ kHat)
 
-vecFromMagAngleHorizontal :: (R, R) -> Vec
-vecFromMagAngleHorizontal (r, theta) = Vec 0 (r * cos theta) (r * sin theta)
+degreesToRadians :: R -> R
+degreesToRadians x = x * pi / 180
+
+vecFromMagAngleDegreesHorizontal :: (R, R) -> Vec -- (v = magnitude, theta = angle in degrees)
+vecFromMagAngleDegreesHorizontal (v, theta) = Vec 0 (v * cos (degreesToRadians theta)) (v * sin (degreesToRadians theta))
 
 vBall :: R -> Vec
-vBall t = (vecFromMagAngleHorizontal (25, 52) ^* t) ^+^ (gEarth ^* (0.5 * t ** 2))
+vBall t = (vecFromMagAngleDegreesHorizontal (25, 52) ^* t) ^+^ (gEarth ^* (0.5 * t ** 2))
 
 speedRateChangeBall :: R -> R
 speedRateChangeBall t = speedRateChange (vBall t) gEarth

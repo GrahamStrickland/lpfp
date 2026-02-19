@@ -1,5 +1,6 @@
 module Ch10Test where
 
+import qualified Ch10.BallSpeed as BallSpeed
 import qualified Ch10.MagAngles as MagAngles
 import qualified Ch10.SimpleVec as SimpleVec
 import qualified Ch10.Vec2D as Vec2D
@@ -10,7 +11,7 @@ ch10Tests :: Test
 ch10Tests =
     TestLabel "Chapter 10 Tests" $
         TestList
-            [testCh10Vec2D, testCh10XYProj]
+            [testCh10Vec2D, testCh10XYProj, testCh10MagAngles, testCh10BallSpeed]
 
 testCh10Vec2D :: Test
 testCh10Vec2D =
@@ -41,13 +42,28 @@ testCh10XYProj :: Test
 testCh10XYProj =
     TestLabel "Ch10.XYProj tests" $
         TestList
-            [TestCase $ assertVecApproxEqual "xyProj (vec 6 9 7)" 1e-12 (XYProj.xyProj (SimpleVec.vec 6 9 7)) (SimpleVec.vec 6 9 0)]
+            [TestCase $ assertVecApproxEqual "xyProj (vec 6 9 7)" 1e-12 (SimpleVec.vec 6 9 0) (XYProj.xyProj (SimpleVec.vec 6 9 7))]
 
 testCh10MagAngles :: Test
 testCh10MagAngles =
     TestLabel "Ch10.MagAngles tests" $
         TestList
-            [TestCase $ assertDoubleTripleApproxEqual "magAngles (vec (-1) (-2) (-3))" 1e-12 (MagAngles.magAngles (SimpleVec.vec (-1) (-2) (-3))) (3.7416573867739413, 2.5010703409103687, -2.0344439357957027)]
+            [TestCase $ assertDoubleTripleApproxEqual "magAngles (vec (-1) (-2) (-3))" 1e-12 (3.7416573867739413, 2.5010703409103687, -2.0344439357957027) (MagAngles.magAngles (SimpleVec.vec (-1) (-2) (-3)))]
+
+testCh10BallSpeed :: Test
+testCh10BallSpeed =
+    TestLabel "Ch10.BallSpeed tests" $
+        TestList
+            [ TestCase $ assertVecApproxEqual "gEarth" 1e-12 (SimpleVec.vec 0 0 (-9.8)) BallSpeed.gEarth
+            , TestCase $ assertDoubleApproxEqual "degreesToRadians 0" 1e-12 0.0 (BallSpeed.degreesToRadians 0)
+            , TestCase $ assertDoubleApproxEqual "degreesToRadians 45" 1e-12 (pi / 4) (BallSpeed.degreesToRadians 45)
+            , TestCase $ assertDoubleApproxEqual "degreesToRadians 90" 1e-12 (pi / 2) (BallSpeed.degreesToRadians 90)
+            , TestCase $ assertDoubleApproxEqual "degreesToRadians 180" 1e-12 pi (BallSpeed.degreesToRadians 180)
+            , TestCase $ assertVecApproxEqual "vecFromMagAngleDegreesHorizontal (0, 0)" 1e-12 (SimpleVec.vec 0 0 0) (BallSpeed.vecFromMagAngleDegreesHorizontal (0, 0))
+            , TestCase $ assertVecApproxEqual "vecFromMagAngleDegreesHorizontal (1, 45) " 1e-12 (SimpleVec.vec 0 (cos (pi / 4)) (sin (pi / 4))) (BallSpeed.vecFromMagAngleDegreesHorizontal (1, 45))
+            , TestCase $ assertVecApproxEqual "vecFromMagAngleDegreesHorizontal (2, 45) " 1e-12 (SimpleVec.vec 0 (2 * cos (pi / 4)) (2 * sin (pi / 4))) (BallSpeed.vecFromMagAngleDegreesHorizontal (2, 45))
+            , TestCase $ assertVecApproxEqual "vBall 0" 1e-12 (SimpleVec.vec 0 0 0) (BallSpeed.vBall 0)
+            ]
 
 assertVecApproxEqual :: String -> Double -> SimpleVec.Vec -> SimpleVec.Vec -> Assertion
 assertVecApproxEqual msg epsilon expected actual =

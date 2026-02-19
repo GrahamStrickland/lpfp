@@ -119,6 +119,7 @@ test-suite lpfp-test
   build-depends:
     Cabal,
     base,
+    gnuplot,
     HUnit,
     lpfp
   other-modules: Ch10.SimpleVec
