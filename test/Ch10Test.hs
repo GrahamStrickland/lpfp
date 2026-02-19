@@ -1,8 +1,10 @@
 module Ch10Test where
 
 import qualified Ch10.BallSpeed as BallSpeed
+import qualified Ch10.Kinematics3D as Kinematics3D
 import qualified Ch10.MagAngles as MagAngles
 import qualified Ch10.SimpleVec as SimpleVec
+import qualified Ch10.UniformCircularMotion as UniformCircularMotion
 import qualified Ch10.Vec2D as Vec2D
 import qualified Ch10.XYProj as XYProj
 import Test.HUnit
@@ -11,7 +13,7 @@ ch10Tests :: Test
 ch10Tests =
     TestLabel "Chapter 10 Tests" $
         TestList
-            [testCh10Vec2D, testCh10XYProj, testCh10MagAngles, testCh10BallSpeed]
+            [testCh10Vec2D, testCh10XYProj, testCh10MagAngles, testCh10BallSpeed, testCh10UniformCircularMotion]
 
 testCh10Vec2D :: Test
 testCh10Vec2D =
@@ -63,6 +65,18 @@ testCh10BallSpeed =
             , TestCase $ assertVecApproxEqual "vecFromMagAngleDegreesHorizontal (1, 45) " 1e-12 (SimpleVec.vec 0 (cos (pi / 4)) (sin (pi / 4))) (BallSpeed.vecFromMagAngleDegreesHorizontal (1, 45))
             , TestCase $ assertVecApproxEqual "vecFromMagAngleDegreesHorizontal (2, 45) " 1e-12 (SimpleVec.vec 0 (2 * cos (pi / 4)) (2 * sin (pi / 4))) (BallSpeed.vecFromMagAngleDegreesHorizontal (2, 45))
             , TestCase $ assertVecApproxEqual "vBall 0" 1e-12 (SimpleVec.vec 0 0 0) (BallSpeed.vBall 0)
+            ]
+
+testCh10UniformCircularMotion :: Test
+testCh10UniformCircularMotion =
+    TestLabel "Ch10.UniformCircularMotion tests" $
+        TestList
+            [ TestCase $ assertDoubleApproxEqual "magnitude aParallel (vUCM 6 2 0) (aUCM 6 2 0)" 1e-12 0 (SimpleVec.magnitude (Kinematics3D.aParallel (UniformCircularMotion.vUCM 6 2 0) (UniformCircularMotion.aUCM 6 2 0)))
+            , TestCase $ assertDoubleApproxEqual "magnitude aParallel (vUCM 6 2 1) (aUCM 6 2 1)" 1e-12 0 (SimpleVec.magnitude (Kinematics3D.aParallel (UniformCircularMotion.vUCM 6 2 1) (UniformCircularMotion.aUCM 6 2 1)))
+            , TestCase $ assertDoubleApproxEqual "magnitude aParallel (vUCM 6 2 10) (aUCM 6 2 10)" 1e-12 0 (SimpleVec.magnitude (Kinematics3D.aParallel (UniformCircularMotion.vUCM 6 2 10) (UniformCircularMotion.aUCM 6 2 10)))
+            , TestCase $ assertDoubleApproxEqual "magnitude aPerp (vUCM 6 2 0) (aUCM 6 2 0)" 1e-12 (6 ** 2 * 2) (SimpleVec.magnitude (Kinematics3D.aPerp (UniformCircularMotion.vUCM 6 2 0) (UniformCircularMotion.aUCM 6 2 0)))
+            , TestCase $ assertDoubleApproxEqual "magnitude aPerp (vUCM 6 2 1) (aUCM 6 2 1)" 1e-12 (6 ** 2 * 2) (SimpleVec.magnitude (Kinematics3D.aPerp (UniformCircularMotion.vUCM 6 2 1) (UniformCircularMotion.aUCM 6 2 1)))
+            , TestCase $ assertDoubleApproxEqual "magnitude aPerp (vUCM 6 2 10) (aUCM 6 2 10)" 1e-12 (6 ** 2 * 2) (SimpleVec.magnitude (Kinematics3D.aPerp (UniformCircularMotion.vUCM 6 2 10) (UniformCircularMotion.aUCM 6 2 10)))
             ]
 
 assertVecApproxEqual :: String -> Double -> SimpleVec.Vec -> SimpleVec.Vec -> Assertion

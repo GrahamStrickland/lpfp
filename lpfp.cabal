@@ -99,6 +99,7 @@ library
     Ch10.XYProj
     Ch10.MagAngles
     Ch10.BallSpeed
+    Ch10.UniformCircularMotion
     LPFP
 
   other-modules: Ch10.SimpleVec
