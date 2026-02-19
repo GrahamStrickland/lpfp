@@ -114,10 +114,12 @@ library
 test-suite lpfp-test
   import: warnings
   type: exitcode-stdio-1.0
-  hs-source-dirs: test
+  hs-source-dirs: src, test
   main-is: TestMain.hs
   build-depends:
+    Cabal,
     base,
     HUnit,
     lpfp
+  other-modules: Ch10.SimpleVec
   default-language: Haskell2010
