@@ -17,6 +17,16 @@ vecFromMagAngleDegreesHorizontal (v, theta) = Vec 0 (v * cos (degreesToRadians t
 vBall :: R -> Vec
 vBall t = (vecFromMagAngleDegreesHorizontal (25, 52) ^* t) ^+^ (gEarth ^* (0.5 * t ** 2))
 
+posBallZ :: Time -> R
+posBallZ t = zComp (projectilePos (Vec 0 0 0) (vecFromMagAngleDegreesHorizontal (25, 52)) t)
+
+posBallPlot :: IO ()
+posBallPlot =
+    plotFunc
+        [Key (Just ["noautotitle"])]
+        [0, 0.1 .. 4]
+        posBallZ
+
 speedRateChangeBall :: R -> R
 speedRateChangeBall t = speedRateChange (vBall t) gEarth
 
