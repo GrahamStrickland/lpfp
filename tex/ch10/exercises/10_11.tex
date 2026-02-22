@@ -1,0 +1,30 @@
+% Exercise 10.11
+
+We have the following output using the functions defined in
+\path{src/Ch10/NonuniformCircularMotion.hs}
+
+\begin{verbatim}
+ghci> radialComponent 2 2
+vec (-69.11249319950134) 20.10935225661961 0.0
+ghci> radialComponent 2 2
+ghci> vNCM 0.01 (2, thetaFunc) 2
+11.999999999999744
+ghci> magRadialComponent 2 2
+71.9786271363377
+ghci> squareSpeedDivRad 2 2
+71.99999999999693
+\end{verbatim}
+
+Thus we can conclude that the radial component of acceleration at $t = 2$s is
+given by the vector
+\[
+    \mathbf{a}_r\left(\theta(2), 2\right) \approx (-69.11249319950134, 20.10935225661961, 0.0),
+\]
+the speed of the particle at time $t = 2$s is given by 
+\[
+    v_{\text{NCM}}\left(\theta(2), 2\right) \approx 11.999999999999744,
+\]
+and the magnitude of the radial component at that time by
+\[
+    \lvert \mathbf{a}_r\left(\theta(2), 2\right) \rvert \approx 71.99999999999693.
+\]
