@@ -84,7 +84,7 @@ testCh10NCM :: Test
 testCh10NCM =
     TestLabel "Ch10.NCM tests" $
         TestList
-            [ TestCase $ assertDoubleApproxEqual "magRadialComponent 2 2" 1e-1 (NCM.magRadialComponent 2 2) ((SimpleVec.magnitude (NCM.rNCM (2, NCM.thetaFunc) 2)) ** 2 / 2)
+            [ TestCase $ assertDoubleApproxEqual "magRadialComponent 2 2" 1e-1 (NCM.magRadialComponent 2 2) (NCM.squareSpeedDivRad 2 2)
             ]
 
 assertVecApproxEqual :: String -> Double -> SimpleVec.Vec -> SimpleVec.Vec -> Assertion
