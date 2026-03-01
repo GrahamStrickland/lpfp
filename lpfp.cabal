@@ -101,6 +101,7 @@ library
     Ch10.BallSpeed
     Ch10.UniformCircularMotion
     Ch10.NonuniformCircularMotion
+    Ch11.ProjectileMotion
     LPFP
 
   other-modules: Ch10.SimpleVec
