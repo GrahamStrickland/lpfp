@@ -11,7 +11,7 @@ vRock15 :: R -> R
 vRock15 t = 15 - 9.8 * t
 
 rockTrajectory :: R -> [(R,R,R)]
-rockTrajectory t1 = [(t,yRock15 t,vRock15 t) | t <- [0,0.1..t1]]
+rockTrajectory t1 = [(t,yRock15 t,vRock15 t) | t <- [0,0.01..t1]]
 
 plot1 :: IO ()
-plot1 = plotList [Key (Just ["noautotitle"])] (rockTrajectory 1.0)
+plot1 = plotList [Key (Just ["noautotitle"]), EPS "plots/9_14.eps"] (rockTrajectory 1.0)

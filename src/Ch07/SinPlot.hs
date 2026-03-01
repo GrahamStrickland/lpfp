@@ -10,6 +10,6 @@ sinFunc = sin
 sinPlot :: IO ()
 sinPlot =
     plotFunc
-        [Key (Just ["noautotitle"])]
+        [Key (Just ["noautotitle"]), EPS "plots/7_1.eps"]
         [-10, -9.9 .. 10]
         sinFunc

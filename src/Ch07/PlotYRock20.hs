@@ -10,6 +10,6 @@ yRock v0 t = v0 * t - 0.5 * 9.8 * t ** 2
 yRock20Plot :: IO ()
 yRock20Plot =
     plotFunc
-        [Key (Just ["noautotitle"])]
+        [Key (Just ["noautotitle"]), EPS "plots/7_3.eps"]
         [0, 0.1 .. 4]
         (yRock 20)

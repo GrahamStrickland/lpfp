@@ -10,6 +10,6 @@ yRock30 t = 30 * t - 0.5 * 9.8 * t ** 2
 yRock30Plot :: IO ()
 yRock30Plot =
     plotFunc
-        [Key (Just ["noautotitle"])]
+        [Key (Just ["noautotitle"]), EPS "plots/7_2.eps"]
         [0, 0.1 .. 6]
         yRock30

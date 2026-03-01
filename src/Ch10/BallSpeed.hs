@@ -23,7 +23,7 @@ posBallZ t = zComp (projectilePos (Vec 0 0 0) (vecFromMagAngleDegreesHorizontal 
 posBallPlot :: IO ()
 posBallPlot =
     plotFunc
-        [Key (Just ["noautotitle"])]
+        [Key (Just ["noautotitle"]), EPS "plots/10_9_i.eps"]
         [0, 0.1 .. 4]
         posBallZ
 
@@ -33,6 +33,6 @@ speedRateChangeBall t = speedRateChange (vBall t) gEarth
 speedRateChangeBallPlot :: IO ()
 speedRateChangeBallPlot =
     plotFunc
-        [Key (Just ["noautotitle"])]
+        [Key (Just ["noautotitle"]), EPS "plots/10_9_ii.eps"]
         [0, 0.1 .. 4]
         speedRateChangeBall
