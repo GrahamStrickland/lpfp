@@ -102,6 +102,10 @@ library
     Ch10.UniformCircularMotion
     Ch10.NonuniformCircularMotion
     Ch11.ProjectileMotion
+    Ch11.QuadraticPlot
+    Ch11.CosSinPlot
+    Ch11.PlotPath
+    Ch11.SinApprox
     LPFP
 
   other-modules: Ch10.SimpleVec
