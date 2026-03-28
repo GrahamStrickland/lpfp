@@ -106,9 +106,8 @@ library
     Ch11.CosSinPlot
     Ch11.PlotPath
     Ch11.SinApprox
+    Ch10.SimpleVec
     LPFP
-
-  other-modules: Ch10.SimpleVec
   -- other-extensions:
   build-depends:
     Cabal,

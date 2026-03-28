@@ -7,14 +7,15 @@ help:   ## Show this help message
 
 .PHONY: install
 install:  ## Install cabal project
-	cabal v2-install
+	cd trajectory
+	cabal install
+	cd ..
 
 .PHONY: build
-install:  ## Build cabal project
-	cabal v2-build
+build:  ## Build cabal project
+	cabal build all
 
 .PHONY: clean
 clean:  ## Clean up cabal files and build artifacts
 	rm -rf dist-newstyle
 	rm tags
-	rm cabal.project.local

@@ -1,4 +1,4 @@
-# Revision history for lpfp
+# Revision history for Trajectory
 
 ## 0.1.0.0 -- YYYY-mm-dd
 
