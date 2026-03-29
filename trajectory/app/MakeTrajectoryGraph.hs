@@ -1,8 +1,8 @@
 {-# OPTIONS -Wall #-}
 
-import Graphics.Gnuplot.Simple (Attribute (..), plotPath)
 import Ch10.Kinematics3D (projectilePos)
 import Ch10.SimpleVec (iHat, kHat, xComp, zComp, (*^), (^+^))
+import Graphics.Gnuplot.Simple (Attribute (..), plotPath)
 
 main :: IO ()
 main =
