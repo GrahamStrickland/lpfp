@@ -1,21 +1,24 @@
 .PHONY: help
-help:   ## Show this help message
+help:
 	@echo "Available commands:"
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2}'
 
 .DEFAULT_GOAL := help
 
-.PHONY: install
-install:  ## Install cabal project
-	cd trajectory
-	cabal install
-	cd ..
-
 .PHONY: build
-build:  ## Build cabal project
+build:
 	cabal build all
 
+.PHONY: test
+test:
+	cabal test all
+
+.PHONY: install
+install:
+	cd trajectory && cabal install
+	cd powers && cabal install
+
 .PHONY: clean
-clean:  ## Clean up cabal files and build artifacts
+clean:
 	rm -rf dist-newstyle
 	rm tags
