@@ -15,8 +15,9 @@ test:
 
 .PHONY: install
 install:
-	cd trajectory && cabal install
-	cd powers && cabal install
+	cd trajectory && cabal install --overwrite-policy=always
+	cd powers && cabal install --overwrite-policy=always
+	cd plots && cabal install --overwrite-policy=always
 
 .PHONY: clean
 clean:

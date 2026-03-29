@@ -24,5 +24,6 @@ dist-newstyle
 *.local
 
 # Plots
-**/plots/*
+**/plots/*.eps
+**/plots/*.pdf
 *.png
