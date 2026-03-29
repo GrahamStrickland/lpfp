@@ -18,6 +18,7 @@ install:
 	cd trajectory && cabal install --overwrite-policy=always
 	cd powers && cabal install --overwrite-policy=always
 	cd plots && cabal install --overwrite-policy=always
+	cd glosspicture && cabal install --overwrite-policy=always
 
 .PHONY: clean
 clean:
