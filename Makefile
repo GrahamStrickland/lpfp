@@ -20,6 +20,7 @@ install:
 	cd plots && cabal install --overwrite-policy=always
 	cd glosspicture && cabal install --overwrite-policy=always
 	cd glossanimation && cabal install --overwrite-policy=always
+	cd glosssimulate && cabal install --overwrite-policy=always
 
 .PHONY: clean
 clean:
