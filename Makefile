@@ -21,6 +21,9 @@ install:
 	cd glosspicture && cabal install --overwrite-policy=always
 	cd glossanimation && cabal install --overwrite-policy=always
 	cd glosssimulate && cabal install --overwrite-policy=always
+	cd notglosspicture3d && cabal install --overwrite-policy=always
+	cd notglossanimation3d && cabal install --overwrite-policy=always
+	cd notglosssimulate3d && cabal install --overwrite-policy=always
 
 .PHONY: clean
 clean:

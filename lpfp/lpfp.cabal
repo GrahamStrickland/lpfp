@@ -128,6 +128,7 @@ test-suite lpfp-test
     base,
     gnuplot,
     gloss,
+    not-gloss,
     HUnit,
     lpfp
   other-modules: Ch10.SimpleVec
