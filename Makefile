@@ -25,6 +25,7 @@ install:
 	cd notglossanimation3d && cabal install --overwrite-policy=always
 	cd notglosssimulate3d && cabal install --overwrite-policy=always
 	cd ocean && cabal install --overwrite-policy=always
+	cd oceansunset && cabal install --overwrite-policy=always
 
 .PHONY: clean
 clean:
