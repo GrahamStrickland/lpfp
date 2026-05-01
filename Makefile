@@ -27,8 +27,10 @@ install:
 	cd ocean && cabal install --overwrite-policy=always
 	cd oceansunset && cabal install --overwrite-policy=always
 	cd reddiskanim && cabal install --overwrite-policy=always
+	cd reddiskmotion && cabal install --overwrite-policy=always
 
 .PHONY: clean
 clean:
+	cabal clean
 	rm -rf dist-newstyle
 	rm tags
