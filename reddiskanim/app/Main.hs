@@ -11,8 +11,8 @@ disk radius = ThickCircle (radius / 2) radius
 redDisk :: Picture
 redDisk = Color red (disk 25)
 
-projectileMotion :: Float -> Picture
-projectileMotion t = Translate (300 * cos t) (200 * sin t) redDisk
+ellipticalMotion :: Float -> Picture
+ellipticalMotion t = Translate (300 * cos t) (200 * sin t) redDisk
 
 main :: IO ()
-main = animate displayMode black projectileMotion
+main = animate displayMode black ellipticalMotion
