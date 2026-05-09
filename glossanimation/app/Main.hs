@@ -12,13 +12,13 @@ redDisk :: Picture
 redDisk = Color red (disk 25)
 
 projectileMotion :: Float -> Picture
-projectileMotion t = Translate (xDisk t) (yDisk t) redDisk
+projectileMotion t = Translate (10 * xDisk t) (10 * yDisk t) redDisk
 
 xDisk :: Float -> Float
-xDisk t = 40 * t
+xDisk t = 10 * t
 
 yDisk :: Float -> Float
-yDisk t = 80 * t - 4.9 * t**2
+yDisk t = 20 * t - 4.9 * t**2
 
 main :: IO ()
 main = animate displayMode black projectileMotion
