@@ -28,6 +28,7 @@ install:
 	cd oceansunset && cabal install --overwrite-policy=always
 	cd reddiskanim && cabal install --overwrite-policy=always
 	cd reddiskmotion && cabal install --overwrite-policy=always
+	cd limitcycle && cabal install --overwrite-policy=always
 
 .PHONY: clean
 clean:
