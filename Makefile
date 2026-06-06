@@ -30,6 +30,7 @@ install:
 	cd reddiskmotion && cabal install --overwrite-policy=always
 	cd limitcycle && cabal install --overwrite-policy=always
 	cd reddiskoscillate && cabal install --overwrite-policy=always
+	cd simulationtest2 && cabal install --overwrite-policy=always
 
 .PHONY: clean
 clean:
