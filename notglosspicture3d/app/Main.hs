@@ -17,7 +17,7 @@ axes =
         ]
 
 orient :: VisObject R -> VisObject R
-orient pict = RotEulerDeg (Euler 270 180 0) $ pict
+orient pict = RotEulerDeg (Euler 0 0 270) $ pict
 
 main :: IO ()
 main = display defaultOpts (orient axes)
