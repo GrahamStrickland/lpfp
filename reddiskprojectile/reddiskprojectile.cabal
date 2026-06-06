@@ -1,7 +1,7 @@
 cabal-version:      3.0
-name:               notglosssimulate3d
+name:               reddiskprojectile
 version:            0.1.0.0
-synopsis:           3D simulation using not-gloss (Vis)
+synopsis:           Projectile motion animation using Graphics.Gloss
 -- description:
 homepage:           https://github.com/GrahamStrickland/lpfp.git
 license:            BSD-3-Clause
@@ -17,11 +17,11 @@ extra-doc-files:    CHANGELOG.md
 common warnings
     ghc-options: -Wall
 
-executable notglosssimulate3d
+executable reddiskprojectile
     import:           warnings
     main-is:          Main.hs
     -- other-modules:
     -- other-extensions:
-    build-depends:    base ^>=4.21.0.0, not-gloss
+    build-depends:    base ^>=4.21.0.0, gloss
     hs-source-dirs:   app
     default-language: Haskell2010

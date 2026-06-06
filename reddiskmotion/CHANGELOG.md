@@ -1,4 +1,4 @@
-# Revision history for oscillateanim
+# Revision history for reddiskmotion
 
 ## 0.1.0.0 -- YYYY-mm-dd
 

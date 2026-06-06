@@ -1,4 +1,4 @@
-# Revision history for glosssimulate
+# Revision history for axes
 
 ## 0.1.0.0 -- YYYY-mm-dd
 

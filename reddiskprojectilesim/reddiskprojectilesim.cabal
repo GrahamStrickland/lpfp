@@ -1,7 +1,7 @@
 cabal-version:      3.0
-name:               glossanimation
+name:               reddiskprojectilesim
 version:            0.1.0.0
-synopsis:           Animation using Graphics.Gloss
+synopsis:           Red disk projectile motion simulation using Graphics.Gloss
 -- description:
 homepage:           https://github.com/GrahamStrickland/lpfp.git
 license:            BSD-3-Clause
@@ -17,7 +17,7 @@ extra-doc-files:    CHANGELOG.md
 common warnings
     ghc-options: -Wall
 
-executable glossanimation
+executable reddiskprojectilesim
     import:           warnings
     main-is:          Main.hs
     -- other-modules:

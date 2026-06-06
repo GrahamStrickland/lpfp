@@ -1,4 +1,4 @@
-# Revision history for glosspicture3d
+# Revision history for reddiskprojectile
 
 ## 0.1.0.0 -- YYYY-mm-dd
 

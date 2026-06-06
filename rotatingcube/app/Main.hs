@@ -2,11 +2,11 @@
 
 module Main (main) where
 
-import Vis
 import SpatialMath
+import Vis
 
 rotatingCube :: Float -> VisObject Float
-rotatingCube t = RotEulerRad (Euler 0 0 t) (Cube 1 Solid blue)
+rotatingCube t = RotEulerRad (Euler 0 0 (-t)) (Cube 1 Solid blue)
 
 orient :: VisObject Float -> VisObject Float
 orient pict = RotEulerDeg (Euler 270 180 0) $ pict

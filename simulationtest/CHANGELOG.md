@@ -1,4 +1,4 @@
-# Revision history for glossanimation
+# Revision history for simulationtest
 
 ## 0.1.0.0 -- YYYY-mm-dd
 

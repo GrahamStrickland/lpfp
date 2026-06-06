@@ -1,7 +1,7 @@
 cabal-version:      3.0
-name:               glosspicture
+name:               reddiskbluecircle
 version:            0.1.0.0
-synopsis:           Picture using Graphics.Gloss
+synopsis:           Red disk and blue circle picture using Graphics.Gloss
 -- description:
 homepage:           https://github.com/GrahamStrickland/lpfp.git
 license:            BSD-3-Clause
@@ -17,7 +17,7 @@ extra-doc-files:    CHANGELOG.md
 common warnings
     ghc-options: -Wall
 
-executable glosspicture
+executable reddiskbluecircle
     import:           warnings
     main-is:          Main.hs
     -- other-modules:

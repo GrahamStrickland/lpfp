@@ -1,4 +1,4 @@
-# Revision history for notglosssimulate3d
+# Revision history for reddiskbluecircle
 
 ## 0.1.0.0 -- YYYY-mm-dd
 
