@@ -12,6 +12,7 @@ import Ch11.PlotPath (plotTXPairs)
 import Ch11.ProjectileMotion (plot1, plot1Custom, plot2Custom, plot3Custom, plot4, usePlotFuncs, usePlotFuncs', usePlotPaths)
 import Ch11.QuadraticPlot (plotQuadratic)
 import Ch11.SinApprox (plotApproxSin)
+import Ch14.Newton2 (carGraph, childGraph)
 import System.Command
 import System.Directory
 import System.FilePath.Posix (dropExtension, takeExtension, (</>))
@@ -39,6 +40,12 @@ projectileMotionPlot4 = Ch11.ProjectileMotion.plot3Custom
 
 projectileMotionPlot5 :: IO ()
 projectileMotionPlot5 = Ch11.ProjectileMotion.plot4
+
+carGraphPlot :: IO ()
+carGraphPlot = Ch14.Newton2.carGraph
+
+childGraphPlot :: IO ()
+childGraphPlot = Ch14.Newton2.childGraph
 
 filePathHasExtension :: String -> FilePath -> Bool
 filePathHasExtension ext f = takeExtension f == ext
@@ -82,6 +89,10 @@ main = do
     plotCosSin
     plotApproxSin
     plotTXPairs
+
+    -- Chapter 14
+    carGraphPlot
+    childGraphPlot
 
     files <- getDirectoryContents "plots"
     let epsFilePaths = map ("plots/" </>) (getFilePathsWithExtension files ".eps")

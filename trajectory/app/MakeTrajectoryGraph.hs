@@ -15,7 +15,7 @@ main =
             [ Title "Projectile Motion"
             , XLabel "Horizontal position (m)"
             , YLabel "Height of projectile (m)"
-            , PNG "projectile.png"
+            , EPS "plots/projectile.eps"
             , Key Nothing
             ]
             plottingPairs

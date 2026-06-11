@@ -23,7 +23,6 @@ plot1 =
         [ Title "Projectile Motion"
         , XLabel "Time (s)"
         , YLabel "Height of projectile (m)"
-        , PNG "projectile.png"
         , Key Nothing
         ]
         tRange
@@ -35,7 +34,6 @@ plot1Custom =
         [ Title "Projectile Motion"
         , XLabel "Time (s)"
         , YLabel "Height of projectile (m)"
-        , PNG "CustomLabel.png"
         , Key Nothing
         , Custom "label" ["\"Peak Height\" at 1.5,22"]
         ]
