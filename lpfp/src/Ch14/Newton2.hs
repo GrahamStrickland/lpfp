@@ -87,3 +87,33 @@ childGraph
                ,EPS "plots/ChildPosition.eps"
                ,Key Nothing
                ] [0..40 :: R] (positionFt 0.1 20 0 0 [pedalCoast])
+
+fAir :: R   -- drag coefficient
+     -> R   -- air density
+     -> R   -- cross-sectional area of object
+     -> Velocity
+     -> Force
+fAir drag rho area v = -drag * rho * area * abs v * v / 2
+
+newtonSecondV :: Mass
+              -> [Velocity -> Force]    -- list of force functions
+              -> Velocity               -- current velocity
+              -> R                      -- derivative of velocity
+newtonSecondV m fs v0 = sum [f v0 | f <- fs] / m
+
+updateVelocity :: R                     -- time interval dt
+               -> Mass
+               -> [Velocity -> Force]   -- list of force functions
+               -> Velocity              -- current velocity
+               -> Velocity              -- new velocity
+updateVelocity dt m fs v0
+    = v0 + (newtonSecondV m fs v0) * dt
+
+velocityFv :: R                     -- time step
+           -> Mass
+           -> Velocity              -- initial velocity v(0)
+           -> [Velocity -> Force]   -- list of initial force functions
+           -> Time -> Velocity      -- velocity function
+velocityFv dt m v0 fs t
+    = let numSteps = abs $ round (t / dt)
+      in iterate (updateVelocity dt m fs) v0 !! numSteps
