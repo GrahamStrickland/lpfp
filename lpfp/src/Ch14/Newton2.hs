@@ -117,3 +117,50 @@ velocityFv :: R                     -- time step
 velocityFv dt m v0 fs t
     = let numSteps = abs $ round (t / dt)
       in iterate (updateVelocity dt m fs) v0 !! numSteps
+
+bikeVelocity :: Time -> Velocity
+bikeVelocity = velocityFv 1 70 0 [const 100,fAir 2 1.225 0.6]
+
+bikeGraph :: IO ()
+bikeGraph = plotFunc [Title "Bike velocity"
+                     ,XLabel "Time (s)"
+                     ,YLabel "Velocity of Bike (m/s)"
+                     ,EPS "BikeVelocity.eps"
+                     ,Key Nothing
+                     ] [0,0.5..60] bikeVelocity
+
+newtonSecondTV :: Mass
+               -> [(Time,Velocity) -> Force]    -- force funcs
+               -> (Time,Velocity)               -- current state
+               -> (R,R)                         -- deriv of state
+newtonSecondTV m fs (t,v0)
+    = let fNet = sum [f (t,v0) | f <- fs]
+          acc = fNet / m
+      in (1,acc)
+
+updateTV :: R                           -- time interval dt
+         -> Mass
+         -> [(Time,Velocity) -> Force]  -- list of force funcs
+         -> (Time,Velocity)             -- current state
+         -> (Time,Velocity)             -- new state
+updateTV dt m fs (t,v0)
+    = let (dtdt, dvdt) = newtonSecondTV m fs (t,v0)
+      in (t  + dtdt * dt
+         ,v0 + dvdt * dt)
+
+statesTV :: R                           -- time step
+         -> Mass
+         -> (Time,Velocity)             -- initial state
+         -> [(Time,Velocity) -> Force]  -- list of force funs
+         -> [(Time,Velocity)]           -- infinite list of states
+statesTV dt m tv0 fs
+    = iterate (updateTV dt m fs) tv0
+
+velocityFtv :: R                            -- time step
+            -> Mass
+            -> (Time,Velocity)              -- initial state
+            -> [(Time,Velocity) -> Force]   -- list of force funcs
+            -> Time -> Velocity             -- velocity function
+velocityFtv dt m tv0 fs t
+    = let numSteps = abs $ round (t / dt)
+      in snd $ statesTV dt m tv0 fs !! numSteps
