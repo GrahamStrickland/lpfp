@@ -125,7 +125,7 @@ bikeGraph :: IO ()
 bikeGraph = plotFunc [Title "Bike velocity"
                      ,XLabel "Time (s)"
                      ,YLabel "Velocity of Bike (m/s)"
-                     ,EPS "BikeVelocity.eps"
+                     ,EPS "plots/BikeVelocity.eps"
                      ,Key Nothing
                      ] [0,0.5..60] bikeVelocity
 
@@ -164,3 +164,23 @@ velocityFtv :: R                            -- time step
 velocityFtv dt m tv0 fs t
     = let numSteps = abs $ round (t / dt)
       in snd $ statesTV dt m tv0 fs !! numSteps
+
+pedalCoastAir :: [(Time,Velocity)]
+pedalCoastAir = statesTV 0.1 20 (0,0)
+                [\(t,_) -> pedalCoast t
+                ,\(_,v) -> fAir 2 1.225 0.5 v]
+
+pedalCoastAirGraph :: IO ()
+pedalCoastAirGraph 
+    = plotPath [Title "Pedaling and coasting with air"
+               ,XLabel "Time (s)"
+               ,YLabel "Velocity of Bike (m/s)"
+               ,EPS "plots/pedalCoastAirGraph.eps"
+               ,Key Nothing
+               ] (takeWhile (\(t,_) -> t <= 100)
+                  pedalCoastAir)
+
+pedalCoastAir2 :: Time -> Velocity
+pedalCoastAir2 = velocityFtv 0.1 20 (0,0)
+                 [\( t,_v) -> pedalCoast t
+                 ,\(_t, v) -> fAir 1 1.225 0.5 v]
