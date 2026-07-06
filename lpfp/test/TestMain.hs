@@ -5,6 +5,7 @@ import Ch05Test (ch05Tests)
 import Ch06Test (ch06Tests)
 import Ch09Test (ch09Tests)
 import Ch10Test (ch10Tests)
+import Ch14Test (ch14Tests)
 import Test.HUnit
 
 main :: IO ()
@@ -18,6 +19,7 @@ main = do
                 , ch06Tests
                 , ch09Tests
                 , ch10Tests
+                , ch14Tests
                 ]
     putStrLn $ "Tests completed: " ++ show testCounts
     return ()

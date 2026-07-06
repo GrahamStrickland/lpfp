@@ -30,6 +30,16 @@ velocityCF m v0 fs
           v t  = v0 + a0 * t    -- constant acceleration eqn
       in v
 
+velocityCF' :: Mass
+            -> Velocity         -- initial velocity
+            -> [Force]          -- list of forces
+            -> Time -> Velocity -- velocity function
+velocityCF' m v0 fs t 
+    = let fNet = sum fs
+          a0   = fNet / m
+          v = v0 + a0 * t
+      in v
+
 positionCF :: Mass
            -> Position          -- initial position
            -> Velocity          -- initial velocity
