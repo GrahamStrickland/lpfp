@@ -1,5 +1,5 @@
 cabal-version:      3.0
-name:               plots
+name:               lpfpplots
 version:            0.1.0.0
 synopsis:           Plot all 2D plots from lpfp lib
 -- description:
@@ -17,7 +17,7 @@ extra-doc-files:    CHANGELOG.md
 common warnings
     ghc-options: -Wall
 
-executable plots
+executable lpfpplots
     import:           warnings
     main-is:          Main.hs
     -- other-modules:
