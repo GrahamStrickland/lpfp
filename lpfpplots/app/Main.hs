@@ -12,7 +12,7 @@ import Ch11.PlotPath (plotTXPairs)
 import Ch11.ProjectileMotion (plot1, plot1Custom, plot2Custom, plot3Custom, plot4, usePlotFuncs, usePlotFuncs', usePlotPaths)
 import Ch11.QuadraticPlot (plotQuadratic)
 import Ch11.SinApprox (plotApproxSin)
-import Ch14.Newton2 (carGraph, childGraph, bikeGraph, pedalCoastAirGraph)
+import Ch14.Newton2 (carGraph, carPosGraph, childGraph, bikeGraph, pedalCoastAirGraph)
 import System.Command
 import System.Directory
 import System.FilePath.Posix (dropExtension, takeExtension, (</>))
@@ -43,6 +43,9 @@ projectileMotionPlot5 = Ch11.ProjectileMotion.plot4
 
 carGraphPlot :: IO ()
 carGraphPlot = Ch14.Newton2.carGraph
+
+carPosGraphPlot :: IO ()
+carPosGraphPlot = Ch14.Newton2.carPosGraph
 
 childGraphPlot :: IO ()
 childGraphPlot = Ch14.Newton2.childGraph
@@ -98,6 +101,7 @@ main = do
 
     -- Chapter 14
     carGraphPlot
+    carPosGraphPlot
     childGraphPlot
     bikeGraphPlot
     pedalCoastAirGraphPlot

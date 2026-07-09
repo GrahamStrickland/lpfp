@@ -60,13 +60,22 @@ carGraph
                ,Key Nothing
                ] [0..4 :: Time] (velocityCF 0.1 0.6 [0.04, -0.08])
 
+carPosGraph :: IO ()
+carPosGraph
+    = plotFunc [Title "Car on an air track"
+               ,XLabel "Time (s)"
+               ,YLabel "Position of Car (m)"
+               ,EPS "plots/CarPosition.eps"
+               ,Key Nothing
+               ] [0..4 :: Time] (positionCF 0.1 (-1.0) 0.6 [0.04, -0.08])
+
 velocityFt :: R                 -- dt for integral
            -> Mass
            -> Velocity          -- initial velocity
            -> [Time -> Force]   -- list of force functions
            -> Time -> Velocity  -- velocity function
 velocityFt dt m v0 fs
-    = let fNet t = sum [f t | f <- fs]
+    = let fNet = sumF fs -- sum [f t | f <- fs]
           a t = fNet t / m
       in antiDerivative dt v0 a
 
@@ -194,3 +203,25 @@ pedalCoastAir2 :: Time -> Velocity
 pedalCoastAir2 = velocityFtv 0.1 20 (0,0)
                  [\( t,_v) -> pedalCoast t
                  ,\(_t, v) -> fAir 1 1.225 0.5 v]
+
+sumF :: [R -> R] -> R -> R
+sumF fs t = sum [f t | f <- fs]
+
+updatePosition :: R                     -- time interval dt
+               -> Mass
+               -> [Velocity -> Force]   -- list of force functions
+               -> Position              -- current position
+               -> Velocity              -- current velocity
+               -> Position              -- new position
+updatePosition dt m fs x0 v0
+    = x0 + v0 * dt + (newtonSecondV m fs v0) * dt ** 2
+
+positionFv :: R                     -- time step
+           -> Mass
+           -> Position              -- initial position x(0)
+           -> Velocity              -- initial velocity v(0)
+           -> [Velocity -> Force]   -- list of force functions
+           -> Time -> Position      -- position function
+positionFv dt m x0 v0 fs t
+    = let numSteps = abs $ round (t / dt)
+      in iterate (updatePosition dt m fs v0) x0 !! numSteps
