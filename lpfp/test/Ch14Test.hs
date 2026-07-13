@@ -19,5 +19,8 @@ testCh14Newton2 =
         TestCase $ assertEqual "sumF [sin, cos] pi" (sin pi + cos pi) (Newton2.sumF [sin, cos] pi),
         TestCase $ assertEqual "positionFv 0.1 70 0 [const 100,fAir 2 1.225 0.6] 0" 0.0 (Newton2.positionFv 0.1 70 0 0 [const 100, Newton2.fAir 2 1.225 0.6] 0),
         TestCase $ assertEqual "positionFv 0.1 70 0 [const 100,fAir 2 1.225 0.6] 1" 0.6417028011495182 (Newton2.positionFv 0.1 70 0 0 [const 100, Newton2.fAir 2 1.225 0.6] 1),
-        TestCase $ assertEqual "positionFv 0.1 70 0 [const 100,fAir 2 1.225 0.6] 2" 2.691369821799467 (Newton2.positionFv 0.1 70 0 0 [const 100, Newton2.fAir 2 1.225 0.6] 2)
+        TestCase $ assertEqual "positionFv 0.1 70 0 [const 100,fAir 2 1.225 0.6] 2" 2.691369821799467 (Newton2.positionFv 0.1 70 0 0 [const 100, Newton2.fAir 2 1.225 0.6] 2),
+        TestCase $ assertEqual "bikeVelocity 0" 0.0 (Newton2.bikeVelocity 0),
+        TestCase $ assertEqual "bikeVelocity 1" 1.4285714285714286 (Newton2.bikeVelocity 1),
+        TestCase $ assertEqual "bikeVelocity 2" 2.835714285714286 (Newton2.bikeVelocity 2)
       ]

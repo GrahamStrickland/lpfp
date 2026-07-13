@@ -114,6 +114,13 @@ fAir :: R   -- drag coefficient
      -> Force
 fAir drag rho area v = -drag * rho * area * abs v * v / 2
 
+fAirT :: R   -- drag coefficient
+      -> R   -- air density
+      -> R   -- cross-sectional area of object
+      -> (Time, Velocity)
+      -> Force
+fAirT drag rho area (_, v) = -drag * rho * area * abs v * v / 2
+
 newtonSecondV :: Mass
               -> [Velocity -> Force]    -- list of force functions
               -> Velocity               -- current velocity
@@ -138,7 +145,8 @@ velocityFv dt m v0 fs t
       in iterate (updateVelocity dt m fs) v0 !! numSteps
 
 bikeVelocity :: Time -> Velocity
-bikeVelocity = velocityFv 1 70 0 [const 100,fAir 2 1.225 0.6]
+-- bikeVelocity = velocityFv 1 70 0 [const 100,fAir 2 1.225 0.6]
+bikeVelocity = velocityFtv 1 70 (0, 0) [const 100,fAirT 2 1.225 0.6]
 
 bikeGraph :: IO ()
 bikeGraph = plotFunc [Title "Bike velocity"
