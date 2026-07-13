@@ -207,14 +207,12 @@ pedalCoastAir2 = velocityFtv 0.1 20 (0,0)
 sumF :: [R -> R] -> R -> R
 sumF fs t = sum [f t | f <- fs]
 
-updatePosition :: R                     -- time interval dt
-               -> Mass
-               -> [Velocity -> Force]   -- list of force functions
-               -> Position              -- current position
-               -> Velocity              -- current velocity
-               -> Position              -- new position
-updatePosition dt m fs x0 v0
-    = x0 + v0 * dt + (newtonSecondV m fs v0) * dt ** 2
+updateXV :: R                   -- time interval dt
+         -> Mass
+         -> [Velocity -> Force] -- list of force funcs
+         -> (Position,Velocity) -- current state
+         -> (Position,Velocity) -- new state
+updateXV dt m fs (x0, v0) = (x0 + v0 * dt, updateVelocity dt m fs v0)
 
 positionFv :: R                     -- time step
            -> Mass
@@ -224,4 +222,4 @@ positionFv :: R                     -- time step
            -> Time -> Position      -- position function
 positionFv dt m x0 v0 fs t
     = let numSteps = abs $ round (t / dt)
-      in iterate (updatePosition dt m fs v0) x0 !! numSteps
+      in fst $ iterate (updateXV dt m fs) (x0, v0) !! numSteps
