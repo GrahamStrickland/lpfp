@@ -231,3 +231,24 @@ positionFv :: R                     -- time step
 positionFv dt m x0 v0 fs t
     = let numSteps = abs $ round (t / dt)
       in fst $ iterate (updateXV dt m fs) (x0, v0) !! numSteps
+
+bikeVelocitySmooth :: Time -> Velocity
+bikeVelocitySmooth = velocityFtv 1 70 (0, 0) [const 100,fAirT 2 1.225 0.6]
+
+bikeGraphSmooth :: IO ()
+bikeGraphSmooth = plotFunc [Title "Bike velocity"
+                     ,XLabel "Time (s)"
+                     ,YLabel "Velocity of Bike (m/s)"
+                     ,EPS "plots/14_8.eps"
+                     ,Key Nothing
+                     ] [0,1..60] bikeVelocitySmooth
+
+positionFtv :: R                            -- time step
+            -> Mass
+            -> Position                     -- initial position x(0)
+            -> Velocity                     -- initial velocity v(0)
+            -> [(Time,Velocity) -> Force]   -- force functions
+            -> Time -> Position             -- position function
+positionFtv dt m tx0 tv0 fs t 
+    = let numSteps = abs $ round (t / dt)
+      in snd $ statesTV dt m tv0 fs !! numSteps
