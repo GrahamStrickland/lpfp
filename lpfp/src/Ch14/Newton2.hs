@@ -243,12 +243,29 @@ bikeGraphSmooth = plotFunc [Title "Bike velocity"
                      ,Key Nothing
                      ] [0,1..60] bikeVelocitySmooth
 
+updateTXV :: R                          -- time interval dt
+          -> Mass
+          -> [(Time,Velocity) -> Force] -- list of force funcs
+          -> (Time,Position,Velocity)   -- current state
+          -> (Time,Position,Velocity)   -- new state
+updateTXV dt m fs (t0, x0, v0)
+    = let (t1, v1) = updateTV dt m fs (t0, v0)
+      in (t1, x0 + v0 * dt, v1)
+
+statesTXV :: R                          -- time step
+          -> Mass
+          -> (Time,Position,Velocity)   -- initial state
+          -> [(Time,Velocity) -> Force] -- list of force funs
+          -> [(Time,Position,Velocity)] -- infinite list of states
+statesTXV dt m (t0, x0, v0) fs
+    = iterate (updateTXV dt m fs) (t0, x0, v0)
+
 positionFtv :: R                            -- time step
             -> Mass
             -> Position                     -- initial position x(0)
             -> Velocity                     -- initial velocity v(0)
             -> [(Time,Velocity) -> Force]   -- force functions
             -> Time -> Position             -- position function
-positionFtv dt m tx0 tv0 fs t 
+positionFtv dt m x0 v0 fs t 
     = let numSteps = abs $ round (t / dt)
-      in snd $ statesTV dt m tv0 fs !! numSteps
+      in (\(_,x,_) -> x) $ statesTXV dt m (0, x0, v0) fs !! numSteps
