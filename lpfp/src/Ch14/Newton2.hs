@@ -95,8 +95,8 @@ pedalCoast t
           nComplete = truncate (t / tCycle)
           remainder = t - fromIntegral nComplete * tCycle
       in if remainder < 10
-        then 10
-        else 0
+         then 10
+         else 0
 
 childGraph :: IO ()
 childGraph
@@ -269,3 +269,19 @@ positionFtv :: R                            -- time step
 positionFtv dt m x0 v0 fs t 
     = let numSteps = abs $ round (t / dt)
       in (\(_,x,_) -> x) $ statesTXV dt m (0, x0, v0) fs !! numSteps
+
+pedalCoastAirPos :: [(Time,Position)]
+pedalCoastAirPos = map (\(t1,x1,_) -> (t1,x1)) 
+                   (statesTXV 0.1 20 (0,0,0)
+                   [\(t,_) -> pedalCoast t
+                   ,\(_,v) -> fAir 2 1.225 0.5 v])
+
+pedalCoastAirPosGraph :: IO ()
+pedalCoastAirPosGraph 
+    = plotPath [Title "Pedaling and coasting with air"
+               ,XLabel "Time (s)"
+               ,YLabel "Position of Bike (m)"
+               ,EPS "plots/14_10.eps"
+               ,Key Nothing
+               ] (takeWhile (\(t,_) -> t <= 100)
+                  pedalCoastAirPos)
