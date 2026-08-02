@@ -285,3 +285,13 @@ pedalCoastAirPosGraph
                ,Key Nothing
                ] (takeWhile (\(t,_) -> t <= 100)
                   pedalCoastAirPos)
+
+f1 :: Time -> Position
+f1 t = 4 * cos t
+
+f2 :: Velocity -> Position 
+f2 v0 = (-3) * v0
+
+updateExample :: (Time,Velocity)    -- starting state
+              -> (Time,Velocity)    -- ending state
+updateExample (t0,v0) = (t0 + 0.1,v0 + (f1 t0 + f2 v0) * 0.1)
