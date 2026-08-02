@@ -1,8 +1,7 @@
 % Exercise 8.5
-
 \begin{itemize}
     \item[(a)] We have the following from GHCi:
-        \scriptsize\begin{verbatim}
+        \begin{lstlisting}
 ghci> :i Integer
 type Integer :: *
 data Integer
@@ -18,7 +17,7 @@ instance Eq Integer -- Defined in ‘GHC.Num.Integer’
 instance Ord Integer -- Defined in ‘GHC.Num.Integer’
 instance Read Integer -- Defined in ‘GHC.Read’
 instance Show Integer -- Defined in ‘GHC.Show’
-        \end{verbatim}\normalsize
+        \end{lstlisting}
         Thus we can see that \verb|Integer| also belongs to \verb|Real|,
         indicating that for an integer $x \in \mathbb{Z}$, we have $x \in \mathbb{R}$, 
         since $\mathbb{Z} \subseteq \mathbb{R}$. We also see that \verb|Integer|
@@ -27,7 +26,7 @@ instance Show Integer -- Defined in ‘GHC.Show’
         input type corresponding to \verb|Show|, indicating that elements of 
         \verb|Read| can be serialized.
     \item[(b)] Executing the GHCi command \verb|:info| yields:
-        \scriptsize\begin{verbatim}
+        \begin{lstlisting}
 ghci> :i Enum
 type Enum :: * -> Constraint
 class Enum a where
@@ -51,7 +50,7 @@ instance Enum Integer -- Defined in ‘GHC.Enum’
 instance Enum Ordering -- Defined in ‘GHC.Enum’
 instance Enum a => Enum (Solo a) -- Defined in ‘GHC.Enum’
 instance Enum Word -- Defined in ‘GHC.Enum’
-        \end{verbatim}\normalsize
+        \end{lstlisting}
         Thus we see that \verb|Double|, \verb|Float|, \verb|()|, \verb|Bool|, 
         \verb|Char|, \verb|Int|, \verb|Integer|, \verb|Ordering|, \verb|Solo|,
         and \verb|Word| are instances of \verb|Enum|.

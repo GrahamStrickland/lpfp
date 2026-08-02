@@ -8,8 +8,32 @@
 \usepackage{mathtools}
 \usepackage{hyperref}
 \usepackage[export]{adjustbox}
+\usepackage{xcolor}
+\usepackage{listings}
 
-\numberwithin{figure}{section} 
+% Single style for every GHCi transcript / code block in the document.
+% breaklines wraps lines that would otherwise overflow the margin, so no
+% block needs an ad-hoc \scriptsize/\normalsize wrapper to fit.
+\lstset{
+    basicstyle=\ttfamily\small,
+    columns=fullflexible,
+    keepspaces=true,
+    showstringspaces=false,
+    extendedchars=true,
+    breaklines=true,
+    breakatwhitespace=false,
+    breakindent=0pt,
+    postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space},
+    tabsize=4,
+    xleftmargin=0pt,
+    aboveskip=\medskipamount,
+    belowskip=\medskipamount,
+    literate={‘}{{\textquoteleft}}1
+             {’}{{\textquoteright}}1
+             {•}{{\textbullet}}1
+}
+
+\numberwithin{figure}{section}
 \numberwithin{table}{section} 
 \numberwithin{equation}{section} 
 \makeatletter

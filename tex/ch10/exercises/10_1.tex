@@ -1,29 +1,28 @@
 % Exercise 10.1
-
 \begin{itemize}
     \item[(a)]
-\scriptsize\begin{verbatim}
+\begin{lstlisting}
 v0 :: Vec
 v0 = 20 *^ iHat 
-\end{verbatim}\normalsize
+\end{lstlisting}
     \item[(b)]
-\scriptsize\begin{verbatim}
+\begin{lstlisting}
 v1 :: Vec
 v1 = 20 *^ iHat ^-^ 9.8 *^ kHat
-\end{verbatim}\normalsize
+\end{lstlisting}
     \item[(c)]
-\scriptsize\begin{verbatim}
+\begin{lstlisting}
 v :: R -> Vec
 v t = 20 *^ iHat ^-^ 9.8 *^ t *^ kHat
-\end{verbatim}\normalsize
+\end{lstlisting}
     \item[(d)]
-\scriptsize\begin{verbatim}
+\begin{lstlisting}
 r :: R -> Vec
 r t = 30 *^ jHat ^+^ 20 *^ t *^ iHat ^-^ 4.9 *^ t ** 2 *^ kHat
-\end{verbatim}\normalsize
+\end{lstlisting}
     \item[(e)]
-\scriptsize\begin{verbatim}
+\begin{lstlisting}
 x :: R -> R
 x t = iHat <.> r t
-\end{verbatim}\normalsize
+\end{lstlisting}
 \end{itemize}

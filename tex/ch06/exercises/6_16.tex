@@ -1,13 +1,12 @@
 % Exercise 6.16
-
 Using the definition in the file \path{src/Ch06/TrapezoidalRule.hs},
 which we test using the helper function \verb|calcTrapIntegrateErr|, we have
 
-\begin{verbatim}
+\begin{lstlisting}
 ghci> calcTrapIntegrateErr 1 (\x -> x ^ 3) 0 1 0.001
 4
 ghci> calcTrapIntegrateErr 1 (\x -> x ^ 3) 0 1e-6 0.001
 2
 ghci> calcTrapIntegrateErr 1 (\x -> exp (-x^2)) 0 1 0.001
 3
-\end{verbatim}
+\end{lstlisting}
