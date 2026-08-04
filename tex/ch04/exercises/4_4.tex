@@ -8,7 +8,7 @@ multiples of 10 past \verb|a = 10|.\par
 err :: (R -> R) -> (R -> R) -> R -> R -> R
 err f df t a = abs ((derivative a f t - df t) / df t)   
 \end{lstlisting}
-we have the following output from \verb|ghci|:
+we have the following output from \verb|GHCi|:
 \begin{lstlisting}
 ghci> err (\x -> cos x) (\x -> -sin x) 0.1 0.01
 4.166661374023121e-6
