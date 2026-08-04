@@ -1,0 +1,17 @@
+% Exercise 14.13
+In Figure~\ref{fig14_13}, we have a plot of the results of approximating the velocity
+of a 1-kg object experiencing a net for 
+\[
+    F_{\text{net}}^{tv}(t,v_0) = -\alpha v_0,
+\]
+for $\alpha = 1 \,\text{N s/m}$, subject to the initial condition 
+$v(0\, \text{s}) = 8\, \text{m}/\text{s}$
+using the Euler method with $dt = 0.1$ and $dt = 0.5$ compared with the exact solution
+\[
+    v(t) = (8\, \text{m}/\text{s})e^{-\alpha t}.
+\]
+
+\begin{figure}[!ht]
+    \includegraphics[width=\textwidth, center]{../plots/14_13.pdf}
+    \caption{Euler method compared with exact solution \label{fig14_13}} 
+\end{figure}

@@ -4,6 +4,8 @@ module Ch14.Newton2 where
 
 import Graphics.Gnuplot.Simple
 
+import Ch11.SinApprox (customLabel)
+
 type R = Double
 
 type Mass     = R
@@ -295,3 +297,43 @@ f2 v0 = (-3) * v0
 updateExample :: (Time,Velocity)    -- starting state
               -> (Time,Velocity)    -- ending state
 updateExample (t0,v0) = (t0 + 0.1,v0 + (f1 t0 + f2 v0) * 0.1)
+
+alpha :: Force
+alpha = 1
+
+fTVNet :: (Time,Velocity)
+       -> Position
+fTVNet (_,v0) = (-alpha) * v0
+
+eulerStep :: R                  -- time step dt
+          -> (Time,Velocity)    -- starting state
+          -> (Time,Velocity)    -- ending state
+eulerStep dt (t0,v0) = (t0 + dt,v0 + fTVNet (t0,v0) * dt)
+
+eulerMethod :: R                    -- time step dt
+            -> (Time,Velocity)      -- starting state
+            -> [(Time,Velocity)]    -- infinite list of states
+eulerMethod dt (t0,v0) = iterate (eulerStep dt) (t0,v0)
+
+closeApprox :: R 
+            -> Velocity
+closeApprox t1 = snd (last (takeWhile (\(t,_) -> t <= t1) (eulerMethod 0.1 (0,8))))
+
+poorApprox :: R 
+            -> Velocity
+poorApprox t1 = snd (last (takeWhile (\(t,_) -> t <= t1) (eulerMethod 0.5 (0,8))))
+
+eulerPlot :: IO ()
+eulerPlot
+    = plotFuncs [Title "Euler method compared to exact solution"
+               ,XLabel "Time (s)"
+               ,YLabel "Velocity (m/s)"
+               ,XRange (0,10)
+               ,EPS "plots/14_13.eps"
+               ,Key Nothing
+               ,customLabel (2.3,1.3) "Exact"
+               ,customLabel (0.1,3.3) "dt = 0.1"
+               ,customLabel (0.6,7) "dt = 0.5"
+               ] 
+               [0,0.1..10]
+               [\t -> 8 * exp ((-alpha) * t), closeApprox, poorApprox]
