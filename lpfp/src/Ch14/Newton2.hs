@@ -337,3 +337,26 @@ eulerPlot
                ] 
                [0,0.1..10]
                [\t -> 8 * exp ((-alpha) * t), closeApprox, poorApprox]
+
+eulerStepDE :: R                    -- time step dt
+            -> (Time,Velocity)      -- starting state
+            -> (Time,Velocity)      -- ending state
+eulerStepDE dt (t0,v0) = (t0 + dt,v0 + cos (t0 + v0) * dt)
+
+eulerMethodDE :: R                  -- time step dt
+              -> (Time,Velocity)    -- starting state
+              -> [(Time,Velocity)]  -- infinite list of states
+eulerMethodDE dt (t0,v0) = iterate (eulerStepDE dt) (t0,v0)
+
+eulerSolutionDE :: [(Time,Velocity)]
+eulerSolutionDE = takeWhile (\(t,_) -> t <= 3) (eulerMethodDE 0.01 (0,0))
+
+eulerDEPlot :: IO ()
+eulerDEPlot
+    = plotPath [Title "Euler Method Solution"
+               ,XLabel "Time (s)"
+               ,YLabel "Velocity (m/s)"
+               ,EPS "plots/14_14.eps"
+               ,Key Nothing
+               ,customLabel (2.5,-0.5) "v(3) = -0.49960"
+               ] eulerSolutionDE

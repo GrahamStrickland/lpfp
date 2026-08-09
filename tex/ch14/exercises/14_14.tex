@@ -1,0 +1,19 @@
+% Exercise 14.14
+In Figure~\ref{fig14_14}, we have a plot of the approximating to the velocity function
+which is the solution of the differential equation 
+\[
+    \frac{dv(t)}{dt} = \cos{(t + v(t))},
+\]
+subject to the initial condition $v(0) = 0$, with $0 \leq t \leq 3$.
+
+\begin{figure}[!ht]
+    \includegraphics[width=\textwidth, center]{../plots/14_14.pdf}
+    \caption{Euler method solution to differential equation \label{fig14_14}} 
+\end{figure}
+
+We have made use of the following results from \verb|GHCi| for the value of $v(3)$:
+
+\begin{lstlisting}
+ghci> snd (last eulerSolutionDE)
+-0.49960475082864086
+\end{lstlisting}
