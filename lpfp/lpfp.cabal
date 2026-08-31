@@ -108,6 +108,7 @@ library
     Ch11.SinApprox
     Ch10.SimpleVec
     Ch14.Newton2
+    Ch15.Mechanics1D
     LPFP
   -- other-extensions:
   build-depends:
