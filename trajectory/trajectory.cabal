@@ -21,6 +21,6 @@ executable trajectory
     import:           warnings
     main-is:          MakeTrajectoryGraph.hs
     -- other-extensions:
-    build-depends:    base ^>=4.21.0.0, gnuplot, lpfp
+    build-depends:    base ^>=4.22.0.0, gnuplot, lpfp
     hs-source-dirs:   app
     default-language: Haskell2010
