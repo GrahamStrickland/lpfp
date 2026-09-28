@@ -48,3 +48,39 @@ statesTXV :: R                  -- time step
           -> [State1D -> Force] -- list of force funcs
           -> [State1D]          -- infinite list of states
 statesTXV dt m txv0 fs = iterate (updateTXV dt m fs) txv0
+
+-- assume that dt is the same between adjacent pairs
+velocity1D :: [State1D]         -- infinite list
+           -> Time -> Velocity  -- velocity function
+velocity1D sts t
+    = let (t0,_,_) = sts !! 0
+          (t1,_,_) = sts !! 1
+          dt = t1 - t0
+          numSteps = abs $ round (t / dt)
+          (_,_,v0) = sts !! numSteps
+      in v0
+
+velocityFtxv :: R                   -- time step
+             -> Mass
+             -> State1D             -- initial state
+             -> [State1D -> Force]  -- list of force funcs
+             -> Time -> Velocity    -- velocity function
+velocityFtxv dt m txv0 fs = velocity1D (statesTXV dt m txv0 fs)
+
+-- assume that dt is the same between adjacent pairs
+position1D :: [State1D]         -- infinite list
+           -> Time -> Position  -- position function
+position1D sts t
+    = let (t0,_,_) = sts !! 0
+          (t1,_,_) = sts !! 1
+          dt = t1 - t0
+          numSteps = abs $ round (t / dt)
+          (_,x0,_) = sts !! numSteps
+      in x0
+
+positionFtxv :: R                   -- time step
+             -> Mass
+             -> State1D             -- initial state
+             -> [State1D -> Force]  -- list of force funcs
+             -> Time -> Position    -- position function
+positionFtxv dt m txv0 fs = position1D (statesTXV dt m txv0 fs)
