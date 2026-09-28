@@ -15,7 +15,7 @@ test:
 
 .PHONY: install
 install:
-	cd plots && cabal install --overwrite-policy=always
+	cd lpfpplots && cabal install --overwrite-policy=always
 	cd trajectory && cabal install --overwrite-policy=always
 	cd powers && cabal install --overwrite-policy=always
 	cd reddiskbluecircle && cabal install --overwrite-policy=always
