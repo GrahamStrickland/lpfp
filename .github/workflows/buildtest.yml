@@ -1,4 +1,4 @@
-name: Haskell CI
+name: Build and test LPFP
 
 on:
   push:
@@ -10,20 +10,19 @@ permissions:
   contents: read
 
 jobs:
-  build:
-
-    runs-on: macos-latest
+  Build&Test:
+    runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
 
     - uses: haskell-actions/setup@v2
       with:
-        ghc-version: "9.12.2"
+        ghc-version: "9.14.1"
         cabal-version: "latest"
 
     - name: Cache
-      uses: actions/cache@v5
+      uses: actions/cache@v6
       env:
         cache-name: cache-cabal
       with:
