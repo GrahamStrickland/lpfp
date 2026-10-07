@@ -37,3 +37,12 @@ clean:
 	cabal clean
 	rm -rf dist-newstyle
 	rm tags
+
+.PHONY: plot
+plot:
+	cabal build lpfpplots
+	cd lpfpplots && cabal install --overwrite-policy=always
+	cd ..
+	rm -rf plots
+	mkdir plots
+	lpfpplots
