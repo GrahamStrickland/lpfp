@@ -13,6 +13,7 @@ import Ch11.ProjectileMotion (plot1, plot1Custom, plot2Custom, plot3Custom, plot
 import Ch11.QuadraticPlot (plotQuadratic)
 import Ch11.SinApprox (plotApproxSin)
 import Ch14.Newton2 (bikeGraph, bikeGraphSmooth, carGraph, carPosGraph, childGraph, eulerDEPlot, eulerPlot, pedalCoastAirGraph, pedalCoastAirPosGraph)
+import Ch15.Mechanics1D (dampedHOGraph, dampedHOGraph2, dampedHOGraph3)
 import System.Command
 import System.Directory
 import System.FilePath.Posix (dropExtension, takeExtension, (</>))
@@ -68,6 +69,15 @@ eulerGraphPlot = Ch14.Newton2.eulerPlot
 eulerDEGraphPlot :: IO ()
 eulerDEGraphPlot = Ch14.Newton2.eulerDEPlot
 
+dampedHOGraphPlot :: IO ()
+dampedHOGraphPlot = Ch15.Mechanics1D.dampedHOGraph
+
+dampedHOGraphPlot2 :: IO ()
+dampedHOGraphPlot2 = Ch15.Mechanics1D.dampedHOGraph2
+
+dampedHOGraphPlot3 :: IO ()
+dampedHOGraphPlot3 = Ch15.Mechanics1D.dampedHOGraph3
+
 filePathHasExtension :: String -> FilePath -> Bool
 filePathHasExtension ext f = takeExtension f == ext
 
@@ -121,6 +131,11 @@ main = do
     pedalCoastAirPosGraphPlot
     eulerGraphPlot
     eulerDEGraphPlot
+
+    -- Chapter 15
+    dampedHOGraphPlot
+    dampedHOGraphPlot2
+    dampedHOGraphPlot3
 
     files <- getDirectoryContents "plots"
     let epsFilePaths = map ("plots/" </>) (getFilePathsWithExtension files ".eps")

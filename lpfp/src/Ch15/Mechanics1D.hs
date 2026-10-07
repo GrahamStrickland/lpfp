@@ -84,3 +84,47 @@ positionFtxv :: R                   -- time step
              -> [State1D -> Force]  -- list of force funcs
              -> Time -> Position    -- position function
 positionFtxv dt m txv0 fs = position1D (statesTXV dt m txv0 fs)
+
+springForce :: R -> State1D -> Force
+springForce k (_,x0,_) = -k * x0
+
+dampedHOForces :: [State1D -> Force]
+dampedHOForces = [springForce 0.8
+                 ,\(_,_,v0) -> fAir 2 1.225 (pi * 0.02**2) v0
+                 ,\_ -> -0.0027 * 9.80665
+                 ]
+
+dampedHOStates :: [State1D]
+dampedHOStates = statesTXV 0.001 0.0027 (0.0,0.1,0.0) dampedHOForces
+
+dampedHOGraph :: IO ()
+dampedHOGraph
+    = plotPath [Title "Ping Pong Ball on a Slinky"
+               ,XLabel "Time (s)"
+               ,YLabel "Position (m)"
+               ,EPS "plots/dho.eps"
+               ,Key Nothing
+               ] [(t,x) | (t,x,_) <- take 3000 dampedHOStates]
+
+pingpongPosition :: Time -> Velocity
+pingpongPosition = positionFtxv 0.001 0.0027 (0,0.1,0) dampedHOForces
+
+dampedHOGraph2 :: IO ()
+dampedHOGraph2
+    = plotFunc [Title "Ping Pong Ball on a Slinky"
+               ,XLabel "Time (s)"
+               ,YLabel "Position (m)"
+               ,Key Nothing
+               ] [0,0.01..3] pingpongPosition
+
+pingpongVelocity :: Time -> Velocity
+pingpongVelocity = velocityFtxv 0.001 0.0027 (0,0.1,0) dampedHOForces
+
+dampedHOGraph3 :: IO ()
+dampedHOGraph3
+    = plotFunc [Title "Ping Pong Ball on a Slinky"
+               ,XLabel "Time (s)"
+               ,YLabel "Velocity (m/s)"
+               ,EPS "plots/dho2.eps"
+               ,Key Nothing
+               ] [0,0.01..3] pingpongVelocity
