@@ -16,6 +16,11 @@ jobs:
     steps:
     - uses: actions/checkout@v7
 
+    - name: Install system libraries
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libgl1-mesa-dev libglu1-mesa-dev libglut-dev
+
     - uses: haskell-actions/setup@v2
       with:
         ghc-version: "9.14.1"
@@ -36,7 +41,7 @@ jobs:
     - name: Install dependencies
       run: |
         cabal update
-        cabal build all --only-dependencies --enable-tests --enable-benchmarks --ghc-options="-Wno-pattern-namespace-specifier"
+        cabal build all --only-dependencies --enable-tests --enable-benchmarks
 
     - name: Build
       run: cabal build all --enable-tests --enable-benchmarks all
