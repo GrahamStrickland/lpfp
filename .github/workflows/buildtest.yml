@@ -36,7 +36,7 @@ jobs:
     - name: Install dependencies
       run: |
         cabal update
-        cabal build all --only-dependencies --enable-tests --enable-benchmarks
+        cabal build all --only-dependencies --enable-tests --enable-benchmarks --ghc-options="-Wno-pattern-namespace-specifier"
 
     - name: Build
       run: cabal build all --enable-tests --enable-benchmarks all
