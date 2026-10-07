@@ -128,3 +128,19 @@ dampedHOGraph3
                ,EPS "plots/dho2.eps"
                ,Key Nothing
                ] [0,0.01..3] pingpongVelocity
+
+eulerCromer1D :: R                      -- time step dt
+              -> (State1D -> (R,R,R))   -- differential equation
+              -> State1D -> State1D     -- state-update function
+eulerCromer1D dt deriv (t0,x0,v0)
+    = let (_, _, dvdt) = deriv (t0,x0,v0)
+          t1 = t0 + dt
+          x1 = x0 + v1 * dt
+          v1 = v0 + dvdt * dt
+      in (t1,x1,v1)
+
+updateTXVEC :: R                    -- time interval dt
+            -> Mass
+            -> [State1D -> Force]   -- list of force funcs
+            -> State1D -> State1D   -- state-update function
+updateTXVEC dt m fs = eulerCromer1D dt (newtonSecond1D m fs)
