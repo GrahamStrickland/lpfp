@@ -13,7 +13,7 @@ import Ch11.ProjectileMotion (plot1, plot1Custom, plot2Custom, plot3Custom, plot
 import Ch11.QuadraticPlot (plotQuadratic)
 import Ch11.SinApprox (plotApproxSin)
 import Ch14.Newton2 (bikeGraph, bikeGraphSmooth, carGraph, carPosGraph, childGraph, eulerDEPlot, eulerPlot, pedalCoastAirGraph, pedalCoastAirPosGraph)
-import Ch15.Mechanics1D (dampedHOGraph, dampedHOGraph2, dampedHOGraph3)
+import Ch15.Mechanics1D (dampedHOGraph, dampedHOGraph2, dampedHOGraph3, ballGraph)
 import System.Command
 import System.Directory
 import System.FilePath.Posix (dropExtension, takeExtension, (</>))
@@ -78,6 +78,9 @@ dampedHOGraphPlot2 = Ch15.Mechanics1D.dampedHOGraph2
 dampedHOGraphPlot3 :: IO ()
 dampedHOGraphPlot3 = Ch15.Mechanics1D.dampedHOGraph3
 
+ballGraphPlot :: IO ()
+ballGraphPlot = Ch15.Mechanics1D.ballGraph
+
 filePathHasExtension :: String -> FilePath -> Bool
 filePathHasExtension ext f = takeExtension f == ext
 
@@ -136,6 +139,7 @@ main = do
     dampedHOGraphPlot
     dampedHOGraphPlot2
     dampedHOGraphPlot3
+    ballGraphPlot
 
     files <- getDirectoryContents "plots"
     let epsFilePaths = map ("plots/" </>) (getFilePathsWithExtension files ".eps")

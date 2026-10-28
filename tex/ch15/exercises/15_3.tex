@@ -1,0 +1,46 @@
+% Exercise 15.3
+Using the Euler method with
+\begin{equation*}
+    \begin{split}
+        \frac{dx(t)}{dt} &= v(t) \\
+        \frac{dv(t)}{dt} &= -3x(t) + 4\cos{2t} - 2v(t),
+    \end{split}
+\end{equation*}
+subject to the initial conditions $x(0) = 2$ and $v(0) = 1$, we have the following:
+\begin{equation*}
+    \begin{split}
+        x(0.1) &= x(0) + v(0)\Delta t \\
+               &= 2.0000 + (1.0000)(0.1) \\
+               &= 2.1000 \\
+        v(0.1) &= v(0) + \left(-3x(0) + 4\cos{2t(0)} - 2v(0)\right)\Delta t \\
+               &= 1.0000 + \left((-3) \cdot 2.0000 + 4\cos{(2 \cdot 0)} - 2 \cdot 1.0000\right)(0.1) \\
+               &= 0.6000 \\
+        x(0.2) &= x(0.1) + v(0.1)\Delta t \\
+               &= 2.1000 + (0.6000)(0.1) \\
+               &= 2.1600 \\
+        v(0.2) &= v(0.1) + \left(-3x(0.1) + 4\cos{2t(0.1)} - 2v(0.1)\right)\Delta t \\
+               &= 0.6000 + \left((-3) \cdot 2.1000 + 4\cos{(2 \cdot 0.1)} - 2 \cdot 0.6000\right)(0.1) \\
+               &= 0.2420 \\
+        x(0.3) &= x(0.2) + v(0.2)\Delta t \\
+               &= 2.1600 + (0.2420)(0.1) \\
+               &= 2.1842 \\
+        v(0.3) &= v(0.2) + \left(-3x(0.2) + 4\cos{2t(0.2)} - 2v(0.2)\right)\Delta t \\
+               &= 0.2420 + \left((-3) \cdot 2.1600 + 4\cos{(2 \cdot 0.2)} - 2 \cdot 0.2420\right)(0.1) \\
+               &= 0.9940.
+    \end{split}
+\end{equation*}
+The figures are tabulated in Table~\ref{tbl15_3}. 
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{ r r r }
+        \hline
+        \textbf{t (s)} & \textbf{x(t)} & \textbf{v(t)} \\
+        \hline
+        \quad 0.0 & \quad 2.0000 & \quad  1.0000 \\
+        \quad 0.1 & \quad 2.1000 & \quad  0.6000 \\
+        \quad 0.2 & \quad 2.1600 & \quad  0.2420 \\
+        \quad 0.3 & \quad 2.1842 & \quad -0.0860 \\
+        \hline
+    \end{tabular}
+    \caption{Values using Euler method \label{tbl15_3}}
+\end{table}

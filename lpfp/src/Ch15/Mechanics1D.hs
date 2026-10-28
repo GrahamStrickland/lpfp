@@ -183,3 +183,32 @@ rungeKutta4 dt deriv st0
 
 exponential :: DifferentialEquation (R,R,R) (R,R,R)
 exponential (_,x0,v0) = (1,v0,x0)
+
+ballPosition :: Time -> Velocity
+ballPosition = positionFtxv 0.001 1 (0,0,10) [\_ -> -9.80665]
+
+ballGraph :: IO ()
+ballGraph
+    = plotFunc [Title "Ball Height"
+               ,XLabel "Time (s)"
+               ,YLabel "Height (m)"
+               ,EPS "plots/15_1.eps"
+               ,Key Nothing
+               ] [0,0.01..2] ballPosition
+
+pingpongStates1D :: [State1D]
+pingpongStates1D = statesTXV 0.1 0.0027 (0,0.1,0) dampedHOForces
+
+euler1D2 :: R                    -- time step dt
+         -> ((R,R,R) -> (R,R,R)) -- differential equation
+         -> (R,R,R) -> (R,R,R)   -- state-update function
+euler1D2 dt deriv (t0,x0,v0)
+    = let (_, _, dvdt) = deriv (t0,x0,v0)
+          t1 = t0 + dt
+          x1 = x0 + v0 * dt
+          v1 = v0 + dvdt * dt
+      in (t1,x1,v1)
+
+update2 :: (R,R,R)  -- starting state
+        -> (R,R,R)  -- ending state
+update2 = euler1D2 0.1 (\(t0,x0,v0) -> (0, 0, (-3) * x0 + 4 * cos (2 * t0) - 2 * v0))

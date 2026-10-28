@@ -1,0 +1,25 @@
+% Exercise 15.2
+We have the results in Table~\ref{tbl15_2} from executing the following in
+\verb|GHCi|:
+
+\begin{lstlisting}
+ghci> take 4 pingpongStates1D
+\end{lstlisting}
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{ r r r }
+        \hline
+        \textbf{t (s)} & \textbf{x(t) (m)} & \textbf{v(t) (m/s)} \\
+        \hline
+        \quad 0.0 & \quad  0.1000 & \quad  0.0000 \\
+        \quad 0.1 & \quad  0.1000 & \quad -3.9436 \\
+        \quad 0.2 & \quad -0.2944 & \quad -7.0006 \\
+        \quad 0.3 & \quad -0.9944 & \quad  3.5348 \\
+        \hline
+    \end{tabular}
+    \caption{Values using Euler method \label{tbl15_2}}
+\end{table}
+
+We can see that, in all cases, the values do match to the first two digits after 
+the decimal point.
