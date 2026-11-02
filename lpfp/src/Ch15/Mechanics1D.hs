@@ -5,8 +5,9 @@ module Ch15.Mechanics1D where
 
 import Graphics.Gnuplot.Simple
 
-import Ch14.Newton2 (fAir)
 import Ch10.SimpleVec (R)
+import Ch11.SinApprox (customLabel)
+import Ch14.Newton2 (fAir)
 
 type Time     = R
 type TimeStep = R
@@ -184,7 +185,7 @@ rungeKutta4 dt deriv st0
 exponential :: DifferentialEquation (R,R,R) (R,R,R)
 exponential (_,x0,v0) = (1,v0,x0)
 
-ballPosition :: Time -> Velocity
+ballPosition :: Time -> Position
 ballPosition = positionFtxv 0.001 1 (0,0,10) [\_ -> -9.80665]
 
 ballGraph :: IO ()
@@ -212,3 +213,27 @@ euler1D2 dt deriv (t0,x0,v0)
 update2 :: (R,R,R)  -- starting state
         -> (R,R,R)  -- ending state
 update2 = euler1D2 0.1 (\(t0,x0,v0) -> (0, 0, (-3) * x0 + 4 * cos (2 * t0) - 2 * v0))
+
+linearSpringPosition :: R -> (Time -> Position)
+linearSpringPosition dt = positionFtxv dt 3 (0,0.01,0) [springForce 100000]
+
+goodApprox :: Time -> Position
+goodApprox = linearSpringPosition 0.00001 
+
+badApprox :: Time -> Position
+badApprox = linearSpringPosition 0.0005
+
+linearSpringGraph :: IO ()
+linearSpringGraph
+    = plotFuncs [Title "Spring-Mass Position"
+               ,XLabel "Time (s)"
+               ,YLabel "Velocity (m/s)"
+               ,XRange (0,0.2)
+               ,EPS "plots/15_5.eps"
+               ,Key Nothing
+               ,customLabel (0.065,0) "Exact"
+               ,customLabel (0.145,-0.012) "dt = 0.00001"
+               ,customLabel (0.13,0.035) "dt = 0.005"
+               ] 
+               [0,0.001..0.2]
+               [\t -> 0.01 * cos (sqrt (100000 / 3) * t), goodApprox, badApprox]

@@ -1,0 +1,73 @@
+% Exercise 15.5
+We must identify the exact solution in order to have something to compare
+with our numerical solution. Accordingly, we start by identifying the spring 
+force using Hooke's law, so that we have
+\[
+    F_{\text{spring}}(x_0) = -kx_0,
+\]
+as in (15.8), with $k = 100,000\,\text{N/m}$. Since we ignore air resistance
+and gravity, that is our only force in the differential equation governing
+the spring's motion. From Newton's second law, we then have
+\[
+    F_{\text{spring}}(x) = m\ddot{x},
+\]
+for $m = 3\,\text{kg}$. Our initial conditions are given by the displacement
+from equilibrium, so that $x(0) = 0.01\,\text{m}$ and the ball is released
+with no initial velocity, so that $\dot{x(0)} = 0,\text{m/s}$.
+
+Therefore, we have
+\[
+    m\ddot{x} = -kx,
+\]
+and since we expect oscillations in the resulting movement, we use the trial
+solution $x(t) = e^{rt}$, so that $\ddot{x} = r^2e^{rt}$. Thus we have
+\[
+    mr^2e^{rt} = -ke^{rt},
+\]
+and, since $e^{rt} \neq 0$, we have
+\begin{equation*}
+    \begin{split}
+        mr^2 + k &= 0 \\
+        \Leftrightarrow r^2 &= -\frac{k}{m} \\
+        \Leftrightarrow r &= \pm \sqrt{-\frac{k}{m}} \\
+                          &= \pm i \sqrt{\frac{k}{m}},
+    \end{split}
+\end{equation*}
+so that our answer becomes, using Euler's formula and the superposition 
+principle,
+\[
+    x(t) = a\cos{\sqrt{k/m}t} + b\sin{\sqrt{k/m}t}.
+\]
+
+Now, applying the first initial condition, we have
+\begin{equation*}
+    \begin{split}
+        x(0) &= a \\
+        \Rightarrow a &= 0.01,
+    \end{split}
+\end{equation*}
+and from the second, we have
+\begin{equation*}
+    \begin{split}
+        \dot{x}(0) &= b\sqrt{\frac{k}{m}} \\
+        \Rightarrow b &= 0.
+    \end{split}
+\end{equation*}
+
+Therefore, the exact solution is given by
+\begin{equation*}
+    \begin{split}
+        x(t) &= 0.01\cos{\sqrt{k/m}t} \\
+             &= 0.01\cos{\sqrt{\frac{100,000}{3}}t}.
+    \end{split}
+\end{equation*}
+
+In Figure~\ref{fig15_5}, we have a plot of the mass's position as a function of time,
+with labels for the exact solution, as well as the good approximation (with 
+$\Delta t = {10}^{-5}\,\text{s}$), and bad approximation (with 
+$\Delta t = 5 \times {10}^{-3}\,\text{s}$), using Euler's method.
+
+\begin{figure}[!ht]
+    \includegraphics[width=\textwidth, center]{../plots/15_5.pdf}
+    \caption{Spring-mass position approximations as a function of time \label{fig15_5}} 
+\end{figure}
