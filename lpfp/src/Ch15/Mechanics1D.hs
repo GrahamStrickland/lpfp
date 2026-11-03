@@ -227,7 +227,7 @@ linearSpringGraph :: IO ()
 linearSpringGraph
     = plotFuncs [Title "Spring-Mass Position"
                ,XLabel "Time (s)"
-               ,YLabel "Velocity (m/s)"
+               ,YLabel "Position (m)"
                ,XRange (0,0.2)
                ,EPS "plots/15_5.eps"
                ,Key Nothing
