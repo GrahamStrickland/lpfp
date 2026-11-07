@@ -13,7 +13,7 @@ import Ch11.ProjectileMotion (plot1, plot1Custom, plot2Custom, plot3Custom, plot
 import Ch11.QuadraticPlot (plotQuadratic)
 import Ch11.SinApprox (plotApproxSin)
 import Ch14.Newton2 (bikeGraph, bikeGraphSmooth, carGraph, carPosGraph, childGraph, eulerDEPlot, eulerPlot, pedalCoastAirGraph, pedalCoastAirPosGraph)
-import Ch15.Mechanics1D (dampedHOGraph, dampedHOGraph2, dampedHOGraph3, ballGraph, linearSpringGraph)
+import Ch15.Mechanics1D (dampedHOGraph, dampedHOGraph2, dampedHOGraph3, ballGraph, linearSpringGraph, dropVelocityTimeGraph, dropVelocityTimeGraph2)
 import System.Command
 import System.Directory
 import System.FilePath.Posix (dropExtension, takeExtension, (</>))
@@ -84,6 +84,12 @@ ballGraphPlot = Ch15.Mechanics1D.ballGraph
 linearSpringGraphPlot :: IO ()
 linearSpringGraphPlot = Ch15.Mechanics1D.linearSpringGraph
 
+dropVelocityTimeGraphPlot :: IO ()
+dropVelocityTimeGraphPlot = Ch15.Mechanics1D.dropVelocityTimeGraph
+
+dropVelocityTimeGraphPlot2 :: IO ()
+dropVelocityTimeGraphPlot2 = Ch15.Mechanics1D.dropVelocityTimeGraph2
+
 filePathHasExtension :: String -> FilePath -> Bool
 filePathHasExtension ext f = takeExtension f == ext
 
@@ -144,6 +150,8 @@ main = do
     dampedHOGraphPlot3
     ballGraphPlot
     linearSpringGraphPlot
+    dropVelocityTimeGraphPlot
+    dropVelocityTimeGraphPlot2
 
     files <- getDirectoryContents "plots"
     let epsFilePaths = map ("plots/" </>) (getFilePathsWithExtension files ".eps")

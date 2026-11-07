@@ -237,3 +237,47 @@ linearSpringGraph
                ] 
                [0,0.001..0.2]
                [\t -> 0.01 * cos (sqrt (100000 / 3) * t), goodApprox, badApprox]
+
+dropHeightForces :: Mass -> R -> [State1D -> Force]
+dropHeightForces m r = [\(_,_,v0) -> fAir 2 1.225 (pi * r**2) v0
+                 ,\_ -> -m * 9.80665
+                 ]
+
+dropStates1D :: Mass -> R -> R -> [State1D]
+dropStates1D m r h = statesTXV 0.1 m (0,h,0) (dropHeightForces m r)
+
+pingpongDropStates1D :: R -> [State1D]
+pingpongDropStates1D h = dropStates1D 0.0027 0.019 h
+
+bowlingBallDropStates1D :: R -> [State1D]
+bowlingBallDropStates1D h = dropStates1D 5.4 0.108 h
+
+dropVelocityTimeGraph :: IO ()
+dropVelocityTimeGraph
+    = plotFuncs [Title "Velocity as a function of time"
+               ,XLabel "Time (s)"
+               ,YLabel "Velocity (m/s)"
+               ,XRange (0,10)
+               ,EPS "plots/15_6_i.eps"
+               ,Key Nothing
+               ,customLabel (0.5, -3) "Ping-Pong ball"
+               ,customLabel (2, -15) "Bowling ball"
+               ] [0,0.1..10] 
+                 [velocity1D (pingpongDropStates1D 100)
+                 ,velocity1D (bowlingBallDropStates1D 100)
+                 ]
+
+dropVelocityTimeGraph2 :: IO ()
+dropVelocityTimeGraph2
+    = plotFuncs [Title "Velocity as a function of time"
+               ,XLabel "Time (s)"
+               ,YLabel "Velocity (m/s)"
+               ,XRange (0,10)
+               ,EPS "plots/15_6_ii.eps"
+               ,Key Nothing
+               ,customLabel (0.5, -3) "Ping-Pong ball"
+               ,customLabel (2, -15) "Bowling ball"
+               ] [0,0.1..10] 
+                 [velocity1D (pingpongDropStates1D 500)
+                 ,velocity1D (bowlingBallDropStates1D 500)
+                 ]

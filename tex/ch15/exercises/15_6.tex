@@ -1,0 +1,42 @@
+% Exercise 15.6
+We assume the mass of the Ping-Pong ball to be $m_p = 2.7\,\text{g} = 0.0027\,\text{kg}$ 
+and its diameter to be $d_p = 38\,\text{mm} = 0.038\,\text{m}$, while those of the bowling
+ball are $m_b = 5.4\,\text{kg}$ and $d_b = 21.59\,\text{cm} \approx 0.216\,\text{m}$, respectively.
+Thus the cross-sectional of each (approximately) spherical object is given by
+\[
+    A_p = \pi r_p^2\,\text{m}^2 = \pi \cdot {0.019}^2\,\text{m}^2,
+\]
+and 
+\[
+    A_b = \pi r_b^2\,\text{m}^2 = \pi \cdot {0.108}^2\,\text{m}^2.
+\]
+
+If we use Equation 14.9 for air resistance with a drag coefficient of $C = 1/2$ and air density
+$\rho = 1.225\,\text{kg}/\text{m}^3$, then we have the two equations
+\begin{equation*}
+    \begin{split}
+        F_{\text{air}_p} &= -\frac{1}{2}C\rho A_p \, \lvert v_p \rvert \, v_p \\
+                         &= -\frac{1.225\pi \cdot {0.019}^2}{4} \, \lvert v_p \rvert \, v_p,
+    \end{split}
+\end{equation*}
+and
+\begin{equation*}
+    \begin{split}
+        F_{\text{air}_b} &= -\frac{1}{2}C\rho A_b \, \lvert v_b \rvert \, v_b \\
+                         &= -\frac{1.225\pi \cdot {0.108}^2}{4} \, \lvert v_b \rvert \, v_b.
+    \end{split}
+\end{equation*}
+
+In Figure~\ref{fig15_6_i}, we have a graph of velocity as a function of time of the Ping-Pong 
+ball and bowling ball dropped from a height of $100\,\text{m}$, and in Figure~\ref{fig15_6_ii}
+we have the same from a height of $500\,\text{m}$.
+
+\begin{figure}[!ht]
+    \includegraphics[width=\textwidth, center]{../plots/15_6_i.pdf}
+    \caption{Velocity as a function of time after drop from $100\,\text{m}$ \label{fig15_6_i}} 
+\end{figure}
+
+\begin{figure}[!ht]
+    \includegraphics[width=\textwidth, center]{../plots/15_6_ii.pdf}
+    \caption{Velocity as a function of time after drop from $500\,\text{m}$ \label{fig15_6_ii}} 
+\end{figure}
