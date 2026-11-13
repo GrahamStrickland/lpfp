@@ -255,17 +255,17 @@ bowlingBallDropStates1D h = dropStates1D 5.4 0.108 h
 dropVelocityTimeGraph :: IO ()
 dropVelocityTimeGraph
     = plotFuncs [Title "Velocity as a function of time"
-               ,XLabel "Time (s)"
-               ,YLabel "Velocity (m/s)"
-               ,XRange (0,10)
-               ,EPS "plots/15_6_i.eps"
-               ,Key Nothing
-               ,customLabel (0.5, -3) "Ping-Pong ball"
-               ,customLabel (2, -15) "Bowling ball"
-               ] [0,0.1..10] 
-                 [velocity1D (pingpongDropStates1D 100)
-                 ,velocity1D (bowlingBallDropStates1D 100)
-                 ]
+                ,XLabel "Time (s)"
+                ,YLabel "Velocity (m/s)"
+                ,XRange (0,10)
+                ,EPS "plots/15_6_i.eps"
+                ,Key Nothing
+                ,customLabel (0.5,-3) "Ping-Pong ball"
+                ,customLabel (2,  -15) "Bowling ball"
+                ] [0,0.1..10] 
+                  [velocity1D (pingpongDropStates1D 100)
+                  ,velocity1D (bowlingBallDropStates1D 100)
+                  ]
 
 dropVelocityTimeGraph2 :: IO ()
 dropVelocityTimeGraph2
@@ -275,9 +275,42 @@ dropVelocityTimeGraph2
                ,XRange (0,10)
                ,EPS "plots/15_6_ii.eps"
                ,Key Nothing
-               ,customLabel (0.5, -3) "Ping-Pong ball"
-               ,customLabel (2, -15) "Bowling ball"
+               ,customLabel (0.5,-3) "Ping-Pong ball"
+               ,customLabel (2,  -15) "Bowling ball"
                ] [0,0.1..10] 
                  [velocity1D (pingpongDropStates1D 500)
                  ,velocity1D (bowlingBallDropStates1D 500)
                  ]
+
+aboveGround :: [State1D] -> [State1D]
+aboveGround = takeWhile (\(_,x,_) -> x >= 0)
+
+dropVelocityPositionGraph :: IO ()
+dropVelocityPositionGraph
+    = plotPaths [Title "Velocity as a function of position"
+                ,XLabel "Position (m)"
+                ,YLabel "Velocity (m/s)"
+                ,XRange (100,0)
+                ,EPS "plots/15_6_iii.eps"
+                ,Key Nothing
+                ,customLabel (80,-6)  "Ping-Pong ball"
+                ,customLabel (60,-22) "Bowling ball"
+                ]
+                [reverse [(x,v) | (_,x,v) <- aboveGround (pingpongDropStates1D 100)]
+                ,reverse [(x,v) | (_,x,v) <- aboveGround (bowlingBallDropStates1D 100)]
+                ]
+                
+dropVelocityPositionGraph2 :: IO ()
+dropVelocityPositionGraph2
+    = plotPaths [Title "Velocity as a function of position"
+                ,XLabel "Position (m)"
+                ,YLabel "Velocity (m/s)"
+                ,XRange (500,0)
+                ,EPS "plots/15_6_iv.eps"
+                ,Key Nothing
+                ,customLabel (400,-6)  "Ping-Pong ball"
+                ,customLabel (400,-28) "Bowling ball"
+                ]
+                [reverse [(x,v) | (_,x,v) <- aboveGround (pingpongDropStates1D 500)]
+                ,reverse [(x,v) | (_,x,v) <- aboveGround (bowlingBallDropStates1D 500)]
+                ]
