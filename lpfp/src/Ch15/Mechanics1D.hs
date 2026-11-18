@@ -370,3 +370,60 @@ springFrictionPositionGraph
                ,EPS "plots/15_8.eps"
                ,Key Nothing
                ] [0,0.01..2] (springFrictionPosition 0.001)
+
+earthGravity :: Mass -> State1D -> Force
+earthGravity m _ = let g = 9.80665
+                   in -m * g
+
+type MState = (Time,Mass,Position,Velocity)
+
+earthGravity2 :: MState -> Force
+earthGravity2 (_,m,_,_) = let g = 9.80665
+                          in -m * g
+
+newtonSecond1D2 :: [MState -> Force]    -- force funcs
+                -> MState               -- current state
+                -> (R,R,R,R)            -- deriv of state
+newtonSecond1D2 fs (t,m,x0,v0)
+    = let fNet = sum [f (t,m,x0,v0) | f <- fs]
+          acc = fNet / m
+      in (1,m,v0,acc)
+
+euler1D3 :: R                       -- time step dt
+         -> (MState -> (R,R,R,R))   -- differential equation
+         -> MState -> MState        -- state-update function
+euler1D3 dt deriv (t0,m,x0,v0)
+    = let (_, _, _, dvdt) = deriv (t0,m,x0,v0)
+          t1 = t0 + dt
+          x1 = x0 + v0 * dt
+          v1 = v0 + dvdt * dt
+      in (t1,m,x1,v1)
+
+updateTXV2 :: R                 -- dt for stepping
+           -> [MState -> Force] -- list of force funcs
+           -> MState            -- current state
+           -> MState            -- new state
+updateTXV2 dt fs = euler1D3 dt (newtonSecond1D2 fs)
+
+statesTXV2 :: R                 -- time step
+           -> MState            -- initial state
+           -> [MState -> Force] -- list of force funcs
+           -> [MState]          -- infinite list of states
+statesTXV2 dt tmxv0 fs = iterate (updateTXV2 dt fs) tmxv0
+
+-- assume that dt is the same between adjacent pairs
+position1D2 :: [MState]         -- infinite list
+            -> Time -> Position  -- position function
+position1D2 sts t
+    = let (t0,_,_,_) = sts !! 0
+          (t1,_,_,_) = sts !! 1
+          dt = t1 - t0
+          numSteps = abs $ round (t / dt)
+          (_,_,x0,_) = sts !! numSteps
+      in x0
+
+positionFtxv2 :: R                  -- time step
+              -> MState             -- initial state
+              -> [MState -> Force]  -- list of force funcs
+              -> Time -> Position   -- position function
+positionFtxv2 dt tmxv0 fs = position1D2 (statesTXV2 dt tmxv0 fs)
