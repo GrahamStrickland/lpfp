@@ -1,0 +1,31 @@
+% Exercise 15.8
+For an object with mass $m$ attached to a spring with spring constant $k$, we apply
+the analysis of Exercise 15.5 to find the forces acting on the object given by
+\begin{align*}
+    F_{\text{spring}}(x_0) &= -kx_0, \\
+    \intertext{and}
+    F_{\text{friction}}(x_0) &= -\mu_k mg\sgn{\dot{x}}.
+\end{align*}
+\begin{itemize}
+    \item[(a)] We have the following listing of the horizontal force of kinetic friction:
+        \begin{lstlisting}
+kineticFrictionHorizontal :: State1D -> Force
+kineticFrictionHorizontal (_,_,v) = -0.3 * 3 * 12 * signum v
+        \end{lstlisting}
+    \item[(b)] We have the following list of the position of the object as a function of
+        time, assuming an initial displacement from equilibrium of $1\,\text{m}$:
+        \begin{lstlisting}
+springFrictionPosition :: R -> (Time -> Position)
+springFrictionPosition dt = positionFtxv dt 3 (0,1,0) [springForce 12, kineticFrictionHorizontal]
+        \end{lstlisting}
+    \item[(c)] In Figure~\ref{fig15_8}, we have a plot of position as a function of time.
+\end{itemize}
+
+\begin{figure}[!ht]
+    \includegraphics[width=\textwidth, center]{../plots/15_8.pdf}
+    \caption{Spring-mass displacement with kinetic friction \label{fig15_8}} 
+\end{figure}
+
+We can see that the object moves quickly towards the wall, given such a large initial displacement,
+but as its velocity increases, the frictional force slows it down until it barely moves at all,
+after approximately 1\,s.

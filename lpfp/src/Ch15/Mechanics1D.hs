@@ -335,8 +335,8 @@ positionFtxvEC dt m txv0 fs = position1D (statesTXVEC dt m txv0 fs)
 linearSpringPositionEC :: R -> (Time -> Position)
 linearSpringPositionEC dt = positionFtxvEC dt 3 (0,0.01,0) [springForce 100000]
 
-eCApprox :: Time -> Position
-eCApprox = linearSpringPosition 0.0001
+ecApprox :: Time -> Position
+ecApprox = linearSpringPosition 0.0001
 
 linearSpringComparisonGraph :: IO ()
 linearSpringComparisonGraph
@@ -351,5 +351,22 @@ linearSpringComparisonGraph
                ,customLabel (0.07,0.012) "Euler-Cromer"
                ] 
                [0,0.0001..0.1]
-               [\t -> 0.01 * cos (sqrt (100000 / 3) * t), eulerApprox, eCApprox]
+               [\t -> 0.01 * cos (sqrt (100000 / 3) * t), eulerApprox, ecApprox]
 
+
+kineticFrictionHorizontal :: State1D -> Force
+kineticFrictionHorizontal (_,_,v) = -0.3 * 3 * 12 * signum v
+
+springFrictionPosition :: R -> (Time -> Position)
+springFrictionPosition dt = positionFtxv dt 3 (0,1,0) [springForce 12
+                                                        ,kineticFrictionHorizontal
+                                                        ]
+
+springFrictionPositionGraph :: IO ()
+springFrictionPositionGraph
+    = plotFunc [Title "Spring-Mass Position"
+               ,XLabel "Time (s)"
+               ,YLabel "Position (m)"
+               ,EPS "plots/15_8.eps"
+               ,Key Nothing
+               ] [0,0.01..2] (springFrictionPosition 0.001)
