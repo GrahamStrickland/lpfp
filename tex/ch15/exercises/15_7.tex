@@ -1,0 +1,28 @@
+% Exercise 15.7
+In Figure~\ref{fig15_7}, we have a graph of the exact displacement, the Euler approximation,
+and the Euler-Cromer approximation as a function of time for the harmonic oscillator. We can
+see how close the approximations, which can be explained by the value of the position of
+the masses, given by
+
+\begin{align*}
+    x(0.1\,\text{s}) &\approx 8.2975 \times {10}^{-3}\,\text{m}, \\
+    x_{\text{E}}(0.1\,\text{s}) &\approx 9.7887 \times {10}^{-3}\,\text{m}, \\
+    \intertext{and}
+    x_{\text{EC}}(0.1\,\text{s}) &\approx 9.7887 \times {10}^{-3}\,\text{m},
+\end{align*}
+for the exact, Euler, and Euler-Cromer solutions, respectively. We calculate the above using
+the following code in \verb|GHCi|:
+
+\begin{lstlisting}
+ghci> 0.01 * cos (sqrt (100000 / 3) * 0.1)
+8.297496504744125e-3
+ghci> eulerApprox 0.1
+9.788668788039424e-3
+ghci> eCApprox 0.1
+9.788668788039424e-3
+\end{lstlisting}
+
+\begin{figure}[!ht]
+    \includegraphics[width=\textwidth, center]{../plots/15_7.pdf}
+    \caption{Spring-mass displacement approximations as a function of time \label{fig15_7}} 
+\end{figure}

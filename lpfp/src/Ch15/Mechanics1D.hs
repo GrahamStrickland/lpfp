@@ -314,3 +314,42 @@ dropVelocityPositionGraph2
                 [reverse [(x,v) | (_,x,v) <- aboveGround (pingpongDropStates1D 500)]
                 ,reverse [(x,v) | (_,x,v) <- aboveGround (bowlingBallDropStates1D 500)]
                 ]
+
+eulerApprox :: Time -> Position
+eulerApprox = linearSpringPosition 0.0001 
+
+statesTXVEC :: R                  -- time step
+            -> Mass
+            -> State1D            -- initial state
+            -> [State1D -> Force] -- list of force funcs
+            -> [State1D]          -- infinite list of states
+statesTXVEC dt m txv0 fs = iterate (updateTXVEC dt m fs) txv0
+
+positionFtxvEC :: R                   -- time step
+               -> Mass
+               -> State1D             -- initial state
+               -> [State1D -> Force]  -- list of force funcs
+               -> Time -> Position    -- position function
+positionFtxvEC dt m txv0 fs = position1D (statesTXVEC dt m txv0 fs)
+
+linearSpringPositionEC :: R -> (Time -> Position)
+linearSpringPositionEC dt = positionFtxvEC dt 3 (0,0.01,0) [springForce 100000]
+
+eCApprox :: Time -> Position
+eCApprox = linearSpringPosition 0.0001
+
+linearSpringComparisonGraph :: IO ()
+linearSpringComparisonGraph
+    = plotFuncs [Title "Spring-Mass Displacement"
+               ,XLabel "Time (s)"
+               ,YLabel "Displacement (m)"
+               ,XRange (0,0.1)
+               ,EPS "plots/15_7.eps"
+               ,Key Nothing
+               ,customLabel (0.0475,-0.005) "Exact"
+               ,customLabel (0.06,0.012) "Euler"
+               ,customLabel (0.07,0.012) "Euler-Cromer"
+               ] 
+               [0,0.0001..0.1]
+               [\t -> 0.01 * cos (sqrt (100000 / 3) * t), eulerApprox, eCApprox]
+
