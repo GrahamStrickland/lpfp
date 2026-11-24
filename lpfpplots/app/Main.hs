@@ -13,7 +13,7 @@ import Ch11.ProjectileMotion (plot1, plot1Custom, plot2Custom, plot3Custom, plot
 import Ch11.QuadraticPlot (plotQuadratic)
 import Ch11.SinApprox (plotApproxSin)
 import Ch14.Newton2 (bikeGraph, bikeGraphSmooth, carGraph, carPosGraph, childGraph, eulerDEPlot, eulerPlot, pedalCoastAirGraph, pedalCoastAirPosGraph)
-import Ch15.Mechanics1D (dampedHOGraph, dampedHOGraph2, dampedHOGraph3, ballGraph, linearSpringGraph, dropVelocityTimeGraph, dropVelocityTimeGraph2, dropVelocityPositionGraph, dropVelocityPositionGraph2, linearSpringComparisonGraph, springFrictionPositionGraph)
+import Ch15.Mechanics1D (dampedHOGraph, dampedHOGraph2, dampedHOGraph3, ballGraph, linearSpringGraph, dropVelocityTimeGraph, dropVelocityTimeGraph2, dropVelocityPositionGraph, dropVelocityPositionGraph2, linearSpringComparisonGraph, springFrictionPositionGraph, ljGraph, ljGraph2)
 import System.Command
 import System.Directory
 import System.FilePath.Posix (dropExtension, takeExtension, (</>))
@@ -102,6 +102,12 @@ linearSpringComparisonGraphPlot = Ch15.Mechanics1D.linearSpringComparisonGraph
 springFrictionPositionGraphPlot :: IO ()
 springFrictionPositionGraphPlot = Ch15.Mechanics1D.springFrictionPositionGraph
 
+ljGraphPlot :: IO ()
+ljGraphPlot = Ch15.Mechanics1D.ljGraph
+
+ljGraphPlot2 :: IO ()
+ljGraphPlot2 = Ch15.Mechanics1D.ljGraph2
+
 filePathHasExtension :: String -> FilePath -> Bool
 filePathHasExtension ext f = takeExtension f == ext
 
@@ -168,6 +174,8 @@ main = do
     dropVelocityPositionGraphPlot2
     linearSpringComparisonGraphPlot
     springFrictionPositionGraphPlot
+    ljGraphPlot
+    ljGraphPlot2
 
     files <- getDirectoryContents "plots"
     let epsFilePaths = map ("plots/" </>) (getFilePathsWithExtension files ".eps")

@@ -427,3 +427,33 @@ positionFtxv2 :: R                  -- time step
               -> [MState -> Force]  -- list of force funcs
               -> Time -> Position   -- position function
 positionFtxv2 dt tmxv0 fs = position1D2 (statesTXV2 dt tmxv0 fs)
+
+ljSpringForce :: R  -- equilibrium separation of atoms 
+              -> R  -- dissociation energy
+              -> State1D -> Force
+ljSpringForce re de (_,r,_) = (12 * de / re) * ((r / re)**(-13) - (r / re)**(-7))
+
+ljPosition :: R -- equilibrium separation of atoms 
+           -> R -- dissociation energy
+           -> R -- mass 
+           -> R -- coefficient of initial position
+           -> Time -> Position
+ljPosition re de m r0 = positionFtxv 0.001 m (0,r0 * re,0) [ljSpringForce re de]
+
+ljGraph :: IO ()
+ljGraph
+    = plotFunc [Title "Position vs time for Lennard-Jones force"
+               ,XLabel "Time (s)"
+               ,YLabel "Position (m)"
+               ,EPS "plots/15_10_i.eps"
+               ,Key Nothing
+               ] [0,0.01..2] (ljPosition 1 1 1 1.01)
+
+ljGraph2 :: IO ()
+ljGraph2
+    = plotFunc [Title "Position vs time for Lennard-Jones force"
+               ,XLabel "Time (s)"
+               ,YLabel "Position (m)"
+               ,EPS "plots/15_10_ii.eps"
+               ,Key Nothing
+               ] [0,0.01..200] (ljPosition 1 1 1 5)

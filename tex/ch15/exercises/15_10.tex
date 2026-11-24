@@ -1,0 +1,30 @@
+% Exercise 15.10
+\begin{itemize}
+    \item[(a)] In Figure~\ref{fig15_10_i}, we have a plot of position as a function of time
+        for the Lennard-Jones force with $r_e = D_e = m = 1$, starting from 
+        $r = 1.01r_e\,\text{m}$ and $v = 0\,\text{m/s}$. The oscillatory behaviour is
+        clear and we can estimate the period at approximately $0.75\,\text{s}$ from reading
+        the graph. If we calculate the period using 
+        \begin{equation*}
+            \begin{split}
+                T &= \frac{2\pi}{\omega} \\
+                  &= 2\pi r_e \sqrt{\frac{m}{72D_e}} \\
+                  &= 2\pi \sqrt{\frac{1}{72}} \\
+                  &\approx 0.7405\,\text{s},
+            \end{split}
+        \end{equation*}
+        we can see that our graph is fairly accurate.
+    \item[(b)] In Figure~\ref{fig15_10_ii}, we have the same graph for initial position 
+        $r = 5r_e$. Instead of $0 \leq t \leq 2\,\text{s}$, we have now had to use 
+        $0 \leq t \leq 200\,\text{s}$, since the period is given by
+\end{itemize}
+
+\begin{figure}[!ht]
+    \includegraphics[width=\textwidth, center]{../plots/15_10_i.pdf}
+    \caption{Position versus time for the Lennard-Jones force with initial position $r = 1.01r_e$ \label{fig15_10_i}} 
+\end{figure}
+
+\begin{figure}[!ht]
+    \includegraphics[width=\textwidth, center]{../plots/15_10_ii.pdf}
+    \caption{Position versus time for the Lennard-Jones force with initial position $r = 5r_e$ \label{fig15_10_ii}} 
+\end{figure}
