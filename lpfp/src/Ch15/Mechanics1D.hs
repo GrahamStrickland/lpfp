@@ -442,7 +442,7 @@ ljPosition re de m r0 = positionFtxv 0.001 m (0,r0 * re,0) [ljSpringForce re de]
 
 ljGraph :: IO ()
 ljGraph
-    = plotFunc [Title "Position vs time for Lennard-Jones force"
+    = plotFunc [Title "Position versus time for Lennard-Jones force"
                ,XLabel "Time (s)"
                ,YLabel "Position (m)"
                ,EPS "plots/15_10_i.eps"
@@ -451,9 +451,9 @@ ljGraph
 
 ljGraph2 :: IO ()
 ljGraph2
-    = plotFunc [Title "Position vs time for Lennard-Jones force"
+    = plotFunc [Title "Position versus time for Lennard-Jones force"
                ,XLabel "Time (s)"
                ,YLabel "Position (m)"
                ,EPS "plots/15_10_ii.eps"
                ,Key Nothing
-               ] [0,0.01..200] (ljPosition 1 1 1 5)
+               ] [0,0.1..100] (ljPosition 1 1 1 5)
