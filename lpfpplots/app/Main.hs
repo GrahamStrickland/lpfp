@@ -2,45 +2,21 @@
 
 import Ch07.PlotYRock20 (yRock20Plot)
 import Ch07.PlotYRock30 (yRock30Plot)
-import Ch07.QuickPlotting (plot1)
 import Ch07.SinPlot (sinPlot)
-import Ch08.TypeTrouble (plot1)
 import Ch09.RockTrajectory (plot1)
 import Ch10.BallSpeed (posBallPlot, speedRateChangeBallPlot)
 import Ch11.CosSinPlot (plotCosSin)
 import Ch11.PlotPath (plotTXPairs)
-import Ch11.ProjectileMotion (plot1, plot1Custom, plot2Custom, plot3Custom, plot4, usePlotFuncs, usePlotFuncs', usePlotPaths)
 import Ch11.QuadraticPlot (plotQuadratic)
 import Ch11.SinApprox (plotApproxSin)
 import Ch14.Newton2 (bikeGraph, bikeGraphSmooth, carGraph, carPosGraph, childGraph, eulerDEPlot, eulerPlot, pedalCoastAirGraph, pedalCoastAirPosGraph)
-import Ch15.Mechanics1D (dampedHOGraph, dampedHOGraph2, dampedHOGraph3, ballGraph, linearSpringGraph, dropVelocityTimeGraph, dropVelocityTimeGraph2, dropVelocityPositionGraph, dropVelocityPositionGraph2, linearSpringComparisonGraph, springFrictionPositionGraph, ljGraph, ljGraph2)
+import Ch15.Mechanics1D (dampedHOGraph, dampedHOGraph3, ballGraph, linearSpringGraph, dropVelocityTimeGraph, dropVelocityTimeGraph2, dropVelocityPositionGraph, dropVelocityPositionGraph2, linearSpringComparisonGraph, springFrictionPositionGraph, ljGraph, ljGraph2)
 import System.Command
 import System.Directory
 import System.FilePath.Posix (dropExtension, takeExtension, (</>))
 
-quickPlottingPlot1 :: IO ()
-quickPlottingPlot1 = Ch07.QuickPlotting.plot1
-
-typeTroublePlot1 :: IO ()
-typeTroublePlot1 = Ch08.TypeTrouble.plot1
-
 rockTrajectoryPlot1 :: IO ()
 rockTrajectoryPlot1 = Ch09.RockTrajectory.plot1
-
-projectileMotionPlot1 :: IO ()
-projectileMotionPlot1 = Ch11.ProjectileMotion.plot1
-
-projectileMotionPlot2 :: IO ()
-projectileMotionPlot2 = Ch11.ProjectileMotion.plot1Custom
-
-projectileMotionPlot3 :: IO ()
-projectileMotionPlot3 = Ch11.ProjectileMotion.plot2Custom
-
-projectileMotionPlot4 :: IO ()
-projectileMotionPlot4 = Ch11.ProjectileMotion.plot3Custom
-
-projectileMotionPlot5 :: IO ()
-projectileMotionPlot5 = Ch11.ProjectileMotion.plot4
 
 carGraphPlot :: IO ()
 carGraphPlot = Ch14.Newton2.carGraph
@@ -71,9 +47,6 @@ eulerDEGraphPlot = Ch14.Newton2.eulerDEPlot
 
 dampedHOGraphPlot :: IO ()
 dampedHOGraphPlot = Ch15.Mechanics1D.dampedHOGraph
-
-dampedHOGraphPlot2 :: IO ()
-dampedHOGraphPlot2 = Ch15.Mechanics1D.dampedHOGraph2
 
 dampedHOGraphPlot3 :: IO ()
 dampedHOGraphPlot3 = Ch15.Mechanics1D.dampedHOGraph3
@@ -122,13 +95,9 @@ main = do
     createDirectoryIfMissing False "plots"
 
     -- Chapter 7
-    quickPlottingPlot1
     sinPlot
     yRock20Plot
     yRock30Plot
-
-    -- Chapter 8
-    typeTroublePlot1
 
     -- Chapter 9
     rockTrajectoryPlot1
@@ -138,14 +107,6 @@ main = do
     speedRateChangeBallPlot
 
     -- Chapter 11
-    projectileMotionPlot1
-    projectileMotionPlot2
-    projectileMotionPlot3
-    projectileMotionPlot4
-    projectileMotionPlot5
-    usePlotFuncs
-    usePlotFuncs'
-    usePlotPaths
     plotQuadratic
     plotCosSin
     plotApproxSin
@@ -164,7 +125,6 @@ main = do
 
     -- Chapter 15
     dampedHOGraphPlot
-    dampedHOGraphPlot2
     dampedHOGraphPlot3
     ballGraphPlot
     linearSpringGraphPlot
